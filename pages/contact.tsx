@@ -40,6 +40,7 @@ export default function Contact() {
       });
       if (!res.ok) throw new Error('Failed');
       setStatus('sent');
+      if (typeof window.gtag === 'function') window.gtag('event', 'form_submit', { event_category: 'contact', event_label: 'free_estimate' });
       setForm({ name: '', phone: '', email: '', service: '', message: '' });
     } catch {
       setStatus('error');
