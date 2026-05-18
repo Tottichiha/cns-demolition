@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Whole House Demolition in Woodbridge, Irvine CA | C&S Demolition</title>
+  <meta name="description" content="Woodbridge is Irvine's oldest planned village — built 1975–1985, which means asbestos surveys are not optional. C&S Demolition handles SCAQMD Rule 1403 compliance, ARC approval, and City of Irvine permits for full residential teardowns." />
+  <link rel="canonical" href="https://cnsdemo.com/demolition/full-house-demolition/woodbridge" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #b8000e;
+      --dark: #1a1a1a;
+      --mid: #3a3a3a;
+      --light: #f4f1ee;
+      --accent: #8b6914;
+      --border: #d6cfc7;
+    }
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.75;
+    }
+    a { color: var(--red); }
+    a:hover { color: var(--accent); }
+
+    /* HEADER */
+    header {
+      background: var(--dark);
+      color: #fff;
+      padding: 0;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 48px;
+      border-bottom: 3px solid var(--red);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #fff;
+      text-decoration: none;
+    }
+    .logo span { color: var(--red); }
+    .header-contact {
+      font-family: sans-serif;
+      font-size: 0.9rem;
+      text-align: right;
+      line-height: 1.5;
+    }
+    .header-contact a { color: #fff; text-decoration: none; }
+    .header-contact a:hover { color: var(--red); }
+
+    /* HERO */
+    .hero {
+      background: #111;
+      color: #fff;
+      padding: 72px 48px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 6px;
+      background: var(--red);
+    }
+    .hero-kicker {
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-size: clamp(1.9rem, 4vw, 2.9rem);
+      line-height: 1.2;
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      max-width: 680px;
+      color: #ccc;
+      margin-bottom: 36px;
+    }
+    .btn-cta {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-family: sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 14px 32px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      border-radius: 3px;
+      transition: background 0.2s;
+    }
+    .btn-cta:hover { background: #8f000b; color: #fff; }
+
+    /* MAIN CONTENT */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .content-section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .content-section:last-of-type { border-bottom: none; }
+    h2 {
+      font-size: 1.7rem;
+      color: var(--dark);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--red);
+      display: inline-block;
+    }
+    h3 {
+      font-size: 1.2rem;
+      color: var(--mid);
+      margin: 28px 0 12px;
+    }
+    p { margin-bottom: 18px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ASBESTOS CALLOUT BOX */
+    .callout {
+      background: #fff;
+      border-left: 5px solid var(--accent);
+      padding: 24px 28px;
+      margin: 32px 0;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .callout-label {
+      font-family: sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .callout p { margin-bottom: 10px; font-size: 0.97rem; }
+    .callout p:last-child { margin-bottom: 0; }
+
+    /* PROCESS STEPS */
+    .steps {
+      counter-reset: step;
+      margin: 24px 0;
+    }
+    .step {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .step-num {
+      counter-increment: step;
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--red);
+      color: #fff;
+      font-family: sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-num::before { content: counter(step); }
+    .step-body { flex: 1; padding-top: 8px; }
+    .step-body strong { display: block; margin-bottom: 4px; color: var(--dark); font-family: sans-serif; }
+
+    /* SIDEBAR CARD */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+    .sidebar-card {
+      background: var(--dark);
+      color: #fff;
+      padding: 32px;
+      border-radius: 4px;
+      position: sticky;
+      top: 24px;
+    }
+    .sidebar-card h3 {
+      color: #fff;
+      margin-top: 0;
+      font-size: 1.1rem;
+      border-bottom: 2px solid var(--red);
+      padding-bottom: 10px;
+      margin-bottom: 18px;
+    }
+    .sidebar-card p, .sidebar-card li {
+      font-size: 0.93rem;
+      color: #ccc;
+      font-family: sans-serif;
+    }
+    .sidebar-card ul { margin: 12px 0 18px 18px; }
+    .sidebar-card li { margin-bottom: 6px; }
+    .sidebar-card .cta-block { margin-top: 24px; }
+    .sidebar-card .cta-block a.btn-cta { display: block; text-align: center; margin-bottom: 12px; font-size: 0.9rem; }
+    .sidebar-card .cta-block p { font-size: 0.82rem; color: #999; margin-bottom: 0; }
+    .lic { font-family: sans-serif; font-size: 0.78rem; color: #888; margin-top: 14px; }
+
+    /* FOOTER */
+    footer {
+      background: #111;
+      color: #888;
+      font-family: sans-serif;
+      font-size: 0.82rem;
+      padding: 36px 48px;
+      text-align: center;
+      border-top: 3px solid var(--red);
+    }
+    footer a { color: #aaa; }
+    .related-links { margin-top: 12px; }
+    .related-links a { margin: 0 8px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <a href="https://cnsdemo.com" class="logo">C<span>&amp;</span>S Demolition</a>
+    <div class="header-contact">
+      <a href="tel:+15622046335">(562) 204-6335</a><br />
+      <a href="mailto:Tony@cnsdemo.com">Tony@cnsdemo.com</a> &nbsp;|&nbsp; CSLB #1126325
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-kicker">Woodbridge, Irvine CA &mdash; Whole House Demolition</div>
+  <h1>Woodbridge Is Irvine's Oldest Village. The Asbestos Surveys Prove It.</h1>
+  <p class="hero-sub">Homes built between 1975 and 1985 carry a documented higher probability of asbestos-containing materials. Before a single wall comes down, SCAQMD Rule 1403 requires a survey — and before you can pull a permit, Woodbridge Village Association's ARC has to sign off first.</p>
+  <a href="tel:+15622046335" class="btn-cta">Call for a Free Estimate &rarr;</a>
+</section>
+
+<div class="container">
+
+  <section class="content-section">
+    <div class="two-col">
+      <div class="main-content">
+        <h2>The Woodbridge Timeline Problem</h2>
+        <p>Woodbridge was the first large planned village in Irvine to reach full build-out. Most of the single-family residences along streets like Barranca Pkwy, Bryan Ave, and the cul-de-sacs around North Lake and South Lake were completed between 1975 and 1985 — before the EPA's 1989 partial asbestos ban and well before California's own stricter standards. That means floor tile adhesive, popcorn ceilings, pipe insulation, duct tape on HVAC, and roofing felt from that era were routinely manufactured with asbestos fibers.</p>
+        <p>Under current SCAQMD Rule 1403, there is no age exemption. Every residential structure — regardless of whether it was built in 1975 or 2005 — requires a certified AHERA inspector survey before demolition permits can be issued. The distinction matters for Woodbridge specifically: surveys in neighborhoods of this vintage consistently find more positive samples than surveys in newer Irvine villages like Northwood or Stonegate.</p>
+        <p>C&S Demolition coordinates the survey, abatement contractor handoff, SCAQMD notification, and final clearance as a bundled process — so you are not managing three separate contractors before a shovel touches ground.</p>
+
+        <div class="callout">
+          <div class="callout-label">SCAQMD Rule 1403 — No Age Exemption</div>
+          <p>Rule 1403 applies to all structures regardless of construction date. A pre-demolition asbestos survey by a certified inspector is mandatory before any permit can be issued by the City of Irvine Building &amp; Safety Division.</p>
+          <p>Woodbridge's 1975–1985 construction window places it in the highest-probability tier for asbestos-containing materials in floor adhesive, ceiling texture, pipe wrap, and roofing components.</p>
+        </div>
+
+        <h2>The ARC Step People Miss</h2>
+        <p>Woodbridge Village Association operates an Architectural Review Committee. Unlike some Irvine villages where HOA review is a courtesy process, the Woodbridge ARC has formal jurisdiction over exterior alterations — and a full demolition absolutely qualifies. You will need ARC approval before the City of Irvine Building &amp; Safety will accept a demolition permit application.</p>
+        <p>This means the permitting sequence for a Woodbridge whole-house teardown runs: ARC application and approval &rarr; SCAQMD survey and (if necessary) abatement &rarr; City of Irvine demolition permit &rarr; utility disconnections &rarr; demolition. Skipping or reordering those steps causes permit rejections that set projects back by weeks.</p>
+        <p>We have run this sequence in Woodbridge enough times to know what the ARC wants to see in a submittal package: site plan, proposed new footprint or lot-clearing intent, neighbor notification plan, and a timeline. We help clients assemble that package before submitting.</p>
+
+        <h2>Utility Disconnections in Woodbridge</h2>
+        <p>Before demolition day, all utilities must be formally disconnected and capped at the street. For Woodbridge homes that means: Southern California Edison for electric service, SoCalGas for natural gas, and IRWD — Irvine Ranch Water District — for water and sewer. IRWD requires its own inspection and a signed release before the City will finalize the demolition permit. Lead times for IRWD scheduling can run two to three weeks; we flag this early so it does not compress your timeline.</p>
+
+        <h2>Our Full-House Demolition Process</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <strong>Site Assessment &amp; ARC Package</strong>
+              We visit the property, document existing conditions, and help prepare the Woodbridge Village Association ARC submittal — site plan, scope description, and neighbor notification details.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <strong>SCAQMD-Compliant Asbestos Survey</strong>
+              We coordinate with a certified AHERA inspector. If asbestos-containing materials are found, we sequence abatement before any structural work begins. SCAQMD notification is filed on your behalf.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <strong>City of Irvine Permit Issuance</strong>
+              Once ARC approval and SCAQMD clearance are in hand, we submit the demolition permit application to City of Irvine Building &amp; Safety and manage any corrections or re-submittals.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <strong>Utility Disconnections</strong>
+              SCE, SoCalGas, and IRWD are contacted and scheduled. We confirm all three disconnection certs are on file before mobilizing equipment.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <strong>Demolition &amp; Lot Clearing</strong>
+              Structural demolition, foundation removal or retention per your new build plan, debris hauling, and grading to a clean pad or per City finish grade requirements.
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <strong>Final Inspection &amp; Closeout</strong>
+              City final inspection sign-off, site cleanup, and documentation package provided to you and your architect or builder.
+            </div>
+          </div>
+        </div>
+
+        <h2>Why Woodbridge Owners Choose C&S</h2>
+        <p>The Woodbridge housing stock is older than anywhere else in Irvine. That means more asbestos, more corroded original plumbing, and more variables that surprise contractors who primarily work in newer communities. We work throughout the I-5 corridor from Irvine to the south OC cities, and Woodbridge's 1970s-era construction is not unusual to us. We price the survey coordination, abatement scheduling, and permit sequence into our estimates upfront — no surprise line items when the survey comes back positive.</p>
+        <p>See also our <a href="https://cnsdemo.com/demolition/full-house-demolition/irvine">full Irvine whole-house demolition page</a> for city-wide permit information.</p>
+      </div>
+
+      <aside>
+        <div class="sidebar-card">
+          <h3>Get a Free Estimate</h3>
+          <p>We serve Woodbridge and all Irvine villages. Same-week site visits available.</p>
+          <ul>
+            <li>ARC submittal support included</li>
+            <li>SCAQMD survey coordinated</li>
+            <li>All utility disconnections managed</li>
+            <li>No hidden permit fees</li>
+          </ul>
+          <div class="cta-block">
+            <a href="tel:+15622046335" class="btn-cta">Call (562) 204-6335</a>
+            <a href="mailto:Tony@cnsdemo.com" class="btn-cta" style="background:#3a3a3a;">Email Us</a>
+            <p>CSLB License #1126325 &mdash; City of Irvine registered contractor</p>
+          </div>
+          <p class="lic">Serving: Woodbridge &bull; Northwood &bull; Turtle Rock &bull; University Park &bull; All Irvine Villages</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div>C&amp;S Demolition &mdash; CSLB #1126325 &mdash; (562) 204-6335 &mdash; <a href="mailto:Tony@cnsdemo.com">Tony@cnsdemo.com</a></div>
+  <div class="related-links">
+    <a href="https://cnsdemo.com/demolition/full-house-demolition/irvine">Irvine Whole House Demolition</a>
+    <a href="https://cnsdemo.com/demolition/garage-demolition/irvine">Irvine Garage Demolition</a>
+    <a href="https://cnsdemo.com/demolition/interior-demolition/irvine">Irvine Interior Demolition</a>
+    <a href="https://cnsdemo.com/demolition/concrete-removal/irvine">Irvine Concrete Removal</a>
+    <a href="https://cnsdemo.com/demolition/commercial-demolition/irvine">Irvine Commercial Demolition</a>
+  </div>
+</footer>
+
+</body>
+</html>
