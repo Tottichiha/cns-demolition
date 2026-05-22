@@ -11,6 +11,31 @@ interface SchemaProps {
   faqs?: FAQ[];
 }
 
+function buildHowToSteps(city: City, service: Service) {
+  return [
+    {
+      name: 'Free On-Site Estimate',
+      text: `We visit your ${city.city} property, measure the project, check for hazardous materials, and provide a written lump-sum estimate the same day — no obligation.`,
+    },
+    {
+      name: 'Permit Filing',
+      text: `We handle the complete permit application with ${city.permit_office || `the ${city.city} Building Department`} on your behalf. Permit fees are included in your quote.`,
+    },
+    {
+      name: 'Site Preparation and Utility Disconnect',
+      text: `Utilities to the work area are capped or disconnected. Dust barriers are set up and the perimeter is secured before any demolition begins.`,
+    },
+    {
+      name: service.service_name,
+      text: `Our ${city.city} crew performs the ${service.service_name.toLowerCase()} efficiently. Debris is loaded into trucks as work progresses. Most projects in ${city.city} complete in ${service.duration}.`,
+    },
+    {
+      name: 'Debris Removal, Cleanup, and Permit Closeout',
+      text: `All debris is hauled to licensed Southern California facilities. The site is left broom-clean. We coordinate final inspection and officially close the permit with ${city.permit_office || `${city.city} Building Department`}.`,
+    },
+  ];
+}
+
 export default function SchemaMarkup({ city, service, faqs }: SchemaProps) {
   const graph: object[] = [
     {
@@ -145,6 +170,26 @@ export default function SchemaMarkup({ city, service, faqs }: SchemaProps) {
       })),
     });
   }
+
+  // HowTo schema — maps the 5-step process visible on every city/service page
+  const howToSteps = buildHowToSteps(city, service);
+  graph.push({
+    '@type': 'HowTo',
+    name: `How to Get ${service.service_name} in ${city.city}, CA`,
+    description: `Step-by-step process for ${service.service_name.toLowerCase()} projects in ${city.city}, ${city.county} County, CA with C&S Demolition.`,
+    estimatedCost: {
+      '@type': 'MonetaryAmount',
+      currency: 'USD',
+      minValue: Number(service.avg_cost_low),
+      maxValue: Number(service.avg_cost_high),
+    },
+    step: howToSteps.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  });
 
   return (
     <script

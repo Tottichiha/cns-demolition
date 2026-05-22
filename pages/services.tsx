@@ -24,6 +24,8 @@ export default function ServicesPage({ services }: PageProps) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/services" />
         <meta property="og:image" content="https://cnsdemo.com/api/og?title=Demolition+Services+in+Southern+California&sub=19+Services+%C2%B7+CA+Lic+%231126325+%C2%B7+Free+Estimates&type=services" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <script
           type="application/ld+json"

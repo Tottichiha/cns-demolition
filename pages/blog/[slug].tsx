@@ -203,11 +203,19 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
   const isHowTo = post.category === 'How-To Guides';
   const showToC = post.sections.length >= 4 || extGuide.length > 0;
 
+  const ogImageUrl = `https://cnsdemo.com/api/og?title=${encodeURIComponent(cleanTitle)}&sub=${encodeURIComponent(post.category + ' · C&S Demolition')}&type=blog`;
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': ['Article', 'TechArticle'],
     headline: cleanTitle,
     description: post.meta_description,
+    image: {
+      '@type': 'ImageObject',
+      url: ogImageUrl,
+      width: 1200,
+      height: 630,
+    },
     datePublished: post.date,
     dateModified: post.date,
     wordCount,
@@ -281,11 +289,11 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
         <meta property="og:description" content={post.meta_description} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://cnsdemo.com/blog/${post.slug}`} />
-        <meta property="og:image" content={`https://cnsdemo.com/api/og?title=${encodeURIComponent(cleanTitle)}&sub=${encodeURIComponent(post.category + ' · C&S Demolition')}&type=blog`} />
+        <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={`https://cnsdemo.com/api/og?title=${encodeURIComponent(cleanTitle)}&sub=${encodeURIComponent(post.category + ' · C&S Demolition')}&type=blog`} />
+        <meta name="twitter:image" content={ogImageUrl} />
         <meta name="twitter:image:alt" content={`${cleanTitle} — C&S Demolition`} />
         <meta name="author" content="C&S Demolition Team" />
         <meta property="article:published_time" content={post.date} />
