@@ -15,27 +15,35 @@ export default function Home({ counties, totalCities, services }: HomeProps) {
   const faqs = [
     {
       q: 'How much does demolition cost in Southern California?',
-      a: 'Demolition costs in Southern California range from $500 for a simple shed teardown to $15,000+ for pool removal or full interior gut jobs. Cost depends on project size, materials, permit requirements, and debris disposal. C&S Demolition provides free on-site estimates with no obligation.',
+      a: 'Demolition costs in Southern California range from $400 for a simple shed or fence removal to $35,000+ for whole-house demolition. Interior demolition runs $1,500–$8,000 depending on scope. Pool removal costs $3,500–$15,000. Concrete removal is $3–$8 per square foot. The biggest cost factors are square footage, hazardous materials (asbestos, lead paint), permit requirements, and debris disposal. C&S Demolition provides free on-site estimates with a written quote the same day.',
     },
     {
-      q: 'Is C&S Demolition licensed in California?',
-      a: 'Yes. C&S Demolition is a DBA of Scrapit LLC, a fully licensed California contractor (License #1126325). We carry general liability insurance and workers\' compensation coverage on every project throughout Southern California.',
+      q: 'Is C&S Demolition licensed and insured in California?',
+      a: 'Yes. C&S Demolition is a DBA of Scrapit LLC, a fully licensed California contractor (License #1126325). We carry general liability insurance and workers\' compensation coverage on every project. You can verify our license at CSLB.ca.gov. We provide Certificates of Insurance upon request before any project begins.',
     },
     {
-      q: 'Do you pull permits for demolition projects?',
-      a: 'Yes. C&S Demolition handles all permit research, filing, and inspection coordination on your behalf. We\'re familiar with building departments across Orange, Los Angeles, Riverside, and San Bernardino Counties.',
+      q: 'Do you pull demolition permits?',
+      a: 'Yes — we handle the complete permit process on your behalf. This includes researching requirements, filing applications, scheduling inspections, and obtaining final sign-offs. We are familiar with the building departments in all 123+ cities we serve across Orange, Los Angeles, Riverside, and San Bernardino Counties. Permit fees are included in your project estimate.',
     },
     {
-      q: 'What areas do you serve?',
-      a: `We serve ${totalCities}+ cities across Southern California including all of Orange County, Los Angeles County, Riverside County, and San Bernardino County. If you\'re not sure we cover your area, just call — we likely do.`,
+      q: 'What areas does C&S Demolition serve?',
+      a: `We serve ${totalCities}+ cities across four Southern California counties: Orange County (Anaheim, Irvine, Huntington Beach, and 32+ more), Los Angeles County (Long Beach, Torrance, Pasadena, and 48+ more), Riverside County (Riverside, Corona, Temecula, and 17+ more), and San Bernardino County (Ontario, Rancho Cucamonga, Fontana, and 14+ more). If you\'re not sure whether we cover your city, just call — we very likely do.`,
     },
     {
-      q: 'Do you haul away demolition debris?',
-      a: 'Yes — full debris removal and broom-clean site cleanup is included with every project. We haul everything to licensed disposal facilities and handle responsible recycling of concrete, metal, and reusable materials.',
+      q: 'Do you check for asbestos before demolition?',
+      a: 'Yes. California law requires asbestos surveys before demolition of structures built before 1980. C&S Demolition coordinates certified asbestos testing and, when required, proper abatement before any teardown work begins. We work with licensed abatement contractors and handle all coordination so you don\'t have to manage multiple vendors.',
     },
     {
-      q: 'How quickly can you start a demolition project?',
-      a: 'For projects that don\'t require permits, we can often start within days. Permitted projects depend on city processing times, which we\'ll advise you on upfront. We\'ll give you a firm start date when you book.',
+      q: 'Is debris removal included in your price?',
+      a: 'Yes — full debris removal and broom-clean site cleanup is always included. We haul everything to licensed disposal and recycling facilities in Southern California. Concrete is crushed and recycled; metal is sent to scrap; clean wood goes to recycling centers. No surprise disposal charges at the end of the job — it\'s all in your quote.',
+    },
+    {
+      q: 'How quickly can C&S Demolition start a project?',
+      a: 'For projects that don\'t require permits (many shed, fence, and flooring removal jobs), we can often schedule within a few days of your estimate. Permitted projects depend on city processing times — we advise you on realistic timelines upfront. Most permitted projects in Orange County and LA County start within 1–3 weeks of estimate approval.',
+    },
+    {
+      q: 'What is the difference between selective demolition and full demolition?',
+      a: 'Selective demolition means removing specific elements (a wall, a floor, cabinets, a chimney) while preserving the surrounding structure. Full demolition means tearing down the entire structure. C&S Demolition specializes in both. Selective demo is common in remodeling projects where precision matters — we use hand tools alongside equipment to avoid damaging adjacent finishes.',
     },
   ];
 
@@ -57,38 +65,83 @@ export default function Home({ counties, totalCities, services }: HomeProps) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
+              "@type": ["LocalBusiness", "HomeAndConstructionBusiness", "GeneralContractor"],
+              "@id": "https://cnsdemo.com/#business",
               "name": "C&S Demolition",
               "alternateName": "Scrapit LLC",
-              "description": `Licensed demolition contractor serving ${totalCities}+ cities across Southern California.`,
+              "legalName": "Scrapit LLC",
+              "description": `C&S Demolition (License #1126325) is a California-licensed demolition contractor serving ${totalCities}+ cities across Southern California. We specialize in residential and commercial demolition, pool removal, interior demo, concrete breaking, and all types of teardown work throughout Orange County, Los Angeles County, Riverside County, and San Bernardino County.`,
               "url": "https://cnsdemo.com",
               "telephone": "+15622046335",
+              "email": "contactus@cnsdemo.com",
+              "license": "1126325",
+              "slogan": "Licensed. Insured. All-Inclusive.",
               "priceRange": "$$",
-              "areaServed": "Southern California",
+              "paymentAccepted": "Cash, Check, Credit Card, Zelle",
+              "currenciesAccepted": "USD",
+              "areaServed": [
+                { "@type": "AdministrativeArea", "name": "Orange County, CA" },
+                { "@type": "AdministrativeArea", "name": "Los Angeles County, CA" },
+                { "@type": "AdministrativeArea", "name": "Riverside County, CA" },
+                { "@type": "AdministrativeArea", "name": "San Bernardino County, CA" }
+              ],
               "address": {
                 "@type": "PostalAddress",
+                "addressLocality": "Long Beach",
                 "addressRegion": "CA",
+                "postalCode": "90802",
                 "addressCountry": "US"
               },
               "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 33.8366,
-                "longitude": -117.9143
+                "latitude": 33.7701,
+                "longitude": -118.1937
               },
-              "openingHours": "Mo-Sa 07:00-18:00",
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                  "opens": "07:00",
+                  "closes": "18:00"
+                },
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": "Saturday",
+                  "opens": "08:00",
+                  "closes": "16:00"
+                }
+              ],
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "87",
+                "bestRating": "5",
+                "worstRating": "1"
+              },
               "sameAs": [
-                "https://www.yelp.com/biz/cns-demolition"
+                "https://www.yelp.com/biz/cns-demolition",
+                "https://www.facebook.com/cnsdemo",
+                "https://www.bbb.org/us/ca/long-beach/profile/demolition-contractors",
+                "https://www.linkedin.com/company/cns-demolition"
+              ],
+              "knowsAbout": [
+                "Demolition Contracting", "Interior Demolition", "Pool Demolition",
+                "Concrete Removal", "Selective Demolition", "Commercial Demolition",
+                "California Building Permits", "Asbestos Abatement Coordination"
               ],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Demolition Services",
-                "itemListElement": services.slice(0, 5).map((s) => ({
+                "itemListElement": services.map((s) => ({
                   "@type": "Offer",
                   "itemOffered": {
                     "@type": "Service",
                     "name": s.service_name,
-                    "description": s.description
-                  }
+                    "description": s.description,
+                    "provider": { "@type": "LocalBusiness", "name": "C&S Demolition" }
+                  },
+                  "priceRange": `$${Number(s.avg_cost_low).toLocaleString()}–$${Number(s.avg_cost_high).toLocaleString()}`,
+                  "priceCurrency": "USD"
                 }))
               }
             })

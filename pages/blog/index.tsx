@@ -24,6 +24,48 @@ export default function BlogIndex({ posts, categories }: BlogIndexProps) {
         <meta property="og:description" content="Expert demolition tips, cost guides, and permit advice for Southern California. Interior demo, pool removal, concrete breaking, and more." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/blog" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'CollectionPage',
+                  '@id': 'https://cnsdemo.com/blog',
+                  name: 'Demolition Resource Center | C&S Demolition',
+                  description: 'Expert demolition cost guides, permit tips, and how-to articles for Southern California homeowners and contractors from CA-licensed demolition professionals.',
+                  url: 'https://cnsdemo.com/blog',
+                  publisher: {
+                    '@type': 'Organization',
+                    name: 'C&S Demolition',
+                    url: 'https://cnsdemo.com',
+                    logo: { '@type': 'ImageObject', url: 'https://cnsdemo.com/logo.png' },
+                  },
+                  breadcrumb: {
+                    '@type': 'BreadcrumbList',
+                    itemListElement: [
+                      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cnsdemo.com' },
+                      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://cnsdemo.com/blog' },
+                    ],
+                  },
+                },
+                {
+                  '@type': 'ItemList',
+                  name: 'Demolition Articles & Guides',
+                  description: 'Cost guides, how-to articles, and permit guides for demolition projects in Southern California.',
+                  numberOfItems: posts.length,
+                  itemListElement: posts.slice(0, 20).map((post, i) => ({
+                    '@type': 'ListItem',
+                    position: i + 1,
+                    url: `https://cnsdemo.com/blog/${post.slug}`,
+                    name: post.title.replace(' | C&S Demolition', ''),
+                  })),
+                },
+              ],
+            })
+          }}
+        />
       </Head>
       <Header />
       <main>

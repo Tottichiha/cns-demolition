@@ -63,7 +63,7 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://cnsdemo.com/demolition/${service.service_slug}/${city.slug}`} />
-        <SchemaMarkup city={city} service={service} />
+        <SchemaMarkup city={city} service={service} faqs={faqs} />
       </Head>
 
       <Header />
@@ -223,6 +223,55 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
                   <div>
                     <p className="font-semibold text-gray-900">{title}</p>
                     <p className="text-sm text-gray-600">{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Step-by-Step Process */}
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-brand-dark mb-2">
+              How {service.service_name} Works in {city.city}
+            </h2>
+            <p className="text-gray-600 mb-6">
+              From first call to final inspection — here&apos;s exactly what to expect when you hire C&S Demolition for {service.service_name.toLowerCase()} in {city.city}.
+            </p>
+            <div className="space-y-5">
+              {[
+                {
+                  step: 1,
+                  title: 'Free On-Site Estimate',
+                  text: `We visit your ${city.city} property, measure the project, check for hazardous materials (asbestos, lead paint), and provide a written estimate the same day — no obligation. We quote lump-sum only: no hourly billing surprises.`,
+                },
+                {
+                  step: 2,
+                  title: `Permit Filing${city.permit_office ? ` — ${city.permit_office}` : ''}`,
+                  text: `${service.service_name} in ${city.city} typically requires a demolition permit. We handle the complete application process with ${city.permit_office || `the ${city.city} Building Department`}${city.permit_phone ? ` (${city.permit_phone})` : ''} — you never deal with city paperwork directly. Permit timelines are built into your project schedule from day one.`,
+                },
+                {
+                  step: 3,
+                  title: 'Site Preparation and Utility Disconnect',
+                  text: `Before demolition begins, we verify all utilities to the work area are properly capped or disconnected. Our crew sets up dust control barriers, secures the perimeter, and protects adjacent structures. California code requires verified utility disconnections before a demo permit is released — we coordinate this entirely.`,
+                },
+                {
+                  step: 4,
+                  title: `${service.service_name} in ${city.city}`,
+                  text: `Our ${city.city} crew performs the ${service.service_name.toLowerCase()} efficiently using the right equipment — from precision hand tools for selective work to heavy machinery for larger teardowns. Debris is loaded directly into our trucks as we work. Most ${service.service_name.toLowerCase()} projects in ${city.city} are completed in ${service.duration}.`,
+                },
+                {
+                  step: 5,
+                  title: 'Debris Removal, Cleanup, and Permit Closeout',
+                  text: `All debris is hauled to licensed facilities in Southern California. We sort recyclable concrete, metal, and clean wood from general waste to minimize landfill impact. We then prepare the site for final inspection, coordinate with ${city.permit_office || `${city.city} Building Department`}, and ensure your permit is officially closed — leaving your property broom-clean and ready for the next phase.`,
+                },
+              ].map(({ step, title, text }) => (
+                <div key={step} className="flex gap-4 items-start">
+                  <div className="flex-shrink-0 w-10 h-10 bg-brand-orange text-white rounded-full flex items-center justify-center font-bold text-base">
+                    {step}
+                  </div>
+                  <div className="pt-1">
+                    <h3 className="font-semibold text-gray-900 mb-1">{title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{text}</p>
                   </div>
                 </div>
               ))}
