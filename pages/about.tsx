@@ -18,6 +18,13 @@ export default function AboutPage() {
         legalName: 'Scrapit LLC',
         description,
         url: 'https://cnsdemo.com',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://cnsdemo.com/logo.svg',
+          width: 300,
+          height: 60,
+        },
+        image: 'https://cnsdemo.com/api/og?title=About+C%26S+Demolition&sub=Licensed+CA+Contractor+%23+1126325&type=about',
         telephone: '+15622046335',
         email: 'contactus@cnsdemo.com',
         foundingDate: '2010',
@@ -45,10 +52,10 @@ export default function AboutPage() {
         },
         aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '87', bestRating: '5' },
         sameAs: [
-          'https://www.yelp.com/biz/cs-demolition',
+          'https://www.yelp.com/biz/cns-demolition',
           'https://www.facebook.com/cnsdemo',
-          'https://www.bbb.org/us/ca/cs-demolition',
-          'https://www.linkedin.com/company/cs-demolition',
+          'https://www.bbb.org/us/ca/long-beach/profile/demolition-contractors',
+          'https://www.linkedin.com/company/cns-demolition',
         ],
       },
       {
