@@ -27,12 +27,10 @@ export default function App({ Component, pageProps }: AppProps) {
         strategy="afterInteractive"
       />
       <Script id="ga4-init" strategy="afterInteractive">
-        {`
-                                                                                                                                    window.dataLayer = window.dataLayer || [];
-                                                                                                                                              function gtag(){dataLayer.push(arguments);}
-                                                                                                                                                        gtag('js', new Date());
-                                                                                                                                                                  gtag('config', '${GA_ID}');
-                                                                                                                                                                          `}
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
       </Script>
       <Component {...pageProps} />
     </>
