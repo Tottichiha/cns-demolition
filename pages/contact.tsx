@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useState, FormEvent } from 'react';
+import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -57,6 +58,8 @@ export default function Contact() {
         <meta property="og:description" content="Request a free on-site demolition estimate. C&S Demolition serves 123+ SoCal cities. Licensed & insured. Call (562) 204-6335." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/contact" />
+        <meta property="og:image" content="https://cnsdemo.com/api/og?title=Free+Demolition+Estimate&sub=On-Site+%C2%B7+Same-Day+Quote+%C2%B7+CA+Lic+%231126325&type=contact" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -107,13 +110,25 @@ export default function Contact() {
       </Head>
       <Header />
 
-      <main className="bg-gray-50 min-h-screen py-16 px-4">
-        <div className="max-w-2xl mx-auto">
-          <h1 className="text-3xl font-bold text-brand-dark mb-2">Get a Free Estimate</h1>
-          <p className="text-gray-600 mb-8">
-            Tell us about your project and we&apos;ll get back to you within 24 hours. Or call us directly at{' '}
-            <a href="tel:+15622046335" className="text-brand-orange font-semibold">(562) 204-6335</a>.
-          </p>
+      <main className="bg-gray-50 min-h-screen">
+        {/* Hero */}
+        <div className="bg-brand-dark text-white py-12 px-4">
+          <div className="max-w-5xl mx-auto">
+            <nav className="text-sm text-gray-400 mb-4 flex flex-wrap gap-1">
+              <Link href="/" className="hover:text-white">Home</Link>
+              <span>/</span>
+              <span className="text-white">Free Estimate</span>
+            </nav>
+            <h1 className="text-3xl font-bold mb-2">Get a Free Demolition Estimate</h1>
+            <p className="text-gray-300">
+              Fill out the form below or call <a href="tel:+15622046335" className="text-brand-orange font-semibold">(562) 204-6335</a>. We respond within 24 hours and schedule an on-site visit for a written quote.
+            </p>
+          </div>
+        </div>
+
+        <div className="max-w-5xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-3 gap-10">
+          {/* Form column */}
+          <div className="lg:col-span-2">
 
           {status === 'sent' ? (
             <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
@@ -204,6 +219,44 @@ export default function Contact() {
               <p className="text-xs text-gray-400 text-center">CA License #1126325 · Licensed &amp; Insured · No spam, ever.</p>
             </form>
           )}
+          </div>{/* end form column */}
+
+          {/* Trust sidebar */}
+          <div className="space-y-6">
+            <div className="bg-white rounded-xl border border-gray-200 p-6">
+              <h2 className="font-bold text-brand-dark mb-4">Why C&amp;S Demolition?</h2>
+              <ul className="space-y-3 text-sm text-gray-700">
+                {[
+                  { icon: '✓', text: 'CA License #1126325 — active, verifiable at cslb.ca.gov' },
+                  { icon: '✓', text: 'General liability + workers\' comp on every job' },
+                  { icon: '✓', text: 'Free on-site estimate — written quote same day' },
+                  { icon: '✓', text: 'All-inclusive: demo, permits, haul-away, cleanup' },
+                  { icon: '✓', text: '4.9★ rating · 87 verified reviews' },
+                  { icon: '✓', text: '123+ cities across 4 SoCal counties' },
+                  { icon: '✓', text: 'No hourly billing — lump-sum pricing only' },
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-2 items-start">
+                    <span className="text-brand-orange font-bold flex-shrink-0">{item.icon}</span>
+                    <span>{item.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-brand-orange text-white rounded-xl p-6 text-center">
+              <p className="font-bold text-lg mb-1">Call or Text</p>
+              <a href="tel:+15622046335" className="text-2xl font-bold block hover:text-orange-100 transition-colors">
+                (562) 204-6335
+              </a>
+              <p className="text-orange-100 text-sm mt-2">Mon–Fri 7AM–6PM · Sat 8AM–4PM</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl border border-gray-200 p-5">
+              <p className="text-xs text-gray-500 leading-relaxed">
+                C&amp;S Demolition is a DBA of Scrapit LLC. CA Contractor License #1126325. We do not share your information with third parties. View our <Link href="/privacy" className="text-brand-orange hover:underline">Privacy Policy</Link>.
+              </p>
+            </div>
+          </div>
         </div>
       </main>
 
