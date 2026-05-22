@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 60">
+  <rect width="300" height="60" rx="6" fill="#1a1a2e"/>
+  <rect x="8" y="8" width="52" height="44" rx="4" fill="#f97316"/>
+  <text x="34" y="38" font-size="18" font-weight="900" text-anchor="middle" fill="white" font-family="system-ui,-apple-system,sans-serif">C&amp;S</text>
+  <text x="78" y="28" font-size="16" font-weight="700" fill="white" font-family="system-ui,-apple-system,sans-serif">Demolition</text>
+  <text x="78" y="48" font-size="10" fill="#9ca3af" font-family="system-ui,-apple-system,sans-serif">CA License #1126325</text>
+</svg>

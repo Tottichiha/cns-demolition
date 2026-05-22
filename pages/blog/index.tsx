@@ -45,7 +45,7 @@ export default function BlogIndex({ posts, categories, totalCities }: BlogIndexP
                     '@type': 'Organization',
                     name: 'C&S Demolition',
                     url: 'https://cnsdemo.com',
-                    logo: { '@type': 'ImageObject', url: 'https://cnsdemo.com/logo.png' },
+                    logo: { '@type': 'ImageObject', url: 'https://cnsdemo.com/logo.svg' },
                   },
                   breadcrumb: {
                     '@type': 'BreadcrumbList',

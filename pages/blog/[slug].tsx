@@ -228,7 +228,7 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
       url: 'https://cnsdemo.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://cnsdemo.com/logo.png',
+        url: 'https://cnsdemo.com/logo.svg',
       },
     },
     url: `https://cnsdemo.com/blog/${post.slug}`,
