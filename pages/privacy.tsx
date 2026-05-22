@@ -20,7 +20,12 @@ export default function PrivacyPolicy() {
         <meta property="og:description" content="Privacy Policy for C&S Demolition (Scrapit LLC). How we collect, use, and protect your information under California privacy law (CCPA)." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/privacy" />
-        <meta name="twitter:card" content="summary" />
+        <meta property="og:image" content="https://cnsdemo.com/api/og?title=Privacy+Policy&sub=C%26S+Demolition+%C2%B7+Scrapit+LLC&type=blog" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://cnsdemo.com/api/og?title=Privacy+Policy&sub=C%26S+Demolition+%C2%B7+Scrapit+LLC&type=blog" />
+        <meta name="twitter:image:alt" content="Privacy Policy — C&S Demolition" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
