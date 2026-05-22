@@ -172,6 +172,21 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
             })
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://cnsdemo.com/#website",
+              "name": "C&S Demolition",
+              "url": "https://cnsdemo.com",
+              "description": "California-licensed demolition contractor serving 123+ cities across Southern California. Interior demo, pool removal, concrete removal, garage teardown, and more.",
+              "inLanguage": "en-US",
+              "publisher": { "@id": "https://cnsdemo.com/#business" }
+            })
+          }}
+        />
       </Head>
       <Header />
       <main>
