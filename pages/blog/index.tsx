@@ -3,14 +3,15 @@ import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { getBlogPosts, getBlogCategories, BlogPost } from '../../lib/getData';
+import { getBlogPosts, getBlogCategories, getCities, BlogPost } from '../../lib/getData';
 
 interface BlogIndexProps {
   posts: BlogPost[];
   categories: string[];
+  totalCities: number;
 }
 
-export default function BlogIndex({ posts, categories }: BlogIndexProps) {
+export default function BlogIndex({ posts, categories, totalCities }: BlogIndexProps) {
   return (
     <>
       <Head>
@@ -25,6 +26,8 @@ export default function BlogIndex({ posts, categories }: BlogIndexProps) {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/blog" />
         <meta property="og:image" content="https://cnsdemo.com/api/og?title=Demolition+Resource+Center&sub=Cost+Guides+%C2%B7+How-To+%C2%B7+Permit+Tips&type=blog" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <script
           type="application/ld+json"
@@ -79,7 +82,7 @@ export default function BlogIndex({ posts, categories }: BlogIndexProps) {
             Demolition Tips &amp; Cost Guides for Southern California
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Expert cost breakdowns, permit guides, and how-to advice from C&amp;S Demolition — licensed CA demolition contractors serving 125+ cities.
+            Expert cost breakdowns, permit guides, and how-to advice from C&amp;S Demolition — licensed CA demolition contractors serving {totalCities}+ cities.
           </p>
         </section>
 
@@ -151,5 +154,6 @@ export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
   const categories = getBlogCategories();
-  return { props: { posts, categories } };
+  const totalCities = getCities().length;
+  return { props: { posts, categories, totalCities } };
 };
