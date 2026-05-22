@@ -194,11 +194,14 @@ function generateExtendedGuide(post: BlogPost): ExtendedSection[] {
 
 export default function BlogPostPage({ post, relatedPosts, services }: BlogPostProps) {
   const cleanTitle = post.title.replace(' | C&S Demolition', '');
-  const readTime = estimateReadTime(post);
-  const wordCount = estimateWordCount(post);
+  const extGuide = generateExtendedGuide(post);
+  const extWordCount = extGuide.reduce((acc, s) => acc + s.body.split(/\s+/).length + s.heading.split(/\s+/).length, 0);
+  const baseWordCount = estimateWordCount(post);
+  const wordCount = baseWordCount + extWordCount;
+  const readTime = Math.max(1, Math.round(wordCount / 200));
   const faqs = generateBlogFAQs(post);
   const isHowTo = post.category === 'How-To Guides';
-  const showToC = post.sections.length >= 4;
+  const showToC = post.sections.length >= 4 || extGuide.length > 0;
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -351,6 +354,16 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
                       </a>
                     </li>
                   ))}
+                {extGuide.map((section, i) => (
+                  <li key={`ext-${i}`}>
+                    <a
+                      href={`#ext-section-${i}`}
+                      className="text-sm text-brand-orange hover:underline leading-snug"
+                    >
+                      {post.sections.length + i + 1}. {section.heading}
+                    </a>
+                  </li>
+                ))}
               </ol>
             </nav>
           )}
@@ -414,22 +427,18 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
           </div>
 
           {/* Extended Guide — supplementary depth content per category */}
-          {(() => {
-            const extGuide = generateExtendedGuide(post);
-            if (extGuide.length === 0) return null;
-            return (
-              <div className="mt-10">
-                {extGuide.map((section, i) => (
-                  <section key={i} className="mb-10">
-                    <h2 className="text-2xl font-bold text-brand-dark mb-4">{section.heading}</h2>
-                    {section.body.split('\n\n').map((para, j) => (
-                      <p key={j} className="text-gray-700 mb-4 leading-relaxed">{para}</p>
-                    ))}
-                  </section>
-                ))}
-              </div>
-            );
-          })()}
+          {extGuide.length > 0 && (
+            <div className="mt-10">
+              {extGuide.map((section, i) => (
+                <section key={i} id={`ext-section-${i}`} className="mb-10">
+                  <h2 className="text-2xl font-bold text-brand-dark mb-4">{section.heading}</h2>
+                  {section.body.split('\n\n').map((para, j) => (
+                    <p key={j} className="text-gray-700 mb-4 leading-relaxed">{para}</p>
+                  ))}
+                </section>
+              ))}
+            </div>
+          )}
 
           {/* FAQ Section */}
           {faqs.length > 0 && (
