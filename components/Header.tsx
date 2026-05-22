@@ -13,6 +13,7 @@ export default function Header() {
           <Link href="/services" className="hover:text-brand-orange transition-colors hidden sm:inline">Services</Link>
           <Link href="/service-areas" className="hover:text-brand-orange transition-colors hidden sm:inline">Areas</Link>
           <Link href="/blog" className="hover:text-brand-orange transition-colors hidden md:inline">Blog</Link>
+          <Link href="/about" className="hover:text-brand-orange transition-colors hidden lg:inline">About</Link>
           <Link href="/contact" className="hover:text-brand-orange transition-colors hidden sm:inline">Free Estimate</Link>
           <a
             href="tel:+15622046335"

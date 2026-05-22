@@ -128,7 +128,7 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cnsdemo.com' },
         { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://cnsdemo.com/blog' },
-        { '@type': 'ListItem', position: 3, name: post.category, item: `https://cnsdemo.com/blog` },
+        { '@type': 'ListItem', position: 3, name: post.category, item: `https://cnsdemo.com/blog/category/${post.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}` },
         { '@type': 'ListItem', position: 4, name: cleanTitle, item: `https://cnsdemo.com/blog/${post.slug}` },
       ],
     },
@@ -182,11 +182,14 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
               <span>/</span>
               <Link href="/blog" className="hover:text-white">Blog</Link>
               <span>/</span>
-              <span className="text-gray-300">{post.category}</span>
+              <Link href={`/blog/category/${post.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`} className="hover:text-white">{post.category}</Link>
             </nav>
-            <span className="text-brand-orange text-xs font-bold uppercase tracking-widest mb-3 block">
+            <Link
+              href={`/blog/category/${post.category.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+              className="text-brand-orange text-xs font-bold uppercase tracking-widest mb-3 block hover:text-orange-300 transition-colors"
+            >
               {post.category}
-            </span>
+            </Link>
             <h1 className="text-4xl font-bold mb-4 leading-tight">{cleanTitle}</h1>
             <p className="text-gray-300 text-lg mb-4">{post.excerpt}</p>
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">

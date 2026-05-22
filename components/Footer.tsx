@@ -54,9 +54,10 @@ export default function Footer() {
           <h3 className="text-white font-bold mb-3">Resources</h3>
           <ul className="text-sm space-y-1.5">
             <li><Link href="/blog" className="hover:text-white">Demolition Blog</Link></li>
-            <li><Link href="/blog" className="hover:text-white">Cost Guides</Link></li>
-            <li><Link href="/blog" className="hover:text-white">How-To Guides</Link></li>
-            <li><Link href="/blog" className="hover:text-white">Permit Guides</Link></li>
+            <li><Link href="/blog/category/cost-guides" className="hover:text-white">Cost Guides</Link></li>
+            <li><Link href="/blog/category/how-to-guides" className="hover:text-white">How-To Guides</Link></li>
+            <li><Link href="/blog/category/permits-regulations" className="hover:text-white">Permit Guides</Link></li>
+            <li><Link href="/about" className="hover:text-white">About C&amp;S Demolition</Link></li>
             <li><Link href="/contact" className="hover:text-white">Free Estimate</Link></li>
             <li>
               <a
