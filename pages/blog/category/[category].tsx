@@ -46,6 +46,8 @@ export default function CategoryPage({ category, categorySlug, posts, allCategor
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={`https://cnsdemo.com/api/og?title=${encodeURIComponent(category)}&sub=${encodeURIComponent('Demolition ' + category + ' · C&S Demolition')}&type=blog`} />
+        <meta name="twitter:image:alt" content={`${category} — C&S Demolition Blog`} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

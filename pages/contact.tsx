@@ -62,6 +62,8 @@ export default function Contact() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://cnsdemo.com/api/og?title=Free+Demolition+Estimate&sub=On-Site+%C2%B7+Same-Day+Quote+%C2%B7+CA+Lic+%231126325&type=contact" />
+        <meta name="twitter:image:alt" content="Get a Free Demolition Estimate — C&S Demolition" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -70,6 +70,8 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={`https://cnsdemo.com/api/og?title=${encodeURIComponent(service.service_name + ' in ' + city.city + ', CA')}&sub=${encodeURIComponent('CA Lic #1126325 · Free Estimates · ' + city.county + ' County')}&type=city`} />
+        <meta name="twitter:image:alt" content={`${service.service_name} in ${city.city}, CA — C&S Demolition`} />
         <SchemaMarkup city={city} service={service} faqs={faqs} />
       </Head>
 

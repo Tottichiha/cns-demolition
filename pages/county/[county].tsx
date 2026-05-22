@@ -87,6 +87,8 @@ export default function CountyPage({ county, countySlug, cities, services, relat
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={`https://cnsdemo.com/api/og?title=${encodeURIComponent('Demolition in ' + county + ' County, CA')}&sub=${encodeURIComponent('CA Lic #1126325 · Free Estimates · ' + cities.length + ' Cities')}&type=county`} />
+        <meta name="twitter:image:alt" content={`Demolition in ${county} County, CA — C&S Demolition`} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       </Head>
 

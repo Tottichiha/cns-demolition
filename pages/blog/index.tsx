@@ -29,6 +29,8 @@ export default function BlogIndex({ posts, categories, totalCities }: BlogIndexP
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://cnsdemo.com/api/og?title=Demolition+Resource+Center&sub=Cost+Guides+%C2%B7+How-To+%C2%B7+Permit+Tips&type=blog" />
+        <meta name="twitter:image:alt" content="Demolition Resource Center — Cost Guides & How-To Articles" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

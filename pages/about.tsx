@@ -97,6 +97,8 @@ export default function AboutPage() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://cnsdemo.com/api/og?title=About+C%26S+Demolition&sub=Licensed+CA+Contractor+%23+1126325&type=about" />
+        <meta name="twitter:image:alt" content="About C&S Demolition — CA Licensed Contractor #1126325" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       </Head>
 
