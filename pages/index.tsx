@@ -83,6 +83,13 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
               "legalName": "Scrapit LLC",
               "description": `C&S Demolition (License #1126325) is a California-licensed demolition contractor serving ${totalCities}+ cities across Southern California. We specialize in residential and commercial demolition, pool removal, interior demo, concrete breaking, and all types of teardown work throughout Orange County, Los Angeles County, Riverside County, and San Bernardino County.`,
               "url": "https://cnsdemo.com",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://cnsdemo.com/logo.svg",
+                "width": 300,
+                "height": 60
+              },
+              "image": "https://cnsdemo.com/api/og?title=Demolition+Contractor+in+Southern+California&sub=CA+License+%231126325+%C2%B7+123%2B+SoCal+Cities&type=home",
               "telephone": "+15622046335",
               "email": "contactus@cnsdemo.com",
               "license": "1126325",

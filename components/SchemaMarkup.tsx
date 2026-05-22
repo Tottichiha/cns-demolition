@@ -46,6 +46,13 @@ export default function SchemaMarkup({ city, service, faqs }: SchemaProps) {
       legalName: 'Scrapit LLC',
       description: `C&S Demolition is a California-licensed contractor (License #1126325) specializing in ${service.service_name.toLowerCase()} and all types of residential and commercial demolition in ${city.city}, ${city.county} County, CA.`,
       url: 'https://cnsdemo.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://cnsdemo.com/logo.svg',
+        width: 300,
+        height: 60,
+      },
+      image: `https://cnsdemo.com/api/og?title=${encodeURIComponent(service.service_name + ' in ' + city.city + ', CA')}&sub=${encodeURIComponent('CA Lic #1126325 · Free Estimates · ' + city.county + ' County')}&type=city`,
       telephone: '+15622046335',
       email: 'contactus@cnsdemo.com',
       license: '1126325',
