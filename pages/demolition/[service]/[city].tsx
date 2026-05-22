@@ -11,8 +11,10 @@ import {
   getServiceBySlug,
   getCitiesByCounty,
   getServices,
+  getRelatedBlogPosts,
   City,
   Service,
+  BlogPost,
 } from '../../../lib/getData';
 
 interface PageProps {
@@ -20,9 +22,10 @@ interface PageProps {
   service: Service;
   nearbyCities: City[];
   allServices: Service[];
+  relatedPosts: BlogPost[];
 }
 
-export default function ServiceCityPage({ city, service, nearbyCities, allServices }: PageProps) {
+export default function ServiceCityPage({ city, service, nearbyCities, allServices, relatedPosts }: PageProps) {
   const title = `${service.service_name} in ${city.city}, CA | C&S Demolition`;
   const description = `Need ${service.service_name.toLowerCase()} in ${city.city}, ${city.county} County? C&S Demolition (Scrapit LLC) is your licensed local contractor. Free estimates. ${service.duration} turnaround. Serving ${city.city} and all of ${city.county} County.`;
 
@@ -336,6 +339,37 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
             </div>
           </section>
 
+          {/* Related Blog Posts */}
+          {relatedPosts.length > 0 && (
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-brand-dark mb-4">
+                Related Guides &amp; Resources
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Learn more about {service.service_name.toLowerCase()} costs, permits, and processes in Southern California:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {relatedPosts.map((post) => (
+                  <a
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="border border-gray-200 rounded-xl p-5 hover:border-brand-orange transition-colors"
+                  >
+                    <span className="text-xs font-semibold text-brand-orange uppercase block mb-1">
+                      {post.category}
+                    </span>
+                    <h3 className="font-bold text-sm leading-snug text-gray-900">
+                      {post.title.replace(' | C&S Demolition', '')}
+                    </h3>
+                    <p className="text-xs text-gray-500 mt-2 leading-relaxed line-clamp-2">
+                      {post.excerpt}
+                    </p>
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Other Services */}
           <section>
             <h2 className="text-2xl font-bold text-brand-dark mb-4">
@@ -391,7 +425,11 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
     .filter((c) => c.slug !== city.slug)
     .slice(0, 12);
 
+  // Related blog posts: match on service keywords + cost/how-to for this service type
+  const serviceKeywords = service.service_slug.split('-').filter((w) => w.length > 3);
+  const relatedPosts = getRelatedBlogPosts([...serviceKeywords, city.slug.split('-')[0]], 3);
+
   return {
-    props: { city, service, nearbyCities, allServices: getServices() },
+    props: { city, service, nearbyCities, allServices: getServices(), relatedPosts },
   };
 };

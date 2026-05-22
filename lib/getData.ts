@@ -108,6 +108,22 @@ export function getBlogCategories(): string[] {
   return [...new Set(getBlogPosts().map((p) => p.category))].sort();
 }
 
+// Find related blog posts by keyword matching on slug/title
+export function getRelatedBlogPosts(keywords: string[], limit = 3): BlogPost[] {
+  const posts = getBlogPosts();
+  const lower = keywords.map((k) => k.toLowerCase());
+  const scored = posts.map((post) => {
+    const hay = (post.slug + ' ' + post.title + ' ' + post.category).toLowerCase();
+    const score = lower.reduce((acc, kw) => acc + (hay.includes(kw) ? 1 : 0), 0);
+    return { post, score };
+  });
+  return scored
+    .filter((s) => s.score > 0)
+    .sort((a, b) => b.score - a.score || new Date(b.post.date).getTime() - new Date(a.post.date).getTime())
+    .slice(0, limit)
+    .map((s) => s.post);
+}
+
 // Generate all city+service combos for getStaticPaths
 export function getAllCityServicePairs(): { citySlug: string; serviceSlug: string }[] {
   const cities = getCities();
