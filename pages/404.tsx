@@ -48,7 +48,7 @@ export default function NotFound() {
               { label: 'Pool Demolition', href: '/demolition/pool-demolition' },
               { label: 'Concrete Removal', href: '/demolition/concrete-removal' },
               { label: 'Garage Demolition', href: '/demolition/garage-demolition' },
-              { label: 'Full Structure Demo', href: '/demolition/full-demolition' },
+              { label: 'Whole House Demo', href: '/demolition/whole-house-demolition' },
               { label: 'Commercial Demolition', href: '/demolition/commercial-demolition' },
               { label: 'Orange County Demo', href: '/county/orange' },
               { label: 'Los Angeles Demo', href: '/county/los-angeles' },
