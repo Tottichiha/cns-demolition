@@ -24,13 +24,12 @@ export default function AboutPage() {
         numberOfEmployees: { '@type': 'QuantitativeValue', value: 15 },
         address: {
           '@type': 'PostalAddress',
-          streetAddress: '2570 W 237th St',
-          addressLocality: 'Torrance',
+          addressLocality: 'Long Beach',
           addressRegion: 'CA',
-          postalCode: '90505',
+          postalCode: '90802',
           addressCountry: 'US',
         },
-        geo: { '@type': 'GeoCoordinates', latitude: 33.85, longitude: -118.35 },
+        geo: { '@type': 'GeoCoordinates', latitude: 33.7701, longitude: -118.1937 },
         areaServed: [
           { '@type': 'County', name: 'Los Angeles County', containedInPlace: { '@type': 'State', name: 'California' } },
           { '@type': 'County', name: 'Orange County', containedInPlace: { '@type': 'State', name: 'California' } },

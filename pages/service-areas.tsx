@@ -31,6 +31,8 @@ export default function ServiceAreasPage({ countyData, totalCities, services }: 
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/service-areas" />
+        <meta property="og:image" content={`https://cnsdemo.com/api/og?title=Demolition+Service+Areas+in+Southern+California&sub=${encodeURIComponent(totalCities + ' Cities · 4 Counties · CA Lic #1126325')}&type=areas`} />
+        <meta name="twitter:card" content="summary_large_image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

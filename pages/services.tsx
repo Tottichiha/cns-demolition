@@ -23,6 +23,8 @@ export default function ServicesPage({ services }: PageProps) {
         <meta property="og:description" content="Licensed demolition contractor serving Orange County, LA, Riverside & San Bernardino. Interior demo, pool removal, concrete, and 18 more services. Free estimates." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/services" />
+        <meta property="og:image" content="https://cnsdemo.com/api/og?title=Demolition+Services+in+Southern+California&sub=19+Services+%C2%B7+CA+Lic+%231126325+%C2%B7+Free+Estimates&type=services" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -81,7 +83,13 @@ export default function ServicesPage({ services }: PageProps) {
       </Head>
       <Header />
       <main>
-        <section className="bg-brand-dark text-white py-16 px-4 text-center">
+        <section className="bg-brand-dark text-white py-16 px-4">
+          <div className="max-w-5xl mx-auto text-center">
+          <nav className="text-sm text-gray-400 mb-6 flex flex-wrap gap-1 justify-center">
+            <Link href="/" className="hover:text-white">Home</Link>
+            <span>/</span>
+            <span className="text-white">Services</span>
+          </nav>
           <h1 className="text-4xl font-bold mb-4">Demolition Services in Southern California</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-6">
             C&amp;S Demolition is a CA-licensed contractor handling all types of demolition across Orange County, Los Angeles, Riverside, and San Bernardino Counties.
@@ -98,6 +106,7 @@ export default function ServicesPage({ services }: PageProps) {
           >
             📞 (562) 204-6335 — Get a Free Estimate
           </a>
+          </div>
         </section>
 
         <div className="max-w-5xl mx-auto px-4 py-14">
@@ -123,6 +132,43 @@ export default function ServicesPage({ services }: PageProps) {
             ))}
           </div>
         </div>
+
+        {/* Cost comparison table */}
+        <section className="max-w-5xl mx-auto px-4 pb-14">
+          <h2 className="text-2xl font-bold text-brand-dark mb-3">Demolition Cost Guide — Southern California</h2>
+          <p className="text-gray-600 mb-6">
+            All prices are typical ranges for projects in Southern California. Final cost depends on project size, site access, permit requirements, and hazmat conditions. Get a free on-site estimate for an exact quote.
+          </p>
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
+            <table className="w-full text-sm">
+              <thead className="bg-brand-dark text-white">
+                <tr>
+                  <th className="text-left px-4 py-3 font-semibold">Service</th>
+                  <th className="text-left px-4 py-3 font-semibold">Typical Cost</th>
+                  <th className="text-left px-4 py-3 font-semibold">Duration</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {services.map((s, i) => (
+                  <tr key={s.service_slug} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td className="px-4 py-3 font-medium">
+                      <Link href={`/demolition/${s.service_slug}`} className="text-brand-orange hover:underline">
+                        {s.service_name}
+                      </Link>
+                    </td>
+                    <td className="px-4 py-3 text-gray-700">
+                      ${Number(s.avg_cost_low).toLocaleString()} – ${Number(s.avg_cost_high).toLocaleString()}
+                    </td>
+                    <td className="px-4 py-3 text-gray-500">{s.duration}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 mt-3">
+            * Prices are estimates for Orange County and Los Angeles County. Actual pricing provided in free on-site estimate. Permit fees included.
+          </p>
+        </section>
 
         {/* E-E-A-T content section */}
         <section className="max-w-5xl mx-auto px-4 pb-14">
