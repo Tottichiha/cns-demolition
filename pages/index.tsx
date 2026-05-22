@@ -71,6 +71,7 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="https://cnsdemo.com/api/og?title=Demolition+Contractor+in+Southern+California&sub=CA+License+%231126325+%C2%B7+123%2B+SoCal+Cities&type=home" />
+        <meta name="twitter:image:alt" content="Demolition Contractor in Southern California — C&S Demolition, CA Lic #1126325" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
