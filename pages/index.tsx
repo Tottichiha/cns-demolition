@@ -3,15 +3,21 @@ import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { getCounties, getCities, getServices, Service } from '../lib/getData';
+import { getCounties, getCities, getServices, getBlogPosts, getBlogCategories, Service, BlogPost } from '../lib/getData';
 
 interface HomeProps {
   counties: string[];
   totalCities: number;
   services: Service[];
+  latestPosts: BlogPost[];
+  categories: string[];
 }
 
-export default function Home({ counties, totalCities, services }: HomeProps) {
+function categoryToSlug(cat: string): string {
+  return cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+export default function Home({ counties, totalCities, services, latestPosts, categories }: HomeProps) {
   const faqs = [
     {
       q: 'How much does demolition cost in Southern California?',
@@ -293,6 +299,52 @@ export default function Home({ counties, totalCities, services }: HomeProps) {
           </div>
         </section>
 
+        {/* Blog preview */}
+        <section className="max-w-5xl mx-auto px-4 py-16">
+          <h2 className="text-3xl font-bold text-brand-dark text-center mb-3">Demolition Resource Center</h2>
+          <p className="text-center text-gray-600 mb-6">
+            Cost guides, permit tips, and how-to articles from C&amp;S Demolition's licensed professionals.
+          </p>
+          {/* Category filter */}
+          <div className="flex flex-wrap gap-2 justify-center mb-10">
+            <Link href="/blog" className="text-sm bg-brand-dark text-white px-4 py-2 rounded-full hover:bg-gray-700 transition-colors font-semibold">
+              All Articles
+            </Link>
+            {categories.map((cat) => (
+              <Link
+                key={cat}
+                href={`/blog/category/${categoryToSlug(cat)}`}
+                className="text-sm bg-gray-100 text-gray-700 px-4 py-2 rounded-full hover:bg-brand-orange hover:text-white transition-colors"
+              >
+                {cat}
+              </Link>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {latestPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-brand-orange hover:shadow-md transition-all flex flex-col"
+              >
+                <span className="text-xs font-semibold text-brand-orange uppercase tracking-wide mb-2">
+                  {post.category}
+                </span>
+                <h3 className="font-bold text-gray-900 text-base mb-2 leading-snug flex-1">
+                  {post.title.replace(' | C&S Demolition', '')}
+                </h3>
+                <p className="text-xs text-gray-600 mb-3 line-clamp-2">{post.excerpt}</p>
+                <span className="text-sm text-brand-orange font-semibold mt-auto">Read more →</span>
+              </Link>
+            ))}
+          </div>
+          <div className="text-center">
+            <Link href="/blog" className="text-brand-orange font-semibold hover:underline">
+              View all demolition articles and guides →
+            </Link>
+          </div>
+        </section>
+
         {/* FAQ */}
         <section className="max-w-3xl mx-auto px-4 py-16">
           <h2 className="text-3xl font-bold text-brand-dark text-center mb-10">
@@ -328,11 +380,17 @@ export default function Home({ counties, totalCities, services }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+  const latestPosts = getBlogPosts()
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
+
   return {
     props: {
       counties: getCounties(),
       totalCities: getCities().length,
       services: getServices(),
+      latestPosts,
+      categories: getBlogCategories(),
     },
   };
 };

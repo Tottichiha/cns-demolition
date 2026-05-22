@@ -3,12 +3,13 @@ import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
-import { getServices, getCities, Service, City } from '../../../lib/getData';
+import { getServices, getCities, getRelatedBlogPosts, Service, City, BlogPost } from '../../../lib/getData';
 
 interface PageProps {
   service: Service;
   cities: City[];
   allServices: Service[];
+  relatedPosts: BlogPost[];
 }
 
 // What's included + process vary by service type — grouped here for DRY template
@@ -76,7 +77,7 @@ function getServiceFAQs(service: Service, cityCount: number) {
   ];
 }
 
-export default function ServiceIndexPage({ service, cities, allServices }: PageProps) {
+export default function ServiceIndexPage({ service, cities, allServices, relatedPosts }: PageProps) {
   const title = `${service.service_name} in Southern California | C&S Demolition`;
   const description = `Licensed ${service.service_name.toLowerCase()} contractor serving ${cities.length}+ cities across Southern California. CA License #1126325. $${Number(service.avg_cost_low).toLocaleString()}–$${Number(service.avg_cost_high).toLocaleString()} typical. Free on-site estimates. Call (562) 204-6335.`;
 
@@ -309,6 +310,34 @@ export default function ServiceIndexPage({ service, cities, allServices }: PageP
             </div>
           </section>
 
+          {/* Related blog posts */}
+          {relatedPosts.length > 0 && (
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-brand-dark mb-2">Related Guides &amp; Articles</h2>
+              <p className="text-gray-600 mb-6">
+                Expert cost breakdowns, permit guides, and how-to articles about {service.service_name.toLowerCase()} from C&amp;S Demolition:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {relatedPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="bg-white border border-gray-200 rounded-xl p-5 hover:border-brand-orange hover:shadow-md transition-all flex flex-col"
+                  >
+                    <span className="text-xs font-semibold text-brand-orange uppercase tracking-wide mb-2">
+                      {post.category}
+                    </span>
+                    <h3 className="font-bold text-gray-900 text-base mb-2 leading-snug flex-1">
+                      {post.title.replace(' | C&S Demolition', '')}
+                    </h3>
+                    <p className="text-xs text-gray-600 line-clamp-2 mb-3">{post.excerpt}</p>
+                    <span className="text-sm text-brand-orange font-semibold mt-auto">Read more →</span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* Other services */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-brand-dark mb-4">More Demolition Services</h2>
@@ -364,5 +393,8 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const service = services.find((s) => s.service_slug === params?.service);
   if (!service) return { notFound: true };
   const cities = getCities();
-  return { props: { service, cities, allServices: services } };
+  // Extract keywords for related post matching: service name words + slug words
+  const serviceWords = service.service_name.toLowerCase().split(/\s+/);
+  const relatedPosts = getRelatedBlogPosts(serviceWords, 3);
+  return { props: { service, cities, allServices: services, relatedPosts } };
 };
