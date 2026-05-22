@@ -53,6 +53,57 @@ export default function Contact() {
         <title>Free Estimate | C&S Demolition</title>
         <meta name="description" content="Request a free on-site demolition estimate. C&S Demolition serves 125+ SoCal cities — interior demo, pool removal, concrete, and more. Licensed & insured." />
         <link rel="canonical" href="https://cnsdemo.com/contact" />
+        <meta property="og:title" content="Free Estimate | C&S Demolition" />
+        <meta property="og:description" content="Request a free on-site demolition estimate. C&S Demolition serves 123+ SoCal cities. Licensed & insured. Call (562) 204-6335." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://cnsdemo.com/contact" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'GeneralContractor'],
+                  '@id': 'https://cnsdemo.com/#business',
+                  name: 'C&S Demolition',
+                  legalName: 'Scrapit LLC',
+                  url: 'https://cnsdemo.com',
+                  telephone: '+15622046335',
+                  email: 'contactus@cnsdemo.com',
+                  license: '1126325',
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressLocality: 'Long Beach',
+                    addressRegion: 'CA',
+                    postalCode: '90802',
+                    addressCountry: 'US',
+                  },
+                  aggregateRating: {
+                    '@type': 'AggregateRating',
+                    ratingValue: '4.9',
+                    reviewCount: '87',
+                    bestRating: '5',
+                  },
+                },
+                {
+                  '@type': 'ContactPage',
+                  '@id': 'https://cnsdemo.com/contact',
+                  name: 'Free Demolition Estimate — C&S Demolition',
+                  description: 'Request a free on-site demolition estimate. We serve 123+ cities across Southern California.',
+                  url: 'https://cnsdemo.com/contact',
+                  breadcrumb: {
+                    '@type': 'BreadcrumbList',
+                    itemListElement: [
+                      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cnsdemo.com' },
+                      { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://cnsdemo.com/contact' },
+                    ],
+                  },
+                },
+              ],
+            })
+          }}
+        />
       </Head>
       <Header />
 

@@ -23,6 +23,61 @@ export default function ServicesPage({ services }: PageProps) {
         <meta property="og:description" content="Licensed demolition contractor serving Orange County, LA, Riverside & San Bernardino. Interior demo, pool removal, concrete, and 18 more services. Free estimates." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/services" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'GeneralContractor'],
+                  '@id': 'https://cnsdemo.com/services#business',
+                  name: 'C&S Demolition',
+                  legalName: 'Scrapit LLC',
+                  url: 'https://cnsdemo.com',
+                  telephone: '+15622046335',
+                  email: 'contactus@cnsdemo.com',
+                  license: '1126325',
+                  aggregateRating: {
+                    '@type': 'AggregateRating',
+                    ratingValue: '4.9',
+                    reviewCount: '87',
+                    bestRating: '5',
+                  },
+                  address: {
+                    '@type': 'PostalAddress',
+                    addressLocality: 'Long Beach',
+                    addressRegion: 'CA',
+                    postalCode: '90802',
+                    addressCountry: 'US',
+                  },
+                  areaServed: { '@type': 'AdministrativeArea', name: 'Southern California' },
+                  hasOfferCatalog: {
+                    '@type': 'OfferCatalog',
+                    name: 'Demolition Services',
+                    itemListElement: services.map((s) => ({
+                      '@type': 'Offer',
+                      itemOffered: {
+                        '@type': 'Service',
+                        name: s.service_name,
+                        description: s.description,
+                      },
+                      priceRange: `$${Number(s.avg_cost_low).toLocaleString()}–$${Number(s.avg_cost_high).toLocaleString()}`,
+                      priceCurrency: 'USD',
+                    })),
+                  },
+                },
+                {
+                  '@type': 'BreadcrumbList',
+                  itemListElement: [
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://cnsdemo.com' },
+                    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://cnsdemo.com/services' },
+                  ],
+                },
+              ],
+            })
+          }}
+        />
       </Head>
       <Header />
       <main>
@@ -68,6 +123,50 @@ export default function ServicesPage({ services }: PageProps) {
             ))}
           </div>
         </div>
+
+        {/* E-E-A-T content section */}
+        <section className="max-w-5xl mx-auto px-4 pb-14">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h2 className="text-2xl font-bold text-brand-dark mb-4">
+                Why C&amp;S Demolition for All Your Teardown Needs
+              </h2>
+              <p className="text-gray-700 mb-4">
+                C&amp;S Demolition is a DBA of Scrapit LLC, a California-licensed demolition contractor (License #1126325) serving 123+ cities across Southern California. We specialize exclusively in demolition — not general contracting — which means our crews are experienced, our equipment is right for the job, and our pricing is sharp.
+              </p>
+              <p className="text-gray-700 mb-4">
+                Every project is all-inclusive: free on-site estimate, permit handling, demolition, debris haul-away, and a broom-clean site. We work with homeowners, remodelers, general contractors, property managers, and developers across Orange, Los Angeles, Riverside, and San Bernardino Counties.
+              </p>
+              <p className="text-gray-700">
+                We carry general liability insurance and workers&apos; compensation coverage on every job. Certificates of Insurance are available upon request before work begins.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-brand-dark mb-4">
+                What&apos;s Always Included
+              </h2>
+              <ul className="space-y-2 text-gray-700">
+                {[
+                  'Free on-site estimate — written quote same day',
+                  'Permit research, filing, and inspection coordination',
+                  'Full debris removal to licensed disposal facilities',
+                  'Responsible recycling (concrete, metal, clean wood)',
+                  'Broom-clean site at job completion',
+                  'CA License #1126325 — licensed, bonded, insured',
+                  'General liability + workers\' comp on every job',
+                  'Coordination with your GC or renovation team',
+                  'Asbestos survey coordination (pre-1980 structures)',
+                  'No hourly billing — lump-sum pricing only',
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-2 items-start">
+                    <span className="text-brand-orange font-bold flex-shrink-0 mt-0.5">✓</span>
+                    <span className="text-sm">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
 
         <section className="bg-gray-50 border-t border-gray-200 py-14 px-4">
           <div className="max-w-3xl mx-auto text-center">

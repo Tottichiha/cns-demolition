@@ -3,11 +3,12 @@ import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { getBlogPosts, getBlogPostBySlug, BlogPost } from '../../lib/getData';
+import { getBlogPosts, getBlogPostBySlug, getServices, BlogPost, Service } from '../../lib/getData';
 
 interface BlogPostProps {
   post: BlogPost;
   relatedPosts: BlogPost[];
+  services: Service[];
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -72,7 +73,7 @@ function buildHowToSchema(post: BlogPost) {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function BlogPostPage({ post, relatedPosts }: BlogPostProps) {
+export default function BlogPostPage({ post, relatedPosts, services }: BlogPostProps) {
   const cleanTitle = post.title.replace(' | C&S Demolition', '');
   const readTime = estimateReadTime(post);
   const wordCount = estimateWordCount(post);
@@ -339,6 +340,35 @@ export default function BlogPostPage({ post, relatedPosts }: BlogPostProps) {
             </div>
           </div>
 
+          {/* Related Services — internal linking hub */}
+          <section className="mb-10">
+            <h2 className="text-xl font-bold text-brand-dark mb-3">
+              Demolition Services We Offer
+            </h2>
+            <p className="text-sm text-gray-600 mb-4">
+              C&amp;S Demolition handles every type of residential and commercial demolition across Southern California — licensed, insured, all-inclusive. Browse our services:
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {services.map((s) => (
+                <Link
+                  key={s.service_slug}
+                  href={`/demolition/${s.service_slug}`}
+                  className="text-sm border border-gray-200 hover:border-brand-orange hover:text-brand-orange px-3 py-1.5 rounded-full transition-colors"
+                >
+                  {s.service_name}
+                </Link>
+              ))}
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm">
+              <Link href="/service-areas" className="text-brand-orange hover:underline font-medium">
+                Browse 123+ service cities →
+              </Link>
+              <Link href="/contact" className="text-brand-orange hover:underline font-medium">
+                Get a free estimate →
+              </Link>
+            </div>
+          </section>
+
           {/* Related posts */}
           {relatedPosts.length > 0 && (
             <section>
@@ -388,5 +418,5 @@ export const getStaticProps: GetStaticProps<BlogPostProps> = async ({ params }) 
     .filter((p) => p.slug !== post.slug && p.category === post.category)
     .slice(0, 3);
 
-  return { props: { post, relatedPosts } };
+  return { props: { post, relatedPosts, services: getServices() } };
 };
