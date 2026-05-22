@@ -3,16 +3,17 @@ import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { getCounties, getCitiesByCounty, getServices, City, Service } from '../../lib/getData';
+import { getCounties, getCitiesByCounty, getServices, getRelatedBlogPosts, City, Service, BlogPost } from '../../lib/getData';
 
 interface PageProps {
   county: string;
   countySlug: string;
   cities: City[];
   services: Service[];
+  relatedPosts: BlogPost[];
 }
 
-export default function CountyPage({ county, countySlug, cities, services }: PageProps) {
+export default function CountyPage({ county, countySlug, cities, services, relatedPosts }: PageProps) {
   const title = `Demolition Contractor in ${county} County, CA | C&S Demolition`;
   const description = `Licensed demolition contractor serving all ${cities.length} cities in ${county} County, CA. Interior demo, pool removal, concrete removal, and more. CA License #1126325. Free on-site estimates. Call (562) 204-6335.`;
 
@@ -82,6 +83,8 @@ export default function CountyPage({ county, countySlug, cities, services }: Pag
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://cnsdemo.com/county/${countySlug}`} />
+        <meta property="og:image" content={`https://cnsdemo.com/api/og?title=${encodeURIComponent('Demolition Contractor in ' + county + ' County, CA')}&sub=${encodeURIComponent(cities.length + ' Cities · CA Lic #1126325 · Free Estimates')}&type=county`} />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       </Head>
 
@@ -191,6 +194,34 @@ export default function CountyPage({ county, countySlug, cities, services }: Pag
             </div>
           </section>
 
+          {/* Related blog posts */}
+          {relatedPosts.length > 0 && (
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-brand-dark mb-2">Demolition Guides for {county} County</h2>
+              <p className="text-gray-600 mb-6">
+                Helpful cost guides, permit tips, and how-to articles relevant to demolition projects in {county} County:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {relatedPosts.map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="bg-white border border-gray-200 rounded-xl p-5 hover:border-brand-orange hover:shadow-md transition-all flex flex-col"
+                  >
+                    <span className="text-xs font-semibold text-brand-orange uppercase tracking-wide mb-2">
+                      {post.category}
+                    </span>
+                    <h3 className="font-bold text-gray-900 text-base mb-2 leading-snug flex-1">
+                      {post.title.replace(' | C&S Demolition', '')}
+                    </h3>
+                    <p className="text-xs text-gray-600 line-clamp-2 mb-3">{post.excerpt}</p>
+                    <span className="text-sm text-brand-orange font-semibold mt-auto">Read more →</span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+
           {/* CTA */}
           <section className="bg-brand-orange text-white rounded-xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-3">
@@ -235,5 +266,8 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
 
   const cities = getCitiesByCounty(county);
   const services = getServices();
-  return { props: { county, countySlug, cities, services } };
+  // Related posts: county name + 'demolition' keywords
+  const countyWords = county.toLowerCase().split(/\s+/);
+  const relatedPosts = getRelatedBlogPosts([...countyWords, 'cost', 'permit'], 3);
+  return { props: { county, countySlug, cities, services, relatedPosts } };
 };

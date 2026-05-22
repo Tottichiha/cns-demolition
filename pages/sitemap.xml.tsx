@@ -19,6 +19,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     { url: '/blog', priority: '0.8', changefreq: 'weekly' },
     { url: '/contact', priority: '0.7', changefreq: 'monthly' },
     { url: '/about', priority: '0.7', changefreq: 'monthly' },
+    { url: '/privacy', priority: '0.3', changefreq: 'yearly' },
   ];
 
   const counties = getCounties();

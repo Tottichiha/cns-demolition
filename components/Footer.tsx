@@ -77,7 +77,7 @@ export default function Footer() {
       {/* Trust bar */}
       <div className="border-t border-gray-700 py-4 px-4">
         <div className="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-2 text-xs">
-          <span>© {new Date().getFullYear()} C&S Demolition / Scrapit LLC. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} C&S Demolition / Scrapit LLC. All rights reserved. &nbsp;·&nbsp; <Link href="/privacy" className="hover:text-white">Privacy Policy</Link></span>
           <span className="text-gray-500">
             CA License #1126325 · Licensed · Bonded · Insured · Serving 123+ SoCal Cities
           </span>
