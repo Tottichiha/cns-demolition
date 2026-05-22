@@ -15,7 +15,7 @@ export default function AboutPage() {
         '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'GeneralContractor'],
         '@id': 'https://cnsdemo.com/#business',
         name: 'C&S Demolition',
-        legalName: 'C&S Demolition',
+        legalName: 'Scrapit LLC',
         description,
         url: 'https://cnsdemo.com',
         telephone: '+15622046335',
@@ -87,6 +87,8 @@ export default function AboutPage() {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/about" />
         <meta property="og:image" content="https://cnsdemo.com/api/og?title=About+C%26S+Demolition&sub=Licensed+CA+Contractor+%23+1126325&type=about" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       </Head>
