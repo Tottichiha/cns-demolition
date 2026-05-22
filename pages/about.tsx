@@ -237,15 +237,15 @@ export default function AboutPage() {
                 },
                 {
                   title: 'All-Inclusive Pricing',
-                  body: 'Our quotes include labor, equipment, dumpsters, debris hauling, and dump fees. We don't low-ball the demo and then charge extra for disposal — you know the full cost before work starts.',
+                  body: "Our quotes include labor, equipment, dumpsters, debris hauling, and dump fees. We don't low-ball the demo and then charge extra for disposal — you know the full cost before work starts.",
                 },
                 {
                   title: 'We Work Around Contractors',
-                  body: 'Whether you're a homeowner, GC, or developer, we sync our schedule with your project timeline. We don't disappear mid-project, and we leave the site ready for the next trade.',
+                  body: "Whether you're a homeowner, GC, or developer, we sync our schedule with your project timeline. We don't disappear mid-project, and we leave the site ready for the next trade.",
                 },
                 {
                   title: 'Licensed, Insured, Verifiable',
-                  body: 'CSLB License #1126325, active general liability, and workers' compensation insurance. You can verify our license in 30 seconds at cslb.ca.gov. We carry the paper — ask to see it on site.',
+                  body: "CSLB License #1126325, active general liability, and workers' compensation insurance. You can verify our license in 30 seconds at cslb.ca.gov. We carry the paper — ask to see it on site.",
                 },
               ].map((item) => (
                 <div key={item.title} className="bg-gray-50 rounded-xl p-6 border border-gray-200">
