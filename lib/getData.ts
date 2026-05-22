@@ -9,6 +9,11 @@ export interface City {
   lat: string;
   lng: string;
   nearby_cities: string;
+  permit_office: string;
+  permit_phone: string;
+  permit_website: string;
+  neighborhoods: string;
+  city_note: string;
 }
 
 export interface Service {

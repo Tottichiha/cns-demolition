@@ -111,10 +111,76 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
             <p className="text-gray-700 mb-4">
               {service.description} Our {city.city} team is familiar with local building codes, HOA requirements, and municipal permit processes — so your project stays on schedule from day one.
             </p>
+            <p className="text-gray-700 mb-4">
+              {city.city_note}
+            </p>
             <p className="text-gray-700">
               Whether you&apos;re a homeowner preparing for a renovation, a contractor clearing a site, or a property manager handling a rehab, we deliver clean, efficient demolition work that meets California standards.
             </p>
           </section>
+
+          {/* Neighborhoods Served */}
+          {city.neighborhoods && (
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-brand-dark mb-4">
+                {service.service_name} Services Across {city.city} Neighborhoods
+              </h2>
+              <p className="text-gray-700 mb-4">
+                C&S Demolition serves every neighborhood in {city.city}, including{' '}
+                {city.neighborhoods.split(',').map((n) => n.trim()).filter(Boolean).join(', ')}.
+                No matter where your property is located, we dispatch crews fast and handle every step from permit filing to final cleanup.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {city.neighborhoods.split(',').map((n) => n.trim()).filter(Boolean).map((neighborhood) => (
+                  <span
+                    key={neighborhood}
+                    className="text-sm bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full"
+                  >
+                    {neighborhood}
+                  </span>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Permit Information */}
+          {city.permit_office && (
+            <section className="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-12">
+              <h2 className="text-xl font-bold text-brand-dark mb-3">
+                {city.city} Demolition Permit Information
+              </h2>
+              <p className="text-gray-700 mb-4">
+                {service.service_name} in {city.city} typically requires a demolition permit issued by the city building department. C&S Demolition handles the entire permitting process on your behalf — from application to final inspection sign-off.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                <div>
+                  <p className="font-semibold text-gray-800 mb-1">Permit Office</p>
+                  <p className="text-gray-600">{city.permit_office}</p>
+                </div>
+                {city.permit_phone && (
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">Phone</p>
+                    <a href={`tel:${city.permit_phone.replace(/\D/g, '')}`} className="text-brand-orange hover:underline">
+                      {city.permit_phone}
+                    </a>
+                  </div>
+                )}
+                {city.permit_website && (
+                  <div>
+                    <p className="font-semibold text-gray-800 mb-1">Website</p>
+                    <a
+                      href={city.permit_website.startsWith('http') ? city.permit_website : `https://${city.permit_website}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-orange hover:underline break-all"
+                    >
+                      {city.permit_website}
+                    </a>
+                  </div>
+                )}
+              </div>
+            </section>
+          )}
 
           {/* Cost Section */}
           <section className="bg-gray-50 border border-gray-200 rounded-xl p-6 mb-12">
