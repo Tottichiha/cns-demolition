@@ -24,6 +24,8 @@ export default function BlogIndex({ posts, categories }: BlogIndexProps) {
         <meta property="og:description" content="Expert demolition tips, cost guides, and permit advice for Southern California. Interior demo, pool removal, concrete breaking, and more." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/blog" />
+        <meta property="og:image" content="https://cnsdemo.com/api/og?title=Demolition+Resource+Center&sub=Cost+Guides+%C2%B7+How-To+%C2%B7+Permit+Tips&type=blog" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -85,14 +87,18 @@ export default function BlogIndex({ posts, categories }: BlogIndexProps) {
           {/* Category filter */}
           <div className="flex flex-wrap gap-2 mb-10">
             <span className="text-sm font-semibold text-gray-500 self-center mr-2">Browse by:</span>
-            {categories.map((cat) => (
-              <span
-                key={cat}
-                className="text-sm bg-gray-100 border border-gray-200 px-3 py-1 rounded-full text-gray-700"
-              >
-                {cat}
-              </span>
-            ))}
+            {categories.map((cat) => {
+              const slug = cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+              return (
+                <Link
+                  key={cat}
+                  href={`/blog/category/${slug}`}
+                  className="text-sm bg-gray-100 border border-gray-200 px-3 py-1.5 rounded-full text-gray-700 hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-colors"
+                >
+                  {cat}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Post grid */}
@@ -112,7 +118,7 @@ export default function BlogIndex({ posts, categories }: BlogIndexProps) {
                 <p className="text-sm text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
                 <div className="flex items-center justify-between mt-auto">
                   <span className="text-xs text-gray-400">
-                    {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                    {new Date(post.date + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                   </span>
                   <span className="text-sm text-brand-orange font-semibold">Read more →</span>
                 </div>

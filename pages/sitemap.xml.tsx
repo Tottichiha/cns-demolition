@@ -1,5 +1,9 @@
 import { GetServerSideProps } from 'next';
-import { getAllCityServicePairs, getCounties, getServices, getBlogPosts } from '../lib/getData';
+import { getAllCityServicePairs, getCounties, getServices, getBlogPosts, getBlogCategories } from '../lib/getData';
+
+function categoryToSlug(cat: string): string {
+  return cat.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
 
 function Sitemap() {
   return null;
@@ -37,6 +41,13 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     changefreq: 'monthly',
   }));
 
+  const categories = getBlogCategories();
+  const categoryPages = categories.map((cat) => ({
+    url: `/blog/category/${categoryToSlug(cat)}`,
+    priority: '0.7',
+    changefreq: 'weekly',
+  }));
+
   const blogPosts = getBlogPosts();
   const blogPages = blogPosts.map((post) => ({
     url: `/blog/${post.slug}`,
@@ -45,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     lastmod: post.date,
   }));
 
-  const allPages = [...staticPages, ...countyPages, ...serviceIndexPages, ...landingPages, ...blogPages];
+  const allPages = [...staticPages, ...countyPages, ...serviceIndexPages, ...categoryPages, ...landingPages, ...blogPages];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -61,6 +72,7 @@ ${allPages
 </urlset>`;
 
   res.setHeader('Content-Type', 'text/xml');
+  res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=43200');
   res.write(sitemap);
   res.end();
 
