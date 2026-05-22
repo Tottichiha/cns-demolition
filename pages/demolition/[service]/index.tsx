@@ -173,6 +173,10 @@ export default function ServiceIndexPage({ service, cities, allServices }: PageP
         <meta property="og:description" content={description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`https://cnsdemo.com/demolition/${service.service_slug}`} />
+        <meta property="og:image" content={`https://cnsdemo.com/api/og?title=${encodeURIComponent(service.service_name + ' in Southern California')}&sub=${encodeURIComponent('CA Lic #1126325 · ' + cities.length + ' Cities · Free Estimates')}&type=service`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       </Head>
 

@@ -159,6 +159,11 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
         <meta property="og:description" content={post.meta_description} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={`https://cnsdemo.com/blog/${post.slug}`} />
+        <meta property="og:image" content={`https://cnsdemo.com/api/og?title=${encodeURIComponent(cleanTitle)}&sub=${encodeURIComponent(post.category + ' · C&S Demolition')}&type=blog`} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={`https://cnsdemo.com/api/og?title=${encodeURIComponent(cleanTitle)}&sub=${encodeURIComponent(post.category + ' · C&S Demolition')}&type=blog`} />
         <meta property="article:published_time" content={post.date} />
         <meta property="article:section" content={post.category} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />

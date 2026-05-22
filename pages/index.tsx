@@ -60,6 +60,11 @@ export default function Home({ counties, totalCities, services }: HomeProps) {
         <meta property="og:description" content={`Licensed CA demolition contractor serving ${totalCities}+ SoCal cities. Interior demo, pool removal, concrete, and more. Free estimates. (562) 204-6335.`} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com" />
+        <meta property="og:image" content="https://cnsdemo.com/api/og?title=Demolition+Contractor+in+Southern+California&sub=CA+License+%231126325+%C2%B7+123%2B+SoCal+Cities&type=home" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://cnsdemo.com/api/og?title=Demolition+Contractor+in+Southern+California&sub=CA+License+%231126325+%C2%B7+123%2B+SoCal+Cities&type=home" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
