@@ -4,14 +4,14 @@ import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-// ââ Types ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ── Types ──────────────────────────────────────────────────────────────────
 interface Project {
   name: string;
   cat: string;
   images: string[];
 }
 
-// ââ Project data âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ── Project data ───────────────────────────────────────────────────────────
 const projectsData: Project[] = [
   {
     name: 'Burnt House Demolition - Crestline, CA',
@@ -143,7 +143,7 @@ const FILTERS = [
   { key: 'concrete', label: 'Concrete' },
 ];
 
-// ââ Lightbox âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ── Lightbox ───────────────────────────────────────────────────────────────
 function Lightbox({
   project,
   initialIndex,
@@ -184,20 +184,20 @@ function Lightbox({
           onClick={onClose}
           aria-label="Close"
         >
-          Ã
+          ×
         </button>
 
         {/* Image */}
         <img
           src={project.images[idx]}
-          alt={`${project.name} â photo ${idx + 1}`}
+          alt={`${project.name} — photo ${idx + 1}`}
           className="w-full max-h-[75vh] object-contain rounded-lg"
           loading="lazy"
         />
 
         {/* Caption */}
         <p className="text-white text-center mt-3 text-sm">
-          {project.name} â {idx + 1} / {project.images.length}
+          {project.name} — {idx + 1} / {project.images.length}
         </p>
 
         {/* Prev / Next */}
@@ -208,14 +208,14 @@ function Lightbox({
               onClick={() => setIdx((i) => (i - 1 + project.images.length) % project.images.length)}
               aria-label="Previous"
             >
-              â¹
+              ┹
             </button>
             <button
               className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-black/80 text-xl"
               onClick={() => setIdx((i) => (i + 1) % project.images.length)}
               aria-label="Next"
             >
-              âº
+              ›
             </button>
           </>
         )}
@@ -241,10 +241,10 @@ function Lightbox({
   );
 }
 
-// ââ Gallery page âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-const title = 'Project Gallery | C&S Demolition Portfolio â SoCal Projects';
+// ── Gallery page ───────────────────────────────────────────────────────────
+const title = 'Project Gallery | C&S Demolition Portfolio — SoCal Projects';
 const description =
-  'Browse real demolition projects completed by C&S Demolition across Southern California â residential teardowns, commercial interiors, concrete removal, and more. CA License #1126325.';
+  'Browse real demolition projects completed by C&S Demolition across Southern California — residential teardowns, commercial interiors, concrete removal, and more. CA License #1126325.';
 
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -312,13 +312,13 @@ export default function GalleryPage() {
               <span className="text-white">Project Gallery</span>
             </nav>
             <span className="text-brand-orange text-xs font-bold uppercase tracking-widest mb-3 block">
-              Real Projects Â· Real Results
+              Real Projects · Real Results
             </span>
             <h1 className="text-4xl font-bold mb-4 leading-tight">
               C&amp;S Demolition Project Portfolio
             </h1>
             <p className="text-gray-300 text-lg max-w-2xl">
-              Browse completed demolition projects across Southern California â from burnt-house teardowns and garage removals to commercial interior gut-outs and concrete slab removal. CA License #1126325.
+              Browse completed demolition projects across Southern California — from burnt-house teardowns and garage removals to commercial interior gut-outs and concrete slab removal. CA License #1126325.
             </p>
           </div>
         </section>
@@ -326,9 +326,9 @@ export default function GalleryPage() {
         {/* Trust bar */}
         <div className="bg-brand-orange text-white py-3 px-4">
           <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-6 text-sm font-semibold">
-            <span>â {projectsData.length} Projects Shown</span>
-            <span>â CA License #1126325</span>
-            <span>â Residential Â· Commercial Â· Interior Â· Concrete</span>
+            <span>✓ {projectsData.length} Projects Shown</span>
+            <span>✓ CA License #1126325</span>
+            <span>✓ Residential · Commercial · Interior · Concrete</span>
           </div>
         </div>
 
@@ -430,14 +430,14 @@ export default function GalleryPage() {
               Need a Demolition Estimate?
             </h2>
             <p className="text-orange-100 mb-6 max-w-xl mx-auto">
-              We serve 123+ cities across Southern California. Free on-site estimates â written quote before we leave your property.
+              We serve 123+ cities across Southern California. Free on-site estimates — written quote before we leave your property.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+15622046335"
                 className="inline-block bg-white text-brand-orange font-bold px-10 py-4 rounded-lg text-xl hover:bg-gray-100 transition-colors"
               >
-                ð (562) 204-6335
+                📞 (562) 204-6335
               </a>
               <Link
                 href="/contact"
