@@ -11,7 +11,7 @@ export default function Footer() {
           <p className="text-sm mb-2">A licensed DBA of Scrapit LLC. Serving Southern California with professional demolition services since day one.</p>
           <div className="space-y-1 text-sm mt-3">
             <p className="text-white font-semibold">CA Contractor License #1126325</p>
-            <p>⭐ 4.9 / 5 · 87 Verified Reviews</p>
+            <p>Bonded &amp; Insured · Free On-Site Estimates</p>
             <a href="tel:+15622046335" className="text-brand-orange hover:text-orange-400 font-semibold block">
               (562) 204-6335
             </a>

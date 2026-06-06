@@ -110,13 +110,6 @@ export default function SchemaMarkup({ city, service, faqs }: SchemaProps) {
           },
         ],
       },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '87',
-        bestRating: '5',
-        worstRating: '1',
-      },
       priceRange: '$$',
       paymentAccepted: 'Cash, Check, Credit Card, Zelle',
       currenciesAccepted: 'USD',

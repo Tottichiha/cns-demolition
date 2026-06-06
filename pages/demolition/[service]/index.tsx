@@ -116,12 +116,6 @@ export default function ServiceIndexPage({ service, cities, allServices, related
           postalCode: '90802',
           addressCountry: 'US',
         },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '4.9',
-          reviewCount: '87',
-          bestRating: '5',
-        },
         areaServed: {
           '@type': 'AdministrativeArea',
           name: 'Southern California',

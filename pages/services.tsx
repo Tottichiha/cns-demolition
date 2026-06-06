@@ -44,12 +44,6 @@ export default function ServicesPage({ services }: PageProps) {
                   telephone: '+15622046335',
                   email: 'contactus@cnsdemo.com',
                   license: '1126325',
-                  aggregateRating: {
-                    '@type': 'AggregateRating',
-                    ratingValue: '4.9',
-                    reviewCount: '87',
-                    bestRating: '5',
-                  },
                   address: {
                     '@type': 'PostalAddress',
                     addressLocality: 'Long Beach',

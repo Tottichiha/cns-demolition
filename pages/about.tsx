@@ -50,7 +50,6 @@ export default function AboutPage() {
           recognizedBy: { '@type': 'Organization', name: 'California Contractors State License Board', url: 'https://www.cslb.ca.gov' },
           identifier: '1126325',
         },
-        aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.9', reviewCount: '87', bestRating: '5' },
         sameAs: [
           'https://www.yelp.com/biz/cns-demolition',
           'https://www.facebook.com/cnsdemo',
@@ -131,7 +130,7 @@ export default function AboutPage() {
             <span>✓ CA License #1126325</span>
             <span>✓ Fully Insured</span>
             <span>✓ 14+ Years Experience</span>
-            <span>✓ 4.9★ Rating (87 Reviews)</span>
+            <span>✓ Licensed · Bonded · Insured</span>
             <span>✓ 123+ Cities Served</span>
             <span>✓ Free On-Site Estimates</span>
           </div>
@@ -165,7 +164,7 @@ export default function AboutPage() {
                   <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Insurance</span><span>General Liability + Workers' Comp</span></li>
                   <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Team Size</span><span>15 licensed professionals</span></li>
                   <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Service Area</span><span>123+ cities, 4 SoCal counties</span></li>
-                  <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Ratings</span><span>4.9★ across 87 verified reviews</span></li>
+                  <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Pricing</span><span>Lump-sum, all-inclusive — no hourly billing</span></li>
                   <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Estimates</span><span>Free on-site, same-day written quote</span></li>
                   <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Payment</span><span>50% deposit, Net-20 terms</span></li>
                   <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Phone</span><a href="tel:+15622046335" className="text-brand-orange hover:underline">(562) 204-6335</a></li>

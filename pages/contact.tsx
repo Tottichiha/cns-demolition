@@ -86,12 +86,6 @@ export default function Contact() {
                     postalCode: '90802',
                     addressCountry: 'US',
                   },
-                  aggregateRating: {
-                    '@type': 'AggregateRating',
-                    ratingValue: '4.9',
-                    reviewCount: '87',
-                    bestRating: '5',
-                  },
                 },
                 {
                   '@type': 'ContactPage',
@@ -235,7 +229,7 @@ export default function Contact() {
                   { icon: '✓', text: 'General liability + workers\' comp on every job' },
                   { icon: '✓', text: 'Free on-site estimate — written quote same day' },
                   { icon: '✓', text: 'All-inclusive: demo, permits, haul-away, cleanup' },
-                  { icon: '✓', text: '4.9★ rating · 87 verified reviews' },
+                  { icon: '✓', text: 'Locally owned & operated — based in Long Beach, CA' },
                   { icon: '✓', text: '123+ cities across 4 SoCal counties' },
                   { icon: '✓', text: 'No hourly billing — lump-sum pricing only' },
                 ].map((item, i) => (

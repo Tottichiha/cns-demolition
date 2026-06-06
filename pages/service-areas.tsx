@@ -50,12 +50,6 @@ export default function ServiceAreasPage({ countyData, totalCities, services }: 
                   url: 'https://cnsdemo.com',
                   telephone: '+15622046335',
                   license: '1126325',
-                  aggregateRating: {
-                    '@type': 'AggregateRating',
-                    ratingValue: '4.9',
-                    reviewCount: '87',
-                    bestRating: '5',
-                  },
                   areaServed: countyData.map((cd) => ({
                     '@type': 'AdministrativeArea',
                     name: `${cd.county} County, CA`,

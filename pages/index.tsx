@@ -130,13 +130,6 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
                   "closes": "16:00"
                 }
               ],
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "reviewCount": "87",
-                "bestRating": "5",
-                "worstRating": "1"
-              },
               "sameAs": [
                 "https://www.yelp.com/biz/cns-demolition",
                 "https://www.facebook.com/cnsdemo",
@@ -257,7 +250,7 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
                 ['CA Licensed Contractor', 'License #1126325. We\'re not a handyman with a sledgehammer — we\'re a fully licensed California demolition contractor backed by the resources of Scrapit LLC.'],
                 ['All-Inclusive Pricing', 'Demo, haul-away, and site cleanup are all in your quote. No hidden fees, no surprise disposal charges at the end of the job.'],
                 ['Permit Handling', 'We research, file, and coordinate all permits on your behalf. We know the building departments across all 5 SoCal counties.'],
-                ['4.9★ Verified Reviews', '87+ five-star reviews from homeowners, contractors, and property managers across Southern California.'],
+                ['Upfront Lump-Sum Pricing', 'No hourly billing and no surprise add-ons — the written quote is the price. Demo, permits, haul-away, and cleanup all included.'],
                 ['Same-Week Availability', 'We keep our schedule moving. Most projects can start within the same week as your estimate.'],
                 ['Full Debris Removal', 'Everything gets hauled away and disposed of responsibly. Concrete gets crushed and recycled. Your site is left broom-clean.'],
               ].map(([title, text]) => (

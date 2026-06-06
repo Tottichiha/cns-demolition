@@ -39,12 +39,6 @@ export default function CountyPage({ county, countySlug, cities, services, relat
           postalCode: '90802',
           addressCountry: 'US',
         },
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue: '4.9',
-          reviewCount: '87',
-          bestRating: '5',
-        },
         areaServed: {
           '@type': 'AdministrativeArea',
           name: `${county} County, CA`,
