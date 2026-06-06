@@ -12,9 +12,12 @@ import {
   getCitiesByCounty,
   getServices,
   getRelatedBlogPosts,
+  getCityContent,
+  getServiceContent,
   City,
   Service,
   BlogPost,
+  ServiceContentEntry,
 } from '../../../lib/getData';
 
 interface PageProps {
@@ -23,9 +26,11 @@ interface PageProps {
   nearbyCities: City[];
   allServices: Service[];
   relatedPosts: BlogPost[];
+  cityContent: string | null;
+  serviceContent: ServiceContentEntry | null;
 }
 
-export default function ServiceCityPage({ city, service, nearbyCities, allServices, relatedPosts }: PageProps) {
+export default function ServiceCityPage({ city, service, nearbyCities, allServices, relatedPosts, cityContent, serviceContent }: PageProps) {
   const title = `${service.service_name} in ${city.city}, CA | C&S Demolition`;
   const description = `Need ${service.service_name.toLowerCase()} in ${city.city}, ${city.county} County? C&S Demolition (Scrapit LLC) is your licensed local contractor. Free estimates. ${service.duration} turnaround. Serving ${city.city} and all of ${city.county} County.`;
 
@@ -109,24 +114,46 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
 
         <div className="max-w-4xl mx-auto px-4 py-12">
 
-          {/* Service Overview */}
+          {/* Service Overview — unique per-service content */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-brand-dark mb-4">
-              Professional {service.service_name} Services in {city.city}
+              Professional {service.service_name} in {city.city}, CA
             </h2>
-            <p className="text-gray-700 mb-4">
-              C&S Demolition has been serving {city.city} homeowners and contractors with reliable {service.service_name.toLowerCase()} services. As a DBA of Scrapit LLC, we bring the full backing of a licensed, bonded, and insured demolition company to every project in {city.county} County.
-            </p>
-            <p className="text-gray-700 mb-4">
-              {service.description} Our {city.city} team is familiar with local building codes, HOA requirements, and municipal permit processes — so your project stays on schedule from day one.
-            </p>
-            <p className="text-gray-700 mb-4">
-              {city.city_note}
-            </p>
-            <p className="text-gray-700">
-              Whether you&apos;re a homeowner preparing for a renovation, a contractor clearing a site, or a property manager handling a rehab, we deliver clean, efficient demolition work that meets California standards.
-            </p>
+            {serviceContent ? (
+              serviceContent.deep_content.split('\n\n').map((para, i) => (
+                <p key={i} className="text-gray-700 mb-4 leading-relaxed">{para}</p>
+              ))
+            ) : (
+              <p className="text-gray-700 mb-4 leading-relaxed">
+                {service.description} C&amp;S Demolition is a licensed, insured contractor (DBA of Scrapit LLC) serving {city.city} and all of {city.county} County.
+              </p>
+            )}
+            {serviceContent && serviceContent.included.length > 0 && (
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 my-6">
+                <p className="font-semibold text-gray-900 mb-3">What&apos;s included in our {service.service_name.toLowerCase()}:</p>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                  {serviceContent.included.map((item, i) => (
+                    <li key={i} className="flex gap-2 text-sm text-gray-700">
+                      <span className="text-brand-orange flex-shrink-0">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </section>
+
+          {/* Local Knowledge — unique per-city content */}
+          {(cityContent || city.city_note) && (
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-brand-dark mb-4">
+                {service.service_name} in {city.city}: Local Knowledge
+              </h2>
+              {(cityContent || city.city_note).split('\n\n').map((para, i) => (
+                <p key={i} className="text-gray-700 mb-4 leading-relaxed">{para}</p>
+              ))}
+            </section>
+          )}
 
           {/* Neighborhoods Served */}
           {city.neighborhoods && (
@@ -422,6 +449,9 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
 
   if (!city || !service) return { notFound: true };
 
+  const cityContent = getCityContent(citySlug);
+  const serviceContent = getServiceContent(serviceSlug);
+
   // Get nearby cities from same county (excluding current city)
   const nearbyCities = getCitiesByCounty(city.county)
     .filter((c) => c.slug !== city.slug)
@@ -432,6 +462,6 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const relatedPosts = getRelatedBlogPosts([...serviceKeywords, city.slug.split('-')[0]], 3);
 
   return {
-    props: { city, service, nearbyCities, allServices: getServices(), relatedPosts },
+    props: { city, service, nearbyCities, allServices: getServices(), relatedPosts, cityContent, serviceContent },
   };
 };

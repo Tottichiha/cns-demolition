@@ -124,6 +124,30 @@ export function getRelatedBlogPosts(keywords: string[], limit = 3): BlogPost[] {
     .map((s) => s.post);
 }
 
+// ─── Unique, de-genericized page content ───────────────────────────────────────
+export interface ServiceContentEntry {
+  deep_content: string;
+  included: string[];
+}
+
+let _cityContent: Record<string, string> | null = null;
+export function getCityContent(slug: string): string | null {
+  if (!_cityContent) {
+    const fp = path.join(dataDir, 'city-content.json');
+    _cityContent = fs.existsSync(fp) ? JSON.parse(fs.readFileSync(fp, 'utf-8')) : {};
+  }
+  return _cityContent![slug] ?? null;
+}
+
+let _serviceContent: Record<string, ServiceContentEntry> | null = null;
+export function getServiceContent(slug: string): ServiceContentEntry | null {
+  if (!_serviceContent) {
+    const fp = path.join(dataDir, 'service-content.json');
+    _serviceContent = fs.existsSync(fp) ? JSON.parse(fs.readFileSync(fp, 'utf-8')) : {};
+  }
+  return _serviceContent![slug] ?? null;
+}
+
 // Generate all city+service combos for getStaticPaths
 export function getAllCityServicePairs(): { citySlug: string; serviceSlug: string }[] {
   const cities = getCities();

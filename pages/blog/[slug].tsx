@@ -192,6 +192,46 @@ function generateExtendedGuide(post: BlogPost): ExtendedSection[] {
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
+// Map a blog post to its single most-relevant service page for a contextual
+// internal link with descriptive anchor text (better authority flow than the
+// boilerplate service hub). Pool intentionally omitted — we don't compete on
+// price-driven pool demo. Returns null when there's no confident match.
+function pickPrimaryService(post: BlogPost, services: Service[]): Service | null {
+  const slug = post.slug.toLowerCase();
+  const map: [string, string][] = [
+    ['mobile-home', 'mobile-home-demolition'],
+    ['whole-house', 'whole-house-demolition'],
+    ['house-demolition', 'whole-house-demolition'],
+    ['interior', 'interior-demolition'],
+    ['kitchen', 'kitchen-demolition'],
+    ['bathroom', 'bathroom-demolition'],
+    ['garage', 'garage-demolition'],
+    ['chimney', 'chimney-demolition'],
+    ['concrete', 'concrete-removal'],
+    ['driveway', 'driveway-removal'],
+    ['flooring', 'flooring-removal'],
+    ['stucco', 'stucco-removal'],
+    ['drywall', 'stucco-removal'],
+    ['load-bearing', 'wall-removal'],
+    ['deck', 'deck-demolition'],
+    ['patio', 'deck-demolition'],
+    ['fence', 'fence-removal'],
+    ['block-wall', 'fence-removal'],
+    ['commercial', 'commercial-demolition'],
+    ['selective', 'selective-demolition'],
+    ['shed', 'shed-demolition'],
+    ['adu', 'addition-demolition'],
+    ['addition', 'addition-demolition'],
+  ];
+  for (const [kw, svc] of map) {
+    if (slug.includes(kw)) {
+      const found = services.find((s) => s.service_slug === svc);
+      if (found) return found;
+    }
+  }
+  return null;
+}
+
 export default function BlogPostPage({ post, relatedPosts, services }: BlogPostProps) {
   const cleanTitle = post.title.replace(' | C&S Demolition', '');
   const extGuide = generateExtendedGuide(post);
@@ -202,6 +242,7 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
   const faqs = generateBlogFAQs(post);
   const isHowTo = post.category === 'How-To Guides';
   const showToC = post.sections.length >= 4 || extGuide.length > 0;
+  const primaryService = pickPrimaryService(post, services);
 
   const ogImageUrl = `https://cnsdemo.com/api/og?title=${encodeURIComponent(cleanTitle)}&sub=${encodeURIComponent(post.category + ' · C&S Demolition')}&type=blog`;
 
@@ -381,6 +422,21 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
                 ))}
               </ol>
             </nav>
+          )}
+
+          {/* Most-relevant service — contextual internal link with descriptive anchor */}
+          {primaryService && (
+            <div className="border-l-4 border-brand-orange bg-orange-50 rounded-r-lg p-5 mb-10">
+              <p className="text-gray-800 leading-relaxed m-0">
+                <span className="font-semibold">Need {primaryService.service_name.toLowerCase()} in Southern California?</span>{' '}
+                C&amp;S Demolition is a CA-licensed, insured contractor (License #1126325). Get a free on-site estimate for{' '}
+                <Link href={`/demolition/${primaryService.service_slug}`} className="text-brand-orange font-semibold hover:underline">
+                  {primaryService.service_name}
+                </Link>{' '}
+                or call{' '}
+                <a href="tel:+15622046335" className="text-brand-orange font-semibold hover:underline">(562) 204-6335</a>.
+              </p>
+            </div>
           )}
 
           {/* Content */}
