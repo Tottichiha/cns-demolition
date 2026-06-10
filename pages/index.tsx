@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import RecentProjects from '../components/RecentProjects';
+import GoogleReviews from '../components/GoogleReviews';
 import { getCounties, getCities, getServices, getBlogPosts, getBlogCategories, Service, BlogPost } from '../lib/getData';
 
 interface HomeProps {
@@ -262,6 +264,12 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
             </div>
           </div>
         </section>
+
+        {/* Recent Projects — real job photos */}
+        <RecentProjects />
+
+        {/* Real Google reviews */}
+        <GoogleReviews />
 
         {/* Service Areas */}
         <section className="max-w-5xl mx-auto px-4 py-16">

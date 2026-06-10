@@ -4,6 +4,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
 import { getServices, getCities, getRelatedBlogPosts, Service, City, BlogPost } from '../../../lib/getData';
+import { getProjectsForService } from '../../../lib/projectPhotos';
 
 interface PageProps {
   service: Service;
@@ -289,6 +290,35 @@ export default function ServiceIndexPage({ service, cities, allServices, related
               ))}
             </ul>
           </section>
+
+          {/* Real project photos for this service */}
+          {getProjectsForService(service.service_slug).map((project) => (
+            <section key={project.title} className="mb-12">
+              <h2 className="text-2xl font-bold text-brand-dark mb-2">
+                Recent {service.service_name} Project
+                {project.city ? ` — ${project.city}, CA` : ''}
+              </h2>
+              <p className="text-gray-700 mb-4">{project.blurb}</p>
+              <div className={`grid ${project.photos.length === 1 ? 'grid-cols-1 max-w-md' : project.photos.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-2`}>
+                {project.photos.map((photo) => (
+                  <figure key={photo.src} className="relative aspect-[4/3] rounded-lg overflow-hidden bg-gray-100">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <figcaption className="absolute bottom-1.5 left-1.5 bg-black/60 text-white text-xs font-semibold uppercase tracking-wide px-2 py-0.5 rounded">
+                      {photo.label}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+              <p className="text-sm text-gray-500 mt-3">
+                Real C&amp;S Demolition job-site photos — no stock images.
+              </p>
+            </section>
+          ))}
 
           {/* Cities by county */}
           {countyGroups.map((group) => (
