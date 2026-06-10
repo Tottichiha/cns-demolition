@@ -395,10 +395,21 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
   );
 }
 
+// High-value cost guides pinned in the homepage Resource Center grid,
+// ahead of the latest posts.
+const FEATURED_GUIDE_SLUGS = ['whole-house-demolition-cost', 'concrete-demolition-cost-guide'];
+
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  const latestPosts = getBlogPosts()
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+  const allPosts = getBlogPosts();
+  const featuredGuides = FEATURED_GUIDE_SLUGS
+    .map((slug) => allPosts.find((p) => p.slug === slug))
+    .filter((p): p is BlogPost => Boolean(p));
+  const latestPosts = [
+    ...featuredGuides,
+    ...allPosts
+      .filter((p) => !FEATURED_GUIDE_SLUGS.includes(p.slug))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+  ].slice(0, 3);
 
   return {
     props: {

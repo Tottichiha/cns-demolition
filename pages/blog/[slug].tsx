@@ -4,6 +4,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import BlogConversionCTA from '../../components/BlogConversionCTA';
+import RelatedGuides from '../../components/RelatedGuides';
 import { getBlogPosts, getBlogPostBySlug, getServices, BlogPost, Service } from '../../lib/getData';
 
 interface BlogPostProps {
@@ -514,6 +515,9 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
               );
             })}
           </div>
+
+          {/* Curated contextual cross-links (only renders for posts listed in RelatedGuides) */}
+          <RelatedGuides slug={post.slug} />
 
           {/* Extended Guide — supplementary depth content per category */}
           {extGuide.length > 0 && (
