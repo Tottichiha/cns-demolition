@@ -13,6 +13,12 @@ const nextConfig = {
         destination: 'https://cnsdemo.com/:path*',
         permanent: true,
       },
+      // Conversion path used by blog CTAs — /contact is the free-estimate page
+      {
+        source: '/free-estimate',
+        destination: '/contact',
+        permanent: true,
+      },
     ];
   },
 

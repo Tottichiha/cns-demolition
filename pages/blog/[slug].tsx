@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import BlogConversionCTA from '../../components/BlogConversionCTA';
 import { getBlogPosts, getBlogPostBySlug, getServices, BlogPost, Service } from '../../lib/getData';
 
 interface BlogPostProps {
@@ -244,6 +245,18 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
   const showToC = post.sections.length >= 4 || extGuide.length > 0;
   const primaryService = pickPrimaryService(post, services);
 
+  // Wrong-intent → conversion routing. Asbestos posts attract abatement
+  // queries C&S doesn't service directly — they get honest "demolition after
+  // abatement" positioning. Cost-research posts attract DIY price researchers —
+  // they get a hard free-estimate CTA. Word-boundary matching on the title
+  // avoids false positives like "Costa Mesa".
+  const isAsbestosPost = /asbestos/.test(post.slug) || /asbestos/i.test(post.title);
+  const isCostResearchPost =
+    !isAsbestosPost &&
+    (post.category === 'Cost Guides' ||
+      /(^|-)costs?(-|$)/.test(post.slug) ||
+      /\bcosts?\b|\bprices?\b|\bpricing\b/i.test(post.title));
+
   const ogImageUrl = `https://cnsdemo.com/api/og?title=${encodeURIComponent(cleanTitle)}&sub=${encodeURIComponent(post.category + ' · C&S Demolition')}&type=blog`;
 
   const articleSchema = {
@@ -389,6 +402,11 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
         </section>
 
         <div className="max-w-3xl mx-auto px-4 py-12">
+
+          {/* Hard conversion CTA — right after the intro on asbestos and cost-research posts */}
+          {(isAsbestosPost || isCostResearchPost) && (
+            <BlogConversionCTA variant={isAsbestosPost ? 'asbestos' : 'cost'} />
+          )}
 
           {/* Table of Contents */}
           {showToC && (
