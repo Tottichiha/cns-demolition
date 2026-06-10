@@ -25,12 +25,6 @@ function getServiceInclusions(service: Service): string[] {
   ];
 
   const extras: Record<string, string[]> = {
-    'pool-demolition': [
-      'Pool draining and disconnection of pool equipment',
-      'Breaking and removal of pool shell (full removal) or partial fill-in',
-      'Compacted backfill with engineered soil report',
-      'Coordination with structural engineer if required by city',
-    ],
     'whole-house-demolition': [
       'Utility disconnection coordination (gas, water, electric, sewer)',
       'Asbestos survey coordination (required for pre-1980 structures)',

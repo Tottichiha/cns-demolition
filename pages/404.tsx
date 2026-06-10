@@ -45,7 +45,6 @@ export default function NotFound() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { label: 'Interior Demolition', href: '/demolition/interior-demolition' },
-              { label: 'Pool Demolition', href: '/demolition/pool-demolition' },
               { label: 'Concrete Removal', href: '/demolition/concrete-removal' },
               { label: 'Garage Demolition', href: '/demolition/garage-demolition' },
               { label: 'Whole House Demo', href: '/demolition/whole-house-demolition' },

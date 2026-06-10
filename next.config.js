@@ -19,6 +19,30 @@ const nextConfig = {
         destination: '/contact',
         permanent: true,
       },
+      // Pool demolition discontinued (2026-06-10) — service, city pages, and
+      // blog guides removed. Redirect to the services hub / blog index.
+      {
+        source: '/demolition/pool-demolition',
+        destination: '/services',
+        permanent: true,
+      },
+      {
+        source: '/demolition/pool-demolition/:city',
+        destination: '/services',
+        permanent: true,
+      },
+      ...[
+        'above-ground-pool-removal-cost',
+        'pool-demolition-cost-orange-county',
+        'pool-demolition-los-angeles',
+        'pool-demolition-process',
+        'pool-removal-irvine',
+        'swimming-pool-fill-in-cost',
+      ].map((slug) => ({
+        source: `/blog/${slug}`,
+        destination: '/blog',
+        permanent: true,
+      })),
     ];
   },
 

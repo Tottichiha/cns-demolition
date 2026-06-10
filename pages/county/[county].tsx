@@ -15,7 +15,7 @@ interface PageProps {
 
 export default function CountyPage({ county, countySlug, cities, services, relatedPosts }: PageProps) {
   const title = `Demolition Contractor in ${county} County, CA | C&S Demolition`;
-  const description = `Licensed demolition contractor serving all ${cities.length} cities in ${county} County, CA. Interior demo, pool removal, concrete removal, and more. CA License #1126325. Free on-site estimates. Call (562) 204-6335.`;
+  const description = `Licensed demolition contractor serving all ${cities.length} cities in ${county} County, CA. Interior demo, concrete removal, and more. CA License #1126325. Free on-site estimates. Call (562) 204-6335.`;
 
   const topCities = cities.slice(0, 6).map((c) => c.city).join(', ');
 
@@ -103,7 +103,7 @@ export default function CountyPage({ county, countySlug, cities, services, relat
               Demolition Contractor in {county} County, CA
             </h1>
             <p className="text-xl text-gray-300 mb-4">
-              C&amp;S Demolition serves all {cities.length} cities in {county} County with licensed, fully insured demolition services. Residential and commercial — interior demo, pool removal, concrete, and more.
+              C&amp;S Demolition serves all {cities.length} cities in {county} County with licensed, fully insured demolition services. Residential and commercial — interior demo, concrete, and more.
             </p>
             <p className="text-gray-400 mb-6">
               Serving {topCities}{cities.length > 6 ? `, and ${cities.length - 6} more cities` : ''} throughout {county} County.

@@ -22,7 +22,7 @@ export default function BlogIndex({ posts, categories, totalCities }: BlogIndexP
         />
         <link rel="canonical" href="https://cnsdemo.com/blog" />
         <meta property="og:title" content="Demolition Tips, Cost Guides & How-To Articles | C&S Demolition" />
-        <meta property="og:description" content="Expert demolition tips, cost guides, and permit advice for Southern California. Interior demo, pool removal, concrete breaking, and more." />
+        <meta property="og:description" content="Expert demolition tips, cost guides, and permit advice for Southern California. Interior demo, concrete breaking, and more." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/blog" />
         <meta property="og:image" content="https://cnsdemo.com/api/og?title=Demolition+Resource+Center&sub=Cost+Guides+%C2%B7+How-To+%C2%B7+Permit+Tips&type=blog" />

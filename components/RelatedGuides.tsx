@@ -16,11 +16,6 @@ const GUIDE_LINKS: Record<string, GuideLink[]> = {
       anchor: 'concrete demolition cost guide',
       blurb: 'Taking out a concrete patio or slab along with the deck? See per-square-foot breaking, hauling, and recycling pricing across SoCal.',
     },
-    {
-      href: '/demolition/pool-demolition',
-      anchor: 'pool demolition costs in Southern California',
-      blurb: 'Many deck removals are step one of a bigger backyard overhaul — learn what pool removal or fill-in involves and what it runs.',
-    },
   ],
   'fence-wall-removal-guide': [
     {
@@ -32,11 +27,6 @@ const GUIDE_LINKS: Record<string, GuideLink[]> = {
       href: '/blog/whole-house-demolition-cost',
       anchor: 'what whole-house demolition costs in SoCal',
       blurb: 'Clearing more than a fence line? Here is the full cost picture for taking down an entire house, foundation included.',
-    },
-    {
-      href: '/demolition/pool-demolition',
-      anchor: 'pool demolition',
-      blurb: 'Old pool safety fencing usually comes down as part of a pool removal — see how the process works and what affects the price.',
     },
   ],
   'stucco-drywall-removal-guide': [

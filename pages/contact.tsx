@@ -6,7 +6,6 @@ import Footer from '../components/Footer';
 
 const SERVICES = [
   'Interior Demolition',
-  'Pool Demolition & Removal',
   'Shed / Structure Demolition',
   'Deck Demolition',
   'Wall Removal',
@@ -52,7 +51,7 @@ export default function Contact() {
     <>
       <Head>
         <title>Free Estimate | C&S Demolition</title>
-        <meta name="description" content="Request a free on-site demolition estimate. C&S Demolition serves 123+ SoCal cities — interior demo, pool removal, concrete, and more. Licensed & insured." />
+        <meta name="description" content="Request a free on-site demolition estimate. C&S Demolition serves 123+ SoCal cities — interior demo, concrete, and more. Licensed & insured." />
         <link rel="canonical" href="https://cnsdemo.com/contact" />
         <meta property="og:title" content="Free Estimate | C&S Demolition" />
         <meta property="og:description" content="Request a free on-site demolition estimate. C&S Demolition serves 123+ SoCal cities. Licensed & insured. Call (562) 204-6335." />

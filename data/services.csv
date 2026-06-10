@@ -1,6 +1,5 @@
 service_slug,service_name,service_short,description,avg_cost_low,avg_cost_high,duration
 interior-demolition,Interior Demolition,Interior Demo,"Complete interior demolition including walls, flooring, ceilings, and fixtures. Ideal for full renovations and gut jobs.",1500,8000,"1-3 days"
-pool-demolition,Pool Demolition & Removal,Pool Removal,"Full pool removal or pool fill-in services. We handle permits, draining, breaking, and backfill.",3500,15000,"2-4 days"
 shed-demolition,Shed & Structure Demolition,Shed Demo,"Removal of sheds, garages, carports, and small outbuildings. Site left clean and cleared.",500,2500,"Same day"
 deck-demolition,Deck & Patio Demolition,Deck Removal,"Tear-out of wood decks, concrete patios, pergolas, and outdoor structures.",800,3500,"1-2 days"
 wall-removal,Load-Bearing Wall Removal,Wall Removal,"Safe removal of interior walls including load-bearing walls. Structural assessment included.",1200,5000,"1-2 days"

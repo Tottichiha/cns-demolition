@@ -16,11 +16,11 @@ export default function ServicesPage({ services }: PageProps) {
         <title>Demolition Services in Southern California | C&amp;S Demolition</title>
         <meta
           name="description"
-          content="Full-service demolition contractor in Southern California. Interior demo, pool removal, concrete breaking, garage teardown, and more. CA Licensed #1126325. Free estimates."
+          content="Full-service demolition contractor in Southern California. Interior demo, concrete breaking, garage teardown, and more. CA Licensed #1126325. Free estimates."
         />
         <link rel="canonical" href="https://cnsdemo.com/services" />
         <meta property="og:title" content="Demolition Services in Southern California | C&S Demolition" />
-        <meta property="og:description" content="Licensed demolition contractor serving Orange County, LA, Riverside & San Bernardino. Interior demo, pool removal, concrete, and 18 more services. Free estimates." />
+        <meta property="og:description" content="Licensed demolition contractor serving Orange County, LA, Riverside & San Bernardino. Interior demo, concrete, and 18 more services. Free estimates." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com/services" />
         <meta property="og:image" content="https://cnsdemo.com/api/og?title=Demolition+Services+in+Southern+California&sub=19+Services+%C2%B7+CA+Lic+%231126325+%C2%B7+Free+Estimates&type=services" />

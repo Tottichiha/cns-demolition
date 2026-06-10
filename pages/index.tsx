@@ -23,7 +23,7 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
   const faqs = [
     {
       q: 'How much does demolition cost in Southern California?',
-      a: 'Demolition costs in Southern California range from $400 for a simple shed or fence removal to $35,000+ for whole-house demolition. Interior demolition runs $1,500–$8,000 depending on scope. Pool removal costs $3,500–$15,000. Concrete removal is $3–$8 per square foot. The biggest cost factors are square footage, hazardous materials (asbestos, lead paint), permit requirements, and debris disposal. C&S Demolition provides free on-site estimates with a written quote the same day.',
+      a: 'Demolition costs in Southern California range from $400 for a simple shed or fence removal to $35,000+ for whole-house demolition. Interior demolition runs $1,500–$8,000 depending on scope. Concrete removal is $3–$8 per square foot. The biggest cost factors are square footage, hazardous materials (asbestos, lead paint), permit requirements, and debris disposal. C&S Demolition provides free on-site estimates with a written quote the same day.',
     },
     {
       q: 'Is C&S Demolition licensed and insured in California?',
@@ -61,11 +61,11 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
         <title>Demolition Contractor in Southern California | C&amp;S Demolition</title>
         <meta
           name="description"
-          content={`Licensed demolition contractor serving ${totalCities}+ cities in Southern California. Interior demo, pool removal, concrete breaking, garage teardown, and more. Free estimates. Call (562) 204-6335.`}
+          content={`Licensed demolition contractor serving ${totalCities}+ cities in Southern California. Interior demo, concrete breaking, garage teardown, and more. Free estimates. Call (562) 204-6335.`}
         />
         <link rel="canonical" href="https://cnsdemo.com" />
         <meta property="og:title" content="Demolition Contractor in Southern California | C&S Demolition" />
-        <meta property="og:description" content={`Licensed CA demolition contractor serving ${totalCities}+ SoCal cities. Interior demo, pool removal, concrete, and more. Free estimates. (562) 204-6335.`} />
+        <meta property="og:description" content={`Licensed CA demolition contractor serving ${totalCities}+ SoCal cities. Interior demo, concrete, and more. Free estimates. (562) 204-6335.`} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://cnsdemo.com" />
         <meta property="og:image" content="https://cnsdemo.com/api/og?title=Demolition+Contractor+in+Southern+California&sub=CA+License+%231126325+%C2%B7+123%2B+SoCal+Cities&type=home" />
@@ -84,7 +84,7 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
               "name": "C&S Demolition",
               "alternateName": "Scrapit LLC",
               "legalName": "Scrapit LLC",
-              "description": `C&S Demolition (License #1126325) is a California-licensed demolition contractor serving ${totalCities}+ cities across Southern California. We specialize in residential and commercial demolition, pool removal, interior demo, concrete breaking, and all types of teardown work throughout Orange County, Los Angeles County, Riverside County, and San Bernardino County.`,
+              "description": `C&S Demolition (License #1126325) is a California-licensed demolition contractor serving ${totalCities}+ cities across Southern California. We specialize in residential and commercial demolition, interior demo, concrete breaking, and all types of teardown work throughout Orange County, Los Angeles County, Riverside County, and San Bernardino County.`,
               "url": "https://cnsdemo.com",
               "logo": {
                 "@type": "ImageObject",
@@ -139,7 +139,7 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
                 "https://www.linkedin.com/company/cns-demolition"
               ],
               "knowsAbout": [
-                "Demolition Contracting", "Interior Demolition", "Pool Demolition",
+                "Demolition Contracting", "Interior Demolition",
                 "Concrete Removal", "Selective Demolition", "Commercial Demolition",
                 "California Building Permits", "Asbestos Abatement Coordination"
               ],
@@ -184,7 +184,7 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
               "@id": "https://cnsdemo.com/#website",
               "name": "C&S Demolition",
               "url": "https://cnsdemo.com",
-              "description": "California-licensed demolition contractor serving 123+ cities across Southern California. Interior demo, pool removal, concrete removal, garage teardown, and more.",
+              "description": "California-licensed demolition contractor serving 123+ cities across Southern California. Interior demo, concrete removal, garage teardown, and more.",
               "inLanguage": "en-US",
               "publisher": { "@id": "https://cnsdemo.com/#business" }
             })
@@ -202,7 +202,7 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
             Demolition Contractor in Southern California
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-            C&amp;S Demolition is a licensed, fully insured demolition company serving Orange County, Los Angeles County, Riverside, and San Bernardino. Interior demo, pool removal, concrete breaking, and more — free on-site estimates.
+            C&amp;S Demolition is a licensed, fully insured demolition company serving Orange County, Los Angeles County, Riverside, and San Bernardino. Interior demo, concrete breaking, and more — free on-site estimates.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="tel:+15622046335" className="bg-brand-orange text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-orange-600 transition-colors">
@@ -304,7 +304,7 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
               C&amp;S Demolition (a DBA of Scrapit LLC) is a California-licensed demolition contractor serving homeowners, remodelers, property managers, and general contractors throughout Southern California. Whether you need a single wall removed or a complete property cleared, our crews deliver clean, efficient work on time and on budget.
             </p>
             <p className="text-gray-700 mb-4">
-              We specialize in <Link href="/demolition/interior-demolition" className="text-brand-orange hover:underline">interior demolition</Link>, <Link href="/demolition/pool-demolition" className="text-brand-orange hover:underline">pool demolition and removal</Link>, <Link href="/demolition/concrete-removal" className="text-brand-orange hover:underline">concrete breaking and removal</Link>, <Link href="/demolition/kitchen-demolition" className="text-brand-orange hover:underline">kitchen demolition</Link>, <Link href="/demolition/bathroom-demolition" className="text-brand-orange hover:underline">bathroom teardowns</Link>, and <Link href="/demolition/garage-demolition" className="text-brand-orange hover:underline">garage demolition</Link> throughout Orange County and Los Angeles County.
+              We specialize in <Link href="/demolition/interior-demolition" className="text-brand-orange hover:underline">interior demolition</Link>, <Link href="/demolition/concrete-removal" className="text-brand-orange hover:underline">concrete breaking and removal</Link>, <Link href="/demolition/kitchen-demolition" className="text-brand-orange hover:underline">kitchen demolition</Link>, <Link href="/demolition/bathroom-demolition" className="text-brand-orange hover:underline">bathroom teardowns</Link>, and <Link href="/demolition/garage-demolition" className="text-brand-orange hover:underline">garage demolition</Link> throughout Orange County and Los Angeles County.
             </p>
             <p className="text-gray-700 mb-6">
               Every project includes full debris removal, responsible disposal, and a broom-clean site. We handle permits, coordinate inspections, and work around your renovation timeline. Call for a free on-site estimate — we come to you.

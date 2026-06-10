@@ -136,7 +136,6 @@ export default function SchemaMarkup({ city, service, faqs }: SchemaProps) {
       knowsAbout: [
         'Demolition Contracting',
         'Interior Demolition',
-        'Pool Demolition',
         'Concrete Removal',
         'Selective Demolition',
         'Commercial Demolition',

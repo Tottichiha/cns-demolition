@@ -193,7 +193,6 @@ export default function AboutPage() {
               {[
                 { name: 'Interior Demolition', href: '/demolition/interior-demolition', desc: 'Kitchens, bathrooms, walls, ceilings — surgical teardowns that protect the rest of your structure.' },
                 { name: 'Whole House Demolition', href: '/demolition/whole-house-demolition', desc: 'Complete structural teardown of houses and commercial buildings with full debris haul-away.' },
-                { name: 'Pool Demolition', href: '/demolition/pool-demolition', desc: 'Full or partial pool removal — gravel fill or concrete crush — with proper compaction and city signoff.' },
                 { name: 'Concrete Removal', href: '/demolition/concrete-removal', desc: 'Driveways, slabs, footings, foundations — broken up and hauled away clean.' },
                 { name: 'Garage Demolition', href: '/demolition/garage-demolition', desc: 'Detached and attached garage teardowns with permit coordination and slab removal options.' },
                 { name: 'Deck & Patio Demolition', href: '/demolition/deck-demolition', desc: 'Wood and composite decks, concrete patios, pergolas — removed and cleared for new construction.' },

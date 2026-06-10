@@ -26,7 +26,6 @@ export default function Footer() {
           <h3 className="text-white font-bold mb-3">Services</h3>
           <ul className="text-sm space-y-1.5">
             <li><Link href="/demolition/interior-demolition" className="hover:text-white">Interior Demolition</Link></li>
-            <li><Link href="/demolition/pool-demolition" className="hover:text-white">Pool Demolition</Link></li>
             <li><Link href="/demolition/concrete-removal" className="hover:text-white">Concrete Removal</Link></li>
             <li><Link href="/demolition/garage-demolition" className="hover:text-white">Garage Demolition</Link></li>
             <li><Link href="/demolition/whole-house-demolition" className="hover:text-white">Whole House Demo</Link></li>
