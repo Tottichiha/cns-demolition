@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import Script from 'next/script';
 import '../styles/globals.css';
 
-const GA_ID = 'G-0DJBQVZL5C';
+const GA_ID = 'G-PZ7H9V2HQB';
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
