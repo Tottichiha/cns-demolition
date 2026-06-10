@@ -52,6 +52,19 @@ function getServiceInclusions(service: Service): string[] {
   return [...base, ...(extras[service.service_slug] || [])];
 }
 
+// Services with a matching in-depth cost guide on the blog — linked from the
+// cost overview section with a descriptive, keyword-bearing anchor.
+const COST_GUIDE_LINKS: Record<string, { href: string; anchor: string }> = {
+  'concrete-removal': {
+    href: '/blog/concrete-demolition-cost-guide',
+    anchor: 'concrete demolition cost guide for Southern California',
+  },
+  'whole-house-demolition': {
+    href: '/blog/whole-house-demolition-cost',
+    anchor: 'whole-house demolition cost breakdown',
+  },
+};
+
 function getServiceFAQs(service: Service, cityCount: number) {
   return [
     {
@@ -247,6 +260,18 @@ export default function ServiceIndexPage({ service, cities, allServices, related
             <p className="text-sm text-gray-600">
               Pricing varies by project size, materials, permit requirements, and site access. Factors that increase cost include reinforced concrete, hazardous materials (asbestos, lead paint), limited equipment access, and multi-story structures. The most accurate way to price your project is a free on-site estimate — we come to your property and provide a written quote the same day.
             </p>
+            {COST_GUIDE_LINKS[service.service_slug] && (
+              <p className="text-sm text-gray-600 mt-3">
+                For itemized pricing, cost factors, and real project examples, read our{' '}
+                <Link
+                  href={COST_GUIDE_LINKS[service.service_slug].href}
+                  className="text-brand-orange font-semibold hover:underline"
+                >
+                  {COST_GUIDE_LINKS[service.service_slug].anchor}
+                </Link>
+                .
+              </p>
+            )}
           </section>
 
           {/* What's included */}
