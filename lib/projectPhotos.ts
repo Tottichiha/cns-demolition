@@ -140,6 +140,31 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    title: 'Commercial Warehouse Interior Demolition',
+    city: null,
+    serviceSlug: 'commercial-demolition',
+    serviceName: 'Commercial Demolition',
+    blurb:
+      'Full interior strip-out of a clear-span warehouse — partitions, ceiling grid, and fixtures removed under dust containment, leaving a wide-open shell ready for the next build-out.',
+    photos: [
+      {
+        src: '/images/projects/commercial_warehouse_demo_containment_2151.jpg',
+        alt: 'Temporary dust-containment wall inside a clear-span warehouse during interior demolition',
+        label: 'During',
+      },
+      {
+        src: '/images/projects/commercial_warehouse_demo_wall_2826.jpg',
+        alt: 'Interior metal-stud wall removed to framing with debris staged during warehouse demolition',
+        label: 'During',
+      },
+      {
+        src: '/images/projects/commercial_warehouse_demo_cleared_2850.jpg',
+        alt: 'Wide-open warehouse interior swept clean after commercial interior demolition',
+        label: 'After',
+      },
+    ],
+  },
+  {
     title: 'Shed Demolition',
     city: null,
     serviceSlug: 'shed-demolition',
