@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import { useState, FormEvent } from 'react';
+import Script from 'next/script';
+import { useState, useRef, useEffect, FormEvent } from 'react';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -24,10 +25,21 @@ const SERVICES = [
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '' });
+  // anti-bot: honeypot value + the moment the form mounted
+  const [website, setWebsite] = useState('');
+  const loadedAt = useRef<number>(Date.now());
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
+
+  // Turnstile hands the token back through a global callback.
+  useEffect(() => {
+    (window as any).onTurnstileSuccess = (token: string) => setTurnstileToken(token);
+    return () => { delete (window as any).onTurnstileSuccess; };
+  }, []);
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -36,12 +48,15 @@ export default function Contact() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, website, loadedAt: loadedAt.current, turnstileToken }),
       });
       if (!res.ok) throw new Error('Failed');
       setStatus('sent');
       if (typeof window.gtag === 'function') window.gtag('event', 'form_submit', { event_category: 'contact', event_label: 'free_estimate' });
       setForm({ name: '', phone: '', email: '', service: '', message: '' });
+      setWebsite('');
+      setTurnstileToken('');
+      if (TURNSTILE_SITE_KEY && (window as any).turnstile) (window as any).turnstile.reset();
     } catch {
       setStatus('error');
     }
@@ -135,6 +150,19 @@ export default function Contact() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 space-y-5">
+              {/* Honeypot. Hidden from people, irresistible to bots. Do not remove. */}
+              <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}>
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={e => setWebsite(e.target.value)}
+                />
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-1">Full Name *</label>
@@ -203,6 +231,21 @@ export default function Contact() {
 
               {status === 'error' && (
                 <p className="text-red-600 text-sm">Something went wrong. Please try again or call <a href="tel:+15622046335" className="underline">(562) 204-6335</a>.</p>
+              )}
+
+              {TURNSTILE_SITE_KEY && (
+                <>
+                  <Script
+                    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+                    strategy="lazyOnload"
+                  />
+                  <div
+                    className="cf-turnstile"
+                    data-sitekey={TURNSTILE_SITE_KEY}
+                    data-callback="onTurnstileSuccess"
+                    data-theme="light"
+                  />
+                </>
               )}
 
               <button
