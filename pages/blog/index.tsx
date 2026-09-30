@@ -15,10 +15,10 @@ export default function BlogIndex({ posts, categories, totalCities }: BlogIndexP
   return (
     <>
       <Head>
-        <title>Demolition Tips, Cost Guides & How-To Articles | C&amp;S Demolition</title>
+        <title>Demolition Cost Guides &amp; Articles | C&amp;S Demolition</title>
         <meta
           name="description"
-          content="Expert demolition cost guides, permit tips, and how-to articles for Southern California homeowners and contractors — from C&S Demolition. Licensed CA contractor. Free estimates. (562) 204-6335."
+          content="Demolition cost guides, permit tips and how-to articles for Southern California homeowners and contractors, from licensed contractor C&S Demolition."
         />
         <link rel="canonical" href="https://cnsdemo.com/blog" />
         <meta property="og:title" content="Demolition Tips, Cost Guides & How-To Articles | C&S Demolition" />

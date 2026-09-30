@@ -242,9 +242,9 @@ function Lightbox({
 }
 
 // ── Gallery page ───────────────────────────────────────────────────────────
-const title = 'Project Gallery | C&S Demolition Portfolio — SoCal Projects';
+const title = 'Demolition Project Gallery | C&S Demolition';
 const description =
-  'Browse real demolition projects completed by C&S Demolition across Southern California — residential teardowns, commercial interiors, concrete removal, and more. CA License #1126325.';
+  'Real demolition projects by C&S Demolition across Southern California: house teardowns, commercial interiors, concrete removal and more. CSLB #1126325.';
 
 export default function GalleryPage() {
   const [activeFilter, setActiveFilter] = useState('all');

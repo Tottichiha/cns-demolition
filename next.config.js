@@ -19,6 +19,11 @@ const nextConfig = {
         destination: '/contact',
         permanent: true,
       },
+      // Malformed URLs Google has been seeing (GSC, 2026-09-30)
+      { source: '/demolition/interior-demo', destination: '/demolition/interior-demolition', permanent: true },
+      { source: '/blog/when-do-type-need-demolition-permit', destination: '/blog/when-do-you-need-demolition-permit', permanent: true },
+      { source: '/blog/cmsdemo.com/blog/:slug', destination: '/blog/:slug', permanent: true },
+      { source: '/blog/cnsdemo.com/blog/:slug', destination: '/blog/:slug', permanent: true },
       // Pool demolition discontinued (2026-06-10) — service, city pages, and
       // blog guides removed. Redirect to the services hub / blog index.
       {

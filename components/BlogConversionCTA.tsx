@@ -27,8 +27,8 @@ export default function BlogConversionCTA({ variant }: BlogConversionCTAProps) {
           abatement specialists, and it must be completed <strong>before</strong> any teardown
           begins. C&amp;S Demolition handles the <strong>demolition side</strong> of your project —
           we&apos;re a CA-licensed demolition contractor (License #1126325). Once your property has
-          been cleared by an abatement crew, we take it from there: permits, teardown, haul-away,
-          and site cleanup.
+          been cleared by an abatement crew, we take it from there: teardown, haul-away, and site
+          cleanup. Your written bid states which permits the job needs and who pulls them.
         </p>
       ) : (
         <p className="text-gray-700 leading-relaxed mb-5">

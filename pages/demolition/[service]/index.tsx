@@ -17,7 +17,7 @@ interface PageProps {
 function getServiceInclusions(service: Service): string[] {
   const base = [
     'Free on-site estimate with written quote',
-    'All permit research, filing, and inspection coordination',
+    'Written bid that states which permits the job needs and who pulls them (permit fees are the owner\'s unless the bid says otherwise)',
     'Full debris removal and haul-away to licensed facilities',
     'Broom-clean site at job completion',
     'CA Licensed contractor (License #1126325)',
@@ -26,20 +26,19 @@ function getServiceInclusions(service: Service): string[] {
 
   const extras: Record<string, string[]> = {
     'whole-house-demolition': [
-      'Utility disconnection coordination (gas, water, electric, sewer)',
-      'Asbestos survey coordination (required for pre-1980 structures)',
+      'Asbestos survey and SCAQMD Rule 1403 notice, coordinated with the owner\'s consultant',
       'Foundation removal or retention (your choice)',
       'Final grading and site leveling',
     ],
     'interior-demolition': [
       'Dust barriers and containment setup to protect adjacent spaces',
-      'Asbestos/lead paint pre-screening on request',
-      'Structural wall assessment before any bearing wall removal',
+      'Asbestos/lead paint survey coordination with the owner\'s consultant on request',
+      'Structural review by the owner\'s engineer when a wall is load-bearing; shoring and bracing are not included',
     ],
     'commercial-demolition': [
-      'Certified asbestos and hazmat survey coordination',
+      'Certified asbestos and hazmat survey, coordinated with the owner\'s consultant',
       'Coordination with general contractor or project manager',
-      'SCAQMD compliance documentation',
+      'SCAQMD Rule 1403 notice, coordinated with the owner\'s consultant',
       'Night and weekend scheduling available',
     ],
   };
@@ -60,6 +59,12 @@ const COST_GUIDE_LINKS: Record<string, { href: string; anchor: string }> = {
   },
 };
 
+// Service pages never show dollar prices: drop any excerpt sentence containing "$".
+function stripPrices(text: string): string {
+  const sentences = text.match(/\S[\s\S]*?(?:[.!?](?=\s|$)|$)/g) || [];
+  return sentences.filter((s) => !s.includes('$')).join(' ');
+}
+
 function getServiceFAQs(service: Service, cityCount: number) {
   return [
     {
@@ -68,7 +73,7 @@ function getServiceFAQs(service: Service, cityCount: number) {
     },
     {
       q: `Do I need a permit for ${service.service_name.toLowerCase()} in California?`,
-      a: `In most Southern California cities, ${service.service_name.toLowerCase()} requires a demolition permit from the city building department. Permit requirements vary by city and project type. C&S Demolition handles all permit research, application, and inspection coordination on your behalf — you never have to deal with the building department directly.`,
+      a: `In most Southern California cities, ${service.service_name.toLowerCase()} requires a demolition permit from the city building department. Permit requirements vary by city and project type. Your written bid states which permits the job needs and who pulls them; permit fees are the owner's unless the bid says otherwise.`,
     },
     {
       q: `How long does ${service.service_name.toLowerCase()} take?`,
@@ -76,7 +81,7 @@ function getServiceFAQs(service: Service, cityCount: number) {
     },
     {
       q: `Is asbestos a concern with ${service.service_name.toLowerCase()}?`,
-      a: `California requires asbestos surveys before demolition of structures built before 1980. C&S Demolition coordinates certified asbestos testing and, when required, proper abatement before any ${service.service_name.toLowerCase()} work begins. We manage the entire process and ensure full compliance with SCAQMD regulations.`,
+      a: `Yes. Suspect materials must be surveyed, and abated where required, before any ${service.service_name.toLowerCase()} work begins. C&S coordinates with the owner's or GC's licensed abatement contractor and the required survey and SCAQMD Rule 1403 notice; C&S does not perform abatement.`,
     },
     {
       q: `What cities do you serve for ${service.service_name.toLowerCase()}?`,
@@ -86,8 +91,9 @@ function getServiceFAQs(service: Service, cityCount: number) {
 }
 
 export default function ServiceIndexPage({ service, cities, allServices, relatedPosts }: PageProps) {
-  const title = `${service.service_name} in Southern California | C&S Demolition`;
-  const description = `Licensed ${service.service_name.toLowerCase()} contractor serving ${cities.length}+ cities across Southern California. CA License #1126325. Written lump-sum bids. Free on-site estimates. Call (562) 204-6335.`;
+  const titleBase = `${service.service_name} in Southern California`;
+  const title = titleBase.length <= 42 ? `${titleBase} | C&S Demolition` : `${titleBase} | C&S`;
+  const description = `Licensed ${service.service_name.toLowerCase()} across LA, Orange, Riverside and San Bernardino counties. CSLB #1126325. Written lump-sum bids. (562) 204-6335.`;
 
   const laCities = cities.filter((c) => c.county === 'Los Angeles');
   const ocCities = cities.filter((c) => c.county === 'Orange');
@@ -108,10 +114,10 @@ export default function ServiceIndexPage({ service, cities, allServices, related
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'GeneralContractor'],
+        '@type': 'GeneralContractor',
         '@id': `https://cnsdemo.com/demolition/${service.service_slug}#business`,
         name: 'C&S Demolition',
-        legalName: 'Scrapit LLC',
+        legalName: 'SCRAPIT, LLC',
         description,
         url: 'https://cnsdemo.com',
         telephone: '+15622046335',
@@ -119,9 +125,9 @@ export default function ServiceIndexPage({ service, cities, allServices, related
         license: '1126325',
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Long Beach',
+          addressLocality: 'Anaheim',
           addressRegion: 'CA',
-          postalCode: '90802',
+          postalCode: '92807',
           addressCountry: 'US',
         },
         areaServed: {
@@ -226,10 +232,10 @@ export default function ServiceIndexPage({ service, cities, allServices, related
               C&amp;S Demolition provides professional {service.service_name.toLowerCase()} services throughout Southern California. As a DBA of Scrapit LLC, we bring full licensing, bonding, and insurance to every project — residential or commercial — in Orange County, Los Angeles County, Riverside County, and San Bernardino County.
             </p>
             <p className="text-gray-700 mb-4">
-              {service.description} Our crews are experienced with California building code requirements, local permit offices, and HOA restrictions across all 123+ cities in our service area. We price every job as a lump sum — no hourly billing, no surprise charges for disposal or permits.
+              {service.description} Our crews are experienced with California building code requirements and HOA restrictions across all 123+ cities in our service area. We price every job as a lump sum — no hourly billing, no surprise charges for disposal. Your written bid states which permits the job needs and who pulls them; permit fees are the owner&apos;s unless the bid says otherwise.
             </p>
             <p className="text-gray-700">
-              Every {service.service_name.toLowerCase()} project includes a pre-work walkthrough, permit handling (when required), the full demolition scope, debris haul-away to licensed facilities, and a broom-clean site. We coordinate directly with your general contractor, property manager, or renovation team to keep your project on schedule.
+              Every {service.service_name.toLowerCase()} project includes a pre-work walkthrough, the full demolition scope, debris haul-away to licensed facilities, and a broom-clean site. We coordinate directly with your general contractor, property manager, or renovation team to keep your project on schedule.
             </p>
           </section>
 
@@ -247,7 +253,7 @@ export default function ServiceIndexPage({ service, cities, allServices, related
               </div>
             </div>
             <p className="text-sm text-gray-600">
-              Pricing varies by project size, materials, permit requirements, and site access. Factors that increase cost include reinforced concrete, hazardous materials (asbestos, lead paint), limited equipment access, and multi-story structures. The most accurate way to price your project is a free on-site estimate — we come to your property and provide a written quote the same day.
+              Pricing varies by project size, materials, permit requirements, and site access. Factors that increase cost include reinforced concrete, hazardous materials (asbestos, lead paint), limited equipment access, and multi-story structures. C&amp;S gives a written lump-sum bid after seeing plans or photos, with fast turnaround on bids.
             </p>
             {COST_GUIDE_LINKS[service.service_slug] && (
               <p className="text-sm text-gray-600 mt-3">
@@ -369,7 +375,7 @@ export default function ServiceIndexPage({ service, cities, allServices, related
                     <h3 className="font-bold text-gray-900 text-base mb-2 leading-snug flex-1">
                       {post.title.replace(' | C&S Demolition', '')}
                     </h3>
-                    <p className="text-xs text-gray-600 line-clamp-2 mb-3">{post.excerpt}</p>
+                    <p className="text-xs text-gray-600 line-clamp-2 mb-3">{stripPrices(post.excerpt)}</p>
                     <span className="text-sm text-brand-orange font-semibold mt-auto">Read more →</span>
                   </Link>
                 ))}
@@ -399,7 +405,7 @@ export default function ServiceIndexPage({ service, cities, allServices, related
           <section className="bg-brand-orange text-white rounded-xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-3">Get a Free {service.service_name} Estimate</h2>
             <p className="text-red-100 mb-2">
-              We come to your property, assess the project in person, and give you a written lump-sum quote the same day.
+              C&amp;S gives a written lump-sum bid after seeing plans or photos, with fast turnaround on bids.
             </p>
             <p className="text-orange-200 text-sm mb-6">
               CA Licensed #1126325 · Fully Insured · {cities.length}+ SoCal Cities

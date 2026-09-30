@@ -36,19 +36,19 @@ export default function ServicesPage({ services }: PageProps) {
               '@context': 'https://schema.org',
               '@graph': [
                 {
-                  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'GeneralContractor'],
+                  '@type': 'GeneralContractor',
                   '@id': 'https://cnsdemo.com/services#business',
                   name: 'C&S Demolition',
-                  legalName: 'Scrapit LLC',
+                  legalName: 'SCRAPIT, LLC',
                   url: 'https://cnsdemo.com',
                   telephone: '+15622046335',
                   email: 'contactus@cnsdemo.com',
                   license: '1126325',
                   address: {
                     '@type': 'PostalAddress',
-                    addressLocality: 'Long Beach',
+                    addressLocality: 'Anaheim',
                     addressRegion: 'CA',
-                    postalCode: '90802',
+                    postalCode: '92807',
                     addressCountry: 'US',
                   },
                   areaServed: { '@type': 'AdministrativeArea', name: 'Southern California' },

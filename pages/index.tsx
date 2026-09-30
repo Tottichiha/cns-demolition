@@ -58,10 +58,10 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
   return (
     <>
       <Head>
-        <title>Demolition Contractor in Southern California | C&amp;S Demolition</title>
+        <title>Southern California Demolition Contractor | C&amp;S Demolition</title>
         <meta
           name="description"
-          content={`Licensed demolition contractor serving ${totalCities}+ cities in Southern California. Interior demo, concrete breaking, garage teardown, and more. Free estimates. Call (562) 204-6335.`}
+          content="Licensed Southern California demolition contractor. Commercial interior demo, house teardowns, concrete and block walls. CSLB #1126325. (562) 204-6335."
         />
         <link rel="canonical" href="https://cnsdemo.com" />
         <meta property="og:title" content="Demolition Contractor in Southern California | C&S Demolition" />
@@ -79,11 +79,11 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": ["LocalBusiness", "HomeAndConstructionBusiness", "GeneralContractor"],
+              "@type": "GeneralContractor",
               "@id": "https://cnsdemo.com/#business",
               "name": "C&S Demolition",
-              "alternateName": "Scrapit LLC",
-              "legalName": "Scrapit LLC",
+              "alternateName": "SCRAPIT, LLC dba C&S Demolition",
+              "legalName": "SCRAPIT, LLC",
               "description": `C&S Demolition (License #1126325) is a California-licensed demolition contractor serving ${totalCities}+ cities across Southern California. We specialize in residential and commercial demolition, interior demo, concrete breaking, and all types of teardown work throughout Orange County, Los Angeles County, Riverside County, and San Bernardino County.`,
               "url": "https://cnsdemo.com",
               "logo": {
@@ -96,9 +96,7 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
               "telephone": "+15622046335",
               "email": "contactus@cnsdemo.com",
               "license": "1126325",
-              "slogan": "Licensed. Insured. All-Inclusive.",
               "priceRange": "$$",
-              "paymentAccepted": "Cash, Check, Credit Card, Zelle",
               "currenciesAccepted": "USD",
               "areaServed": [
                 { "@type": "AdministrativeArea", "name": "Orange County, CA" },
@@ -108,15 +106,10 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
               ],
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Long Beach",
+                "addressLocality": "Anaheim",
                 "addressRegion": "CA",
-                "postalCode": "90802",
+                "postalCode": "92807",
                 "addressCountry": "US"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 33.7701,
-                "longitude": -118.1937
               },
               "openingHoursSpecification": [
                 {
@@ -132,12 +125,7 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
                   "closes": "16:00"
                 }
               ],
-              "sameAs": [
-                "https://www.yelp.com/biz/cns-demolition",
-                "https://www.facebook.com/cnsdemo",
-                "https://www.bbb.org/us/ca/long-beach/profile/demolition-contractors",
-                "https://www.linkedin.com/company/cns-demolition"
-              ],
+              "sameAs": ["https://www.google.com/maps/place/?q=place_id:ChIJQ2nILkGFumUR_lO7TYcl4CM"],
               "knowsAbout": [
                 "Demolition Contracting", "Interior Demolition",
                 "Concrete Removal", "Selective Demolition", "Commercial Demolition",
@@ -362,7 +350,7 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
                 <Link key={post.slug} href={`/blog/${post.slug}`} className="bg-white border border-brand-line rounded-2xl p-6 hover:border-brand-red transition-colors flex flex-col">
                   <span className="text-sm font-semibold text-brand-red mb-2">{post.category}</span>
                   <h3 className="font-display font-bold text-xl leading-snug flex-1">{post.title.replace(' | C&S Demolition', '')}</h3>
-                  <p className="text-sm text-brand-ink-2 mt-2 line-clamp-2">{post.excerpt}</p>
+                  <p className="text-sm text-brand-ink-2 mt-2 line-clamp-2">{stripPrices(post.excerpt)}</p>
                 </Link>
               ))}
             </div>
@@ -421,6 +409,11 @@ function BeforeAfter() {
       <input type="range" min={0} max={100} value={pos} onChange={(e) => setPos(Number(e.target.value))} aria-label="Compare before and after" className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize m-0" />
     </div>
   );
+}
+
+// No prices on the homepage (owner rule): drop excerpt sentences that quote a dollar figure.
+function stripPrices(text: string): string {
+  return text.split(/(?<=[.!?])\s+/).filter((t) => !/\$\s?\d/.test(t)).join(' ');
 }
 
 const GOOGLE_LISTING_URL = 'https://www.google.com/maps/place/?q=place_id:ChIJQ2nILkGFumUR_lO7TYcl4CM';

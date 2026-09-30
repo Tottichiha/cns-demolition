@@ -19,7 +19,7 @@ interface PageProps {
 
 export default function ServiceAreasPage({ countyData, totalCities, services }: PageProps) {
   const title = `Demolition Service Areas in Southern California | C&S Demolition`;
-  const description = `C&S Demolition serves ${totalCities} cities throughout Southern California — Orange County, Los Angeles County, Riverside County, and San Bernardino County. CA Licensed #1126325.`;
+  const description = `C&S Demolition serves ${totalCities} cities across Los Angeles, Orange, Riverside and San Bernardino counties. Licensed CA contractor, CSLB #1126325.`;
 
   return (
     <>
@@ -44,9 +44,9 @@ export default function ServiceAreasPage({ countyData, totalCities, services }: 
               '@context': 'https://schema.org',
               '@graph': [
                 {
-                  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'GeneralContractor'],
+                  '@type': 'GeneralContractor',
                   name: 'C&S Demolition',
-                  legalName: 'Scrapit LLC',
+                  legalName: 'SCRAPIT, LLC',
                   url: 'https://cnsdemo.com',
                   telephone: '+15622046335',
                   license: '1126325',

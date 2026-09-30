@@ -577,7 +577,7 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
               <p className="font-bold text-gray-900 mb-0.5">Written by the C&amp;S Demolition Team</p>
               <p className="text-xs text-brand-orange font-semibold mb-2 uppercase tracking-wide">CA Licensed Contractor · License #1126325</p>
               <p className="text-sm text-gray-600 leading-relaxed">
-                C&amp;S Demolition (DBA of Scrapit LLC) is a California-licensed demolition contractor based in Long Beach, serving Orange County, Los Angeles County, Riverside, and San Bernardino. Our content is written by field-experienced demolition professionals who handle permits, asbestos assessments, and complex teardown projects daily across Southern California.
+                C&amp;S Demolition (DBA of Scrapit LLC) is a California-licensed demolition contractor based in Anaheim, serving Orange County, Los Angeles County, Riverside, and San Bernardino. Our content is written by field-experienced demolition professionals who handle permits, asbestos assessments, and complex teardown projects daily across Southern California.
               </p>
               <div className="flex gap-3 mt-3">
                 <Link href="/services" className="text-xs text-brand-orange hover:underline">Our Services</Link>

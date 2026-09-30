@@ -15,7 +15,7 @@ interface PageProps {
 
 export default function CountyPage({ county, countySlug, cities, services, relatedPosts }: PageProps) {
   const title = `Demolition Contractor in ${county} County, CA | C&S Demolition`;
-  const description = `Licensed demolition contractor serving all ${cities.length} cities in ${county} County, CA. Interior demo, concrete removal, and more. CA License #1126325. Free on-site estimates. Call (562) 204-6335.`;
+  const description = `Licensed demolition contractor serving ${cities.length} cities in ${county} County, CA. Commercial, residential and concrete demo. CSLB #1126325. (562) 204-6335.`;
 
   const topCities = cities.slice(0, 6).map((c) => c.city).join(', ');
 
@@ -23,10 +23,10 @@ export default function CountyPage({ county, countySlug, cities, services, relat
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'GeneralContractor'],
+        '@type': 'GeneralContractor',
         '@id': `https://cnsdemo.com/county/${countySlug}#business`,
         name: 'C&S Demolition',
-        legalName: 'Scrapit LLC',
+        legalName: 'SCRAPIT, LLC',
         description,
         url: 'https://cnsdemo.com',
         telephone: '+15622046335',
@@ -34,9 +34,9 @@ export default function CountyPage({ county, countySlug, cities, services, relat
         license: '1126325',
         address: {
           '@type': 'PostalAddress',
-          addressLocality: 'Long Beach',
+          addressLocality: 'Anaheim',
           addressRegion: 'CA',
-          postalCode: '90802',
+          postalCode: '92807',
           addressCountry: 'US',
         },
         areaServed: {

@@ -65,8 +65,8 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Free Estimate | C&S Demolition</title>
-        <meta name="description" content="Request a free on-site demolition estimate. C&S Demolition serves 123+ SoCal cities — interior demo, concrete, and more. Licensed & insured." />
+        <title>Request a Demolition Bid | C&S Demolition</title>
+        <meta name="description" content="Send plans, photos or a short description and get a written lump-sum demolition bid. Licensed Southern California contractor, CSLB #1126325." />
         <link rel="canonical" href="https://cnsdemo.com/contact" />
         <meta property="og:title" content="Free Estimate | C&S Demolition" />
         <meta property="og:description" content="Request a free on-site demolition estimate. C&S Demolition serves 123+ SoCal cities. Licensed & insured. Call (562) 204-6335." />
@@ -85,19 +85,19 @@ export default function Contact() {
               '@context': 'https://schema.org',
               '@graph': [
                 {
-                  '@type': ['LocalBusiness', 'HomeAndConstructionBusiness', 'GeneralContractor'],
+                  '@type': 'GeneralContractor',
                   '@id': 'https://cnsdemo.com/#business',
                   name: 'C&S Demolition',
-                  legalName: 'Scrapit LLC',
+                  legalName: 'SCRAPIT, LLC',
                   url: 'https://cnsdemo.com',
                   telephone: '+15622046335',
                   email: 'contactus@cnsdemo.com',
                   license: '1126325',
                   address: {
                     '@type': 'PostalAddress',
-                    addressLocality: 'Long Beach',
+                    addressLocality: 'Anaheim',
                     addressRegion: 'CA',
-                    postalCode: '90802',
+                    postalCode: '92807',
                     addressCountry: 'US',
                   },
                 },
@@ -271,7 +271,7 @@ export default function Contact() {
                   { icon: '✓', text: 'General liability + workers\' comp on every job' },
                   { icon: '✓', text: 'Free on-site estimate — written quote same day' },
                   { icon: '✓', text: 'All-inclusive: demo, permits, haul-away, cleanup' },
-                  { icon: '✓', text: 'Locally owned & operated — based in Long Beach, CA' },
+                  { icon: '✓', text: 'Locally owned & operated — based in Anaheim, CA' },
                   { icon: '✓', text: '123+ cities across 4 SoCal counties' },
                   { icon: '✓', text: 'No hourly billing — lump-sum pricing only' },
                 ].map((item, i) => (

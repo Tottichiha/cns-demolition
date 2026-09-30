@@ -30,9 +30,16 @@ interface PageProps {
   serviceContent: ServiceContentEntry | null;
 }
 
+// Service/city pages never show dollar prices: drop any excerpt sentence containing "$".
+function stripPrices(text: string): string {
+  const sentences = text.match(/\S[\s\S]*?(?:[.!?](?=\s|$)|$)/g) || [];
+  return sentences.filter((s) => !s.includes('$')).join(' ');
+}
+
 export default function ServiceCityPage({ city, service, nearbyCities, allServices, relatedPosts, cityContent, serviceContent }: PageProps) {
-  const title = `${service.service_name} in ${city.city}, CA | C&S Demolition`;
-  const description = `Need ${service.service_name.toLowerCase()} in ${city.city}, ${city.county} County? C&S Demolition (Scrapit LLC) is your licensed local contractor. Free estimates. ${service.duration} turnaround. Serving ${city.city} and all of ${city.county} County.`;
+  const titleBase = `${service.service_name} in ${city.city}, CA`;
+  const title = titleBase.length <= 42 ? `${titleBase} | C&S Demolition` : titleBase;
+  const description = `${service.service_name} in ${city.city}, CA by a licensed contractor (CSLB #1126325). Written lump-sum bid, debris hauled, site left clean. (562) 204-6335.`;
 
   const nearbyList = city.nearby_cities.split(',').map((c) => c.trim()).filter(Boolean);
 
@@ -43,7 +50,7 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
     },
     {
       q: `Do I need a permit for ${service.service_name.toLowerCase()} in ${city.city}?`,
-      a: `Permit requirements vary by project type and ${city.city} municipal code. C&S Demolition handles all permit research and filing on your behalf, so you never have to deal with the city directly. We're familiar with ${city.county} County regulations and have existing relationships with local building departments.`,
+      a: `Permit requirements vary by project type and ${city.city} municipal code. Your written bid states which permits the job needs and who pulls them; permit fees are the owner's unless the bid says otherwise.`,
     },
     {
       q: `How long does ${service.service_name.toLowerCase()} take in ${city.city}?`,
@@ -107,7 +114,7 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
               <span className="bg-brand-orange px-3 py-1 rounded-full">✓ CA Licensed Contractor</span>
               <span className="bg-gray-700 px-3 py-1 rounded-full">✓ Free Estimates</span>
               <span className="bg-gray-700 px-3 py-1 rounded-full">✓ Fully Insured</span>
-              <span className="bg-gray-700 px-3 py-1 rounded-full">✓ Same-Week Availability</span>
+              <span className="bg-gray-700 px-3 py-1 rounded-full">✓ Fast Turnaround on Bids</span>
             </div>
           </div>
         </section>
@@ -164,7 +171,7 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
               <p className="text-gray-700 mb-4">
                 C&S Demolition serves every neighborhood in {city.city}, including{' '}
                 {city.neighborhoods.split(',').map((n) => n.trim()).filter(Boolean).join(', ')}.
-                No matter where your property is located, we dispatch crews fast and handle every step from permit filing to final cleanup.
+                No matter where your property is located, we respond quickly and handle the demolition from teardown to final cleanup.
               </p>
               <div className="flex flex-wrap gap-2">
                 {city.neighborhoods.split(',').map((n) => n.trim()).filter(Boolean).map((neighborhood) => (
@@ -186,7 +193,7 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
                 {city.city} Demolition Permit Information
               </h2>
               <p className="text-gray-700 mb-4">
-                {service.service_name} in {city.city} typically requires a demolition permit issued by the city building department. C&S Demolition handles the entire permitting process on your behalf — from application to final inspection sign-off.
+                {service.service_name} in {city.city} typically requires a demolition permit issued by the city building department. Your written bid states which permits the job needs and who pulls them; permit fees are the owner&apos;s unless the bid says otherwise.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
                 <div>
@@ -246,11 +253,11 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 ['Licensed & Insured', `California-licensed contractor operating as C&S Demolition / Scrapit LLC. Fully covered for every job in ${city.city}.`],
-                ['Local Knowledge', `We know ${city.county} County permit offices, inspectors, and local ordinances. No surprises.`],
+                ['Clear Permit Scope', `Your written bid states which permits the job needs and who pulls them; permit fees are the owner's unless the bid says otherwise.`],
                 ['All-Inclusive Pricing', 'Demolition, haul-away, and site cleanup are all included. No hidden fees or surprise charges.'],
                 ['Fast Turnaround', `Most projects in ${city.city} are completed within ${service.duration}. We work around your schedule.`],
-                ['DBA of Scrapit LLC', 'Backed by the full resources of Scrapit LLC — equipment, crews, and experience on thousands of SoCal projects.'],
-                ['Free On-Site Estimates', `We come to your ${city.city} property, assess the project in person, and give you a written quote the same day.`],
+                ['DBA of Scrapit LLC', 'Backed by the equipment and crews of Scrapit LLC, and we respond quickly.'],
+                ['Free Estimates', `C&S gives a written lump-sum bid after seeing plans or photos of your ${city.city} project, with fast turnaround on bids.`],
               ].map(([title, text]) => (
                 <div key={title} className="flex gap-3 p-4 bg-white border border-gray-200 rounded-lg">
                   <span className="text-brand-orange text-xl mt-0.5">✓</span>
@@ -276,17 +283,17 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
                 {
                   step: 1,
                   title: 'Free On-Site Estimate',
-                  text: `We visit your ${city.city} property, measure the project, check for hazardous materials (asbestos, lead paint), and provide a written estimate the same day — no obligation. We quote lump-sum only: no hourly billing surprises.`,
+                  text: `We review your ${city.city} project from plans, photos, or a site visit, note any suspect hazardous materials (asbestos, lead paint) for the owner's survey, and give you a written lump-sum bid with fast turnaround — no obligation. We quote lump-sum only: no hourly billing surprises.`,
                 },
                 {
                   step: 2,
-                  title: `Permit Filing${city.permit_office ? ` — ${city.permit_office}` : ''}`,
-                  text: `${service.service_name} in ${city.city} typically requires a demolition permit. We handle the complete application process with ${city.permit_office || `the ${city.city} Building Department`}${city.permit_phone ? ` (${city.permit_phone})` : ''} — you never deal with city paperwork directly. Permit timelines are built into your project schedule from day one.`,
+                  title: `Permits${city.permit_office ? ` — ${city.permit_office}` : ''}`,
+                  text: `${service.service_name} in ${city.city} typically requires a demolition permit from ${city.permit_office || `the ${city.city} Building Department`}${city.permit_phone ? ` (${city.permit_phone})` : ''}. Your written bid states which permits the job needs and who pulls them; permit fees are the owner's unless the bid says otherwise.`,
                 },
                 {
                   step: 3,
-                  title: 'Site Preparation and Utility Disconnect',
-                  text: `Before demolition begins, we verify all utilities to the work area are properly capped or disconnected. Our crew sets up dust control barriers, secures the perimeter, and protects adjacent structures. California code requires verified utility disconnections before a demo permit is released — we coordinate this entirely.`,
+                  title: 'Site Preparation',
+                  text: `Utilities are disconnected by the owner or GC before demolition starts. Our crew sets up dust control barriers, secures the perimeter, and protects adjacent structures.`,
                 },
                 {
                   step: 4,
@@ -295,8 +302,8 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
                 },
                 {
                   step: 5,
-                  title: 'Debris Removal, Cleanup, and Permit Closeout',
-                  text: `All debris is hauled to licensed facilities in Southern California. We sort recyclable concrete, metal, and clean wood from general waste to minimize landfill impact. We then prepare the site for final inspection, coordinate with ${city.permit_office || `${city.city} Building Department`}, and ensure your permit is officially closed — leaving your property broom-clean and ready for the next phase.`,
+                  title: 'Debris Removal and Cleanup',
+                  text: `All debris is hauled to licensed facilities in Southern California. We sort recyclable concrete, metal, and clean wood from general waste to minimize landfill impact, leaving your property broom-clean and ready for the next phase.`,
                 },
               ].map(({ step, title, text }) => (
                 <div key={step} className="flex gap-4 items-start">
@@ -389,7 +396,7 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
                       {post.title.replace(' | C&S Demolition', '')}
                     </h3>
                     <p className="text-xs text-gray-500 mt-2 leading-relaxed line-clamp-2">
-                      {post.excerpt}
+                      {stripPrices(post.excerpt)}
                     </p>
                   </a>
                 ))}
