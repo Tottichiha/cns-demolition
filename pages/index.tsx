@@ -195,8 +195,8 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
         {/* Hero */}
         <section className="pt-16 sm:pt-20 text-center">
           <div className="max-w-6xl mx-auto px-4">
-            <h1 className="font-display font-extrabold uppercase leading-[1.02] text-[clamp(2.6rem,7vw,5.6rem)] [text-wrap:balance] cns-lift">
-              Demolition <span className="text-brand-red">Concrete</span> Site&nbsp;Clearing
+            <h1 className="font-display font-extrabold uppercase leading-[1.02] text-[clamp(2.3rem,6vw,4.6rem)] [text-wrap:balance] cns-lift">
+              Licensed Southern California <span className="text-brand-red">Demolition</span> Contractor
             </h1>
             <p className="max-w-[62ch] mx-auto mt-6 text-brand-ink-2 text-lg cns-lift [animation-delay:.08s]">
               Commercial interior demo, whole-house teardowns, concrete and block wall removal across Los Angeles, Orange, Riverside and San Bernardino counties. One lump-sum bid, and the site left clean.
