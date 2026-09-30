@@ -428,8 +428,8 @@ const GOOGLE_LISTING_URL = 'https://www.google.com/maps/place/?q=place_id:ChIJQ2
 const HERO_PHOTOS = [
   { src: '/images/projects/commercial_warehouse_demo_wall_2826.jpg', alt: 'Warehouse interior wall coming down inside a cleared commercial space' },
   { src: '/images/projects/crestline_fire_demo_excavator_4.jpg', alt: 'Excavator clearing a fire-damaged house in Crestline' },
-  { src: '/images/projects/chino_hills_asphalt_milling_2700.jpg', alt: 'Asphalt being broken up and removed in Chino Hills' },
-  { src: '/images/projects/venice_garage_demo_after_4.jpg', alt: 'Venice lot cleared after a detached garage was removed' },
+  { src: '/images/projects/commercial_freezer_demo_skid_steer_10.jpg', alt: 'Skid steer clearing debris inside a commercial freezer building during demolition' },
+  { src: '/images/projects/carport_demo_mini_excavator_2563.jpg', alt: 'Mini excavator taking down a parking lot carport' },
 ];
 
 const FACTS: [string, string][] = [
