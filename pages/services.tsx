@@ -62,8 +62,6 @@ export default function ServicesPage({ services }: PageProps) {
                         name: s.service_name,
                         description: s.description,
                       },
-                      priceRange: `$${Number(s.avg_cost_low).toLocaleString()}–$${Number(s.avg_cost_high).toLocaleString()}`,
-                      priceCurrency: 'USD',
                     })),
                   },
                 },
@@ -100,7 +98,7 @@ export default function ServicesPage({ services }: PageProps) {
           </div>
           <a
             href="tel:+15622046335"
-            className="inline-block bg-brand-orange text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-orange-600 transition-colors"
+            className="inline-block bg-brand-orange text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-brand-red-deep transition-colors"
           >
             📞 (562) 204-6335 — Get a Free Estimate
           </a>
@@ -109,7 +107,7 @@ export default function ServicesPage({ services }: PageProps) {
 
         <div className="max-w-5xl mx-auto px-4 py-14">
           <p className="text-center text-gray-600 mb-10 text-lg">
-            We offer {services.length} demolition services throughout Southern California. Click any service to see cities served and pricing.
+            We offer {services.length} demolition services throughout Southern California. Click any service to see cities served and project details.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
@@ -121,9 +119,7 @@ export default function ServicesPage({ services }: PageProps) {
                 <h2 className="font-bold text-gray-900 text-lg mb-2">{service.service_name}</h2>
                 <p className="text-sm text-gray-600 mb-4 flex-1">{service.description}</p>
                 <div className="mt-auto">
-                  <p className="text-sm font-semibold text-brand-orange mb-1">
-                    ${Number(service.avg_cost_low).toLocaleString()} – ${Number(service.avg_cost_high).toLocaleString()}
-                  </p>
+                  <p className="text-sm font-semibold text-brand-orange mb-1">Written lump-sum bid</p>
                   <p className="text-xs text-gray-400">{service.duration} · Free estimate</p>
                 </div>
               </Link>
@@ -133,16 +129,15 @@ export default function ServicesPage({ services }: PageProps) {
 
         {/* Cost comparison table */}
         <section className="max-w-5xl mx-auto px-4 pb-14">
-          <h2 className="text-2xl font-bold text-brand-dark mb-3">Demolition Cost Guide — Southern California</h2>
+          <h2 className="text-2xl font-bold text-brand-dark mb-3">Typical Project Durations — Southern California</h2>
           <p className="text-gray-600 mb-6">
-            All prices are typical ranges for projects in Southern California. Final cost depends on project size, site access, permit requirements, and hazmat conditions. Get a free on-site estimate for an exact quote.
+            Cost depends on project size, height, site access, hand vs. machine work, slab and footing removal, and disposal tonnage — so we don't publish a price list. Send plans or photos and we'll give you a written lump-sum bid.
           </p>
           <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead className="bg-brand-dark text-white">
                 <tr>
                   <th className="text-left px-4 py-3 font-semibold">Service</th>
-                  <th className="text-left px-4 py-3 font-semibold">Typical Cost</th>
                   <th className="text-left px-4 py-3 font-semibold">Duration</th>
                 </tr>
               </thead>
@@ -154,9 +149,6 @@ export default function ServicesPage({ services }: PageProps) {
                         {s.service_name}
                       </Link>
                     </td>
-                    <td className="px-4 py-3 text-gray-700">
-                      ${Number(s.avg_cost_low).toLocaleString()} – ${Number(s.avg_cost_high).toLocaleString()}
-                    </td>
                     <td className="px-4 py-3 text-gray-500">{s.duration}</td>
                   </tr>
                 ))}
@@ -164,7 +156,7 @@ export default function ServicesPage({ services }: PageProps) {
             </table>
           </div>
           <p className="text-xs text-gray-500 mt-3">
-            * Prices are estimates for Orange County and Los Angeles County. Actual pricing provided in free on-site estimate. Permit fees included.
+            * Durations are typical on-site working days once permits are in hand. Your written bid states the schedule for your project.
           </p>
         </section>
 
@@ -220,7 +212,7 @@ export default function ServicesPage({ services }: PageProps) {
             </p>
             <a
               href="tel:+15622046335"
-              className="inline-block bg-brand-orange text-white font-bold px-10 py-4 rounded-lg text-xl hover:bg-orange-600 transition-colors"
+              className="inline-block bg-brand-orange text-white font-bold px-10 py-4 rounded-lg text-xl hover:bg-brand-red-deep transition-colors"
             >
               📞 (562) 204-6335
             </a>

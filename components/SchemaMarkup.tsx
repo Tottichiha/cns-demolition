@@ -105,8 +105,6 @@ export default function SchemaMarkup({ city, service, faqs }: SchemaProps) {
                 name: city.city,
               },
             },
-            priceRange: `$${Number(service.avg_cost_low).toLocaleString()}–$${Number(service.avg_cost_high).toLocaleString()}`,
-            priceCurrency: 'USD',
           },
         ],
       },
@@ -176,12 +174,6 @@ export default function SchemaMarkup({ city, service, faqs }: SchemaProps) {
     '@type': 'HowTo',
     name: `How to Get ${service.service_name} in ${city.city}, CA`,
     description: `Step-by-step process for ${service.service_name.toLowerCase()} projects in ${city.city}, ${city.county} County, CA with C&S Demolition.`,
-    estimatedCost: {
-      '@type': 'MonetaryAmount',
-      currency: 'USD',
-      minValue: Number(service.avg_cost_low),
-      maxValue: Number(service.avg_cost_high),
-    },
     step: howToSteps.map((s, i) => ({
       '@type': 'HowToStep',
       position: i + 1,

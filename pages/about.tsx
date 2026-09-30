@@ -175,7 +175,7 @@ export default function AboutPage() {
                 href="https://www.cslb.ca.gov/OnlineServices/CheckLicense/ContractorLicense.aspx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-white border-2 border-brand-orange rounded-xl p-4 text-center hover:bg-orange-50 transition-colors"
+                className="block bg-white border-2 border-brand-orange rounded-xl p-4 text-center hover:bg-brand-red-tint transition-colors"
               >
                 <p className="text-brand-orange font-bold text-sm">Verify Our License on CSLB.ca.gov →</p>
                 <p className="text-gray-500 text-xs mt-1">License #1126325 · Active · General Building Contractor</p>
@@ -305,7 +305,7 @@ export default function AboutPage() {
           {/* CTA */}
           <section className="bg-brand-orange text-white rounded-xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-3">Ready to Start Your Demolition Project?</h2>
-            <p className="text-orange-100 mb-6 max-w-xl mx-auto">
+            <p className="text-red-100 mb-6 max-w-xl mx-auto">
               Call us or send a message. We schedule free on-site estimates within 24–48 hours and deliver a written quote before we leave your property.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

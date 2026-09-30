@@ -251,7 +251,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="w-full bg-brand-orange text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                className="w-full bg-brand-orange text-white font-bold py-3 rounded-lg hover:bg-brand-red-deep transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {status === 'sending' ? 'Sending...' : 'Request Free Estimate'}
               </button>
@@ -285,10 +285,10 @@ export default function Contact() {
 
             <div className="bg-brand-orange text-white rounded-xl p-6 text-center">
               <p className="font-bold text-lg mb-1">Call or Text</p>
-              <a href="tel:+15622046335" className="text-2xl font-bold block hover:text-orange-100 transition-colors">
+              <a href="tel:+15622046335" className="text-2xl font-bold block hover:text-red-100 transition-colors">
                 (562) 204-6335
               </a>
-              <p className="text-orange-100 text-sm mt-2">Mon–Fri 7AM–6PM · Sat 8AM–4PM</p>
+              <p className="text-red-100 text-sm mt-2">Mon–Fri 7AM–6PM · Sat 8AM–4PM</p>
             </div>
 
             <div className="bg-gray-50 rounded-xl border border-gray-200 p-5">

@@ -135,7 +135,7 @@ export default function BlogIndex({ posts, categories, totalCities }: BlogIndexP
         {/* CTA */}
         <section className="bg-brand-orange text-white py-14 px-4 text-center">
           <h2 className="text-3xl font-bold mb-3">Ready for a Free Demolition Estimate?</h2>
-          <p className="text-orange-100 max-w-xl mx-auto mb-6">
+          <p className="text-red-100 max-w-xl mx-auto mb-6">
             We come to your property, assess the project in person, and give you a written quote the same day — no obligation.
           </p>
           <a

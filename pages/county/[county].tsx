@@ -115,7 +115,7 @@ export default function CountyPage({ county, countySlug, cities, services, relat
             </div>
             <a
               href="tel:+15622046335"
-              className="inline-block bg-brand-orange text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-orange-600 transition-colors"
+              className="inline-block bg-brand-orange text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-brand-red-deep transition-colors"
             >
               📞 (562) 204-6335 — Free Estimate
             </a>
@@ -153,7 +153,7 @@ export default function CountyPage({ county, countySlug, cities, services, relat
                   <h3 className="font-bold text-lg mb-1">{s.service_name}</h3>
                   <p className="text-sm text-gray-600 mb-3">{s.description}</p>
                   <p className="text-sm text-brand-orange font-medium">
-                    From ${Number(s.avg_cost_low).toLocaleString()} · {s.duration} →
+                    {s.duration} · Get a bid →
                   </p>
                 </Link>
               ))}
@@ -164,7 +164,7 @@ export default function CountyPage({ county, countySlug, cities, services, relat
           <section className="mb-12">
             <h2 className="text-2xl font-bold mb-4">All Cities We Serve in {county} County</h2>
             <p className="text-gray-600 mb-6">
-              We provide demolition services in all {cities.length} cities throughout {county} County. Click any city to see service-specific pages, local pricing, and permit office information.
+              We provide demolition services in all {cities.length} cities throughout {county} County. Click any city to see service-specific pages and permit office information.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {cities.map((city) => (
@@ -225,7 +225,7 @@ export default function CountyPage({ county, countySlug, cities, services, relat
             <h2 className="text-2xl font-bold mb-3">
               Get a Free Demolition Estimate in {county} County
             </h2>
-            <p className="text-orange-100 mb-2">
+            <p className="text-red-100 mb-2">
               We come to your property anywhere in {county} County, assess the project in person, and give you a written lump-sum quote the same day.
             </p>
             <p className="text-orange-200 text-sm mb-6">

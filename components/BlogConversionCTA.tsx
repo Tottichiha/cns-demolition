@@ -41,13 +41,13 @@ export default function BlogConversionCTA({ variant }: BlogConversionCTAProps) {
       <div className="flex flex-col sm:flex-row gap-3">
         <Link
           href="/free-estimate"
-          className="bg-brand-orange text-white font-bold px-6 py-3 rounded-lg text-center hover:bg-orange-600 transition-colors"
+          className="bg-brand-orange text-white font-bold px-6 py-3 rounded-lg text-center hover:bg-brand-red-deep transition-colors"
         >
           {isAsbestos ? 'Get a Free Demolition Quote' : 'Get a Free On-Site Estimate'}
         </Link>
         <a
           href="tel:+15622046335"
-          className="border-2 border-brand-orange text-brand-orange font-bold px-6 py-3 rounded-lg text-center hover:bg-orange-50 transition-colors"
+          className="border-2 border-brand-orange text-brand-orange font-bold px-6 py-3 rounded-lg text-center hover:bg-brand-red-tint transition-colors"
         >
           📞 (562) 204-6335
         </a>

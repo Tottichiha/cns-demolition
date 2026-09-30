@@ -94,7 +94,7 @@ function generateExtendedGuide(post: BlogPost): ExtendedSection[] {
     return [
       {
         heading: 'What Drives Demolition Costs in Southern California',
-        body: `Several factors consistently affect ${serviceType} pricing across Orange County, Los Angeles County, Riverside, and San Bernardino. The most significant is project size — more square footage means more labor hours, more equipment time, and more disposal volume. A single bathroom demolition in Anaheim might cost $900 while a full-home interior gut in Irvine runs $12,000 or more.\n\nHazardous materials are a major cost driver. California requires asbestos testing before demolition of structures built before 1980. If asbestos or lead paint is found, abatement must happen before any teardown work begins. Abatement runs $1,500–$8,000 depending on the extent of contamination. Most properties in older SoCal neighborhoods (pre-1980 builds in Long Beach, Pasadena, Santa Ana) carry at least some risk.\n\nPermit requirements add both time and cost. Most cities in Southern California require demolition permits — Orange County cities like Anaheim and Santa Ana charge $150–$600 for residential permits. Los Angeles permits run higher, often $400–$1,200. Cities like Irvine and Chino Hills have efficient online permit systems; others require in-person filings. C&S Demolition handles this process and includes permit fees in project estimates.`,
+        body: `Several factors consistently affect ${serviceType} pricing across Orange County, Los Angeles County, Riverside, and San Bernardino. The most significant is project size — more square footage means more labor hours, more equipment time, and more disposal volume. A single bathroom demolition in Anaheim might cost $1,500 while a full-home interior gut in Irvine runs $12,000 or more.\n\nHazardous materials are a major cost driver. California requires asbestos testing before demolition of structures built before 1980. If asbestos or lead paint is found, abatement must happen before any teardown work begins. Abatement runs $1,500–$8,000 depending on the extent of contamination. Most properties in older SoCal neighborhoods (pre-1980 builds in Long Beach, Pasadena, Santa Ana) carry at least some risk.\n\nPermit requirements add both time and cost. Most cities in Southern California require demolition permits — Orange County cities like Anaheim and Santa Ana charge $150–$600 for residential permits. Los Angeles permits run higher, often $400–$1,200. Cities like Irvine and Chino Hills have efficient online permit systems; others require in-person filings. C&S Demolition handles this process and includes permit fees in project estimates.`,
       },
       {
         heading: 'How to Get the Best Price on Your Demolition Project',
@@ -170,7 +170,7 @@ function generateExtendedGuide(post: BlogPost): ExtendedSection[] {
       },
       {
         heading: 'Types of Commercial Demolition in Southern California',
-        body: `Tenant improvement (TI) demolition is the most common commercial scope — removing the previous tenant's buildout to prepare for a new occupant or ownership. TI demo in Orange County and LA County office parks typically involves removing partitions, ceilings, flooring, HVAC drops, and electrical systems. A 5,000 sq ft office gut runs $8,000–$25,000 depending on material complexity and waste volumes.\n\nRetail demolition ranges from strip mall gut-outs to full-store teardowns. Retail spaces often have more complex flooring (polished concrete under carpet, multiple layered tile systems) and extensive electrical for point-of-sale systems. Anchor store demolitions in regional malls require working around live adjacent tenants — noise restrictions, working hours limits (typically 7AM–6PM), and dust containment are critical.\n\nIndustrial demolition — warehouses, manufacturing floors, equipment rooms — involves larger structural elements, heavier concrete slabs, and more complex hazmat profiles (lead paint on steel, PCBs in older transformers, hydraulic oil contamination). Industrial demo pricing varies widely: $5–$25+ per square foot depending on structure type and hazmat conditions. Engage a contractor with commercial insurance and SCAQMD compliance experience for any industrial project.`,
+        body: `Tenant improvement (TI) demolition is the most common commercial scope — removing the previous tenant's buildout to prepare for a new occupant or ownership. TI demo in Orange County and LA County office parks typically involves removing partitions, ceilings, flooring, HVAC drops, and electrical systems. A commercial interior gut runs $10,000–$150,000 depending on square footage, material complexity and waste volumes.\n\nRetail demolition ranges from strip mall gut-outs to full-store teardowns. Retail spaces often have more complex flooring (polished concrete under carpet, multiple layered tile systems) and extensive electrical for point-of-sale systems. Anchor store demolitions in regional malls require working around live adjacent tenants — noise restrictions, working hours limits (typically 7AM–6PM), and dust containment are critical.\n\nIndustrial demolition — warehouses, manufacturing floors, equipment rooms — involves larger structural elements, heavier concrete slabs, and more complex hazmat profiles (lead paint on steel, PCBs in older transformers, hydraulic oil contamination). Industrial demo pricing varies widely: $5–$25+ per square foot depending on structure type and hazmat conditions. Engage a contractor with commercial insurance and SCAQMD compliance experience for any industrial project.`,
       },
       {
         heading: 'SCAQMD, AQMDs, and Environmental Compliance for Commercial Demo',
@@ -445,7 +445,7 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
 
           {/* Most-relevant service — contextual internal link with descriptive anchor */}
           {primaryService && (
-            <div className="border-l-4 border-brand-orange bg-orange-50 rounded-r-lg p-5 mb-10">
+            <div className="border-l-4 border-brand-orange bg-brand-red-tint rounded-r-lg p-5 mb-10">
               <p className="text-gray-800 leading-relaxed m-0">
                 <span className="font-semibold">Need {primaryService.service_name.toLowerCase()} in Southern California?</span>{' '}
                 C&amp;S Demolition is a CA-licensed, insured contractor (License #1126325). Get a free on-site estimate for{' '}
@@ -505,7 +505,7 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
                       </div>
                       <a
                         href="tel:+15622046335"
-                        className="flex-shrink-0 bg-brand-orange text-white font-bold px-4 py-2 rounded-lg text-sm hover:bg-orange-600 transition-colors"
+                        className="flex-shrink-0 bg-brand-orange text-white font-bold px-4 py-2 rounded-lg text-sm hover:bg-brand-red-deep transition-colors"
                       >
                         📞 (562) 204-6335
                       </a>
@@ -562,7 +562,7 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
             <p className="text-gray-400 text-sm mb-6">Free on-site estimates · Same-week availability · All-inclusive pricing</p>
             <a
               href="tel:+15622046335"
-              className="inline-block bg-brand-orange text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-orange-600 transition-colors"
+              className="inline-block bg-brand-orange text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-brand-red-deep transition-colors"
             >
               📞 (562) 204-6335 — Free Estimate
             </a>

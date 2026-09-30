@@ -159,7 +159,7 @@ export default function CategoryPage({ category, categorySlug, posts, allCategor
           {/* CTA */}
           <section className="bg-brand-orange text-white rounded-xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-3">Ready for a Free Demolition Estimate?</h2>
-            <p className="text-orange-100 mb-6 max-w-xl mx-auto">
+            <p className="text-red-100 mb-6 max-w-xl mx-auto">
               C&amp;S Demolition is a CA-licensed contractor (License #1126325) serving 123+ cities in Southern California. Free on-site estimates — we come to you.
             </p>
             <a

@@ -9,7 +9,7 @@ export default function CTA({ city, service }: CTAProps) {
       <h2 className="text-2xl font-bold mb-3">
         Ready to Start Your {service} Project in {city}?
       </h2>
-      <p className="mb-6 text-orange-100">
+      <p className="mb-6 text-red-100">
         Get a free, no-obligation estimate from C&S Demolition. We serve {city} and all surrounding areas. Fast response, licensed &amp; insured.
       </p>
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -21,7 +21,7 @@ export default function CTA({ city, service }: CTAProps) {
         </a>
         <a
           href="/contact"
-          className="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-orange-600 transition-colors"
+          className="border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-brand-red-deep transition-colors"
         >
           Request Online Estimate
         </a>

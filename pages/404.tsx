@@ -22,7 +22,7 @@ export default function NotFound() {
             That page doesn't exist or may have moved. Here's where you probably want to go:
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/" className="bg-brand-orange text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">
+            <Link href="/" className="bg-brand-orange text-white px-6 py-3 rounded-lg font-semibold hover:bg-brand-red-deep transition-colors">
               Home
             </Link>
             <Link href="/services" className="bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-600 transition-colors">
@@ -66,7 +66,7 @@ export default function NotFound() {
 
         <section className="bg-brand-orange text-white py-12 px-4 text-center">
           <h2 className="text-2xl font-bold mb-3">Need a Demolition Estimate?</h2>
-          <p className="text-orange-100 mb-6">CA License #1126325 · Serving 123+ SoCal Cities · Free On-Site Estimates</p>
+          <p className="text-red-100 mb-6">CA License #1126325 · Serving 123+ SoCal Cities · Free On-Site Estimates</p>
           <a href="tel:+15622046335" className="inline-block bg-white text-brand-orange font-bold px-10 py-4 rounded-lg text-xl hover:bg-gray-100 transition-colors">
             📞 (562) 204-6335
           </a>

@@ -64,7 +64,7 @@ function getServiceFAQs(service: Service, cityCount: number) {
   return [
     {
       q: `How much does ${service.service_name.toLowerCase()} cost in Southern California?`,
-      a: `${service.service_name} in Southern California typically costs between $${Number(service.avg_cost_low).toLocaleString()} and $${Number(service.avg_cost_high).toLocaleString()} depending on project size, materials, site access, and permit requirements. C&S Demolition provides free on-site estimates with a written lump-sum quote the same day — no hourly billing surprises.`,
+      a: `Cost for ${service.service_name.toLowerCase()} depends on the size of the job, wall or structure height, site access, whether the work is done by hand or by machine, whether slabs and footings come out, and how many tons of debris go to disposal. Because those factors vary so much from one property to the next, C&S Demolition does not publish a price list. We give a written lump-sum bid after seeing your plans or photos — no hourly billing.`,
     },
     {
       q: `Do I need a permit for ${service.service_name.toLowerCase()} in California?`,
@@ -80,14 +80,14 @@ function getServiceFAQs(service: Service, cityCount: number) {
     },
     {
       q: `What cities do you serve for ${service.service_name.toLowerCase()}?`,
-      a: `C&S Demolition provides ${service.service_name.toLowerCase()} services in ${cityCount}+ cities across Southern California, including all of Orange County, Los Angeles County, Riverside County, and San Bernardino County. Click any city below for pricing and availability specific to your area.`,
+      a: `C&S Demolition provides ${service.service_name.toLowerCase()} services in ${cityCount}+ cities across Southern California, including all of Orange County, Los Angeles County, Riverside County, and San Bernardino County. Click any city below for availability specific to your area.`,
     },
   ];
 }
 
 export default function ServiceIndexPage({ service, cities, allServices, relatedPosts }: PageProps) {
   const title = `${service.service_name} in Southern California | C&S Demolition`;
-  const description = `Licensed ${service.service_name.toLowerCase()} contractor serving ${cities.length}+ cities across Southern California. CA License #1126325. $${Number(service.avg_cost_low).toLocaleString()}–$${Number(service.avg_cost_high).toLocaleString()} typical. Free on-site estimates. Call (562) 204-6335.`;
+  const description = `Licensed ${service.service_name.toLowerCase()} contractor serving ${cities.length}+ cities across Southern California. CA License #1126325. Written lump-sum bids. Free on-site estimates. Call (562) 204-6335.`;
 
   const laCities = cities.filter((c) => c.county === 'Los Angeles');
   const ocCities = cities.filter((c) => c.county === 'Orange');
@@ -140,8 +140,6 @@ export default function ServiceIndexPage({ service, cities, allServices, related
                 name: `${service.service_name} in Southern California`,
                 description: service.description,
               },
-              priceRange: `$${Number(service.avg_cost_low).toLocaleString()}–$${Number(service.avg_cost_high).toLocaleString()}`,
-              priceCurrency: 'USD',
             },
           ],
         },
@@ -206,13 +204,11 @@ export default function ServiceIndexPage({ service, cities, allServices, related
               <span className="bg-brand-orange px-3 py-1 rounded-full">✓ CA Licensed #1126325</span>
               <span className="bg-gray-700 px-3 py-1 rounded-full">✓ Free Estimates</span>
               <span className="bg-gray-700 px-3 py-1 rounded-full">✓ Fully Insured</span>
-              <span className="bg-gray-700 px-3 py-1 rounded-full">
-                ✓ ${Number(service.avg_cost_low).toLocaleString()}–${Number(service.avg_cost_high).toLocaleString()} typical
-              </span>
+              <span className="bg-gray-700 px-3 py-1 rounded-full">✓ Written Lump-Sum Bid</span>
             </div>
             <a
               href="tel:+15622046335"
-              className="inline-block bg-brand-orange text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-orange-600 transition-colors"
+              className="inline-block bg-brand-orange text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-brand-red-deep transition-colors"
             >
               📞 (562) 204-6335 — Get a Free Estimate
             </a>
@@ -242,10 +238,8 @@ export default function ServiceIndexPage({ service, cities, allServices, related
             <h2 className="text-xl font-bold mb-4">{service.service_name} Cost in Southern California</h2>
             <div className="flex gap-8 mb-4">
               <div>
-                <p className="text-sm text-gray-500">Typical Range</p>
-                <p className="text-2xl font-bold text-brand-orange">
-                  ${Number(service.avg_cost_low).toLocaleString()} – ${Number(service.avg_cost_high).toLocaleString()}
-                </p>
+                <p className="text-sm text-gray-500">How We Price</p>
+                <p className="text-2xl font-bold text-brand-orange">Written Lump-Sum Bid</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500">Typical Duration</p>
@@ -321,7 +315,7 @@ export default function ServiceIndexPage({ service, cities, allServices, related
                 {service.service_name} — {group.name}
               </h2>
               <p className="text-gray-600 mb-6">
-                Click any city to see local pricing, permit requirements, and availability for {service.service_name.toLowerCase()} in that area.
+                Click any city to see permit requirements and availability for {service.service_name.toLowerCase()} in that area.
               </p>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
                 {group.cities.map((city) => (
@@ -404,7 +398,7 @@ export default function ServiceIndexPage({ service, cities, allServices, related
 
           <section className="bg-brand-orange text-white rounded-xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-3">Get a Free {service.service_name} Estimate</h2>
-            <p className="text-orange-100 mb-2">
+            <p className="text-red-100 mb-2">
               We come to your property, assess the project in person, and give you a written lump-sum quote the same day.
             </p>
             <p className="text-orange-200 text-sm mb-6">

@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="space-y-1 text-sm mt-3">
             <p className="text-white font-semibold">CA Contractor License #1126325</p>
             <p>Bonded &amp; Insured · Free On-Site Estimates</p>
-            <a href="tel:+15622046335" className="text-brand-orange hover:text-orange-400 font-semibold block">
+            <a href="tel:+15622046335" className="text-brand-orange hover:text-red-300 font-semibold block">
               (562) 204-6335
             </a>
             <a href="mailto:contactus@cnsdemo.com" className="hover:text-white text-xs">
@@ -30,7 +30,7 @@ export default function Footer() {
             <li><Link href="/demolition/garage-demolition" className="hover:text-white">Garage Demolition</Link></li>
             <li><Link href="/demolition/whole-house-demolition" className="hover:text-white">Whole House Demo</Link></li>
             <li><Link href="/demolition/commercial-demolition" className="hover:text-white">Commercial Demo</Link></li>
-            <li><Link href="/services" className="text-brand-orange hover:text-orange-400">All 19 Services →</Link></li>
+            <li><Link href="/services" className="text-brand-orange hover:text-red-300">All 19 Services →</Link></li>
           </ul>
         </div>
 
@@ -44,7 +44,7 @@ export default function Footer() {
             <li><Link href="/county/san-bernardino" className="hover:text-white">San Bernardino County</Link></li>
             <li><Link href="/demolition/interior-demolition/anaheim" className="hover:text-white">Anaheim</Link></li>
             <li><Link href="/demolition/interior-demolition/irvine" className="hover:text-white">Irvine</Link></li>
-            <li><Link href="/service-areas" className="text-brand-orange hover:text-orange-400">All 123 Cities →</Link></li>
+            <li><Link href="/service-areas" className="text-brand-orange hover:text-red-300">All 123 Cities →</Link></li>
           </ul>
         </div>
 

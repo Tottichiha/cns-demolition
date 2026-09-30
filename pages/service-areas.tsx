@@ -96,7 +96,7 @@ export default function ServiceAreasPage({ countyData, totalCities, services }: 
             </div>
             <a
               href="tel:+15622046335"
-              className="inline-block bg-brand-orange text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-orange-600 transition-colors"
+              className="inline-block bg-brand-orange text-white font-bold px-8 py-4 rounded-lg text-lg hover:bg-brand-red-deep transition-colors"
             >
               📞 (562) 204-6335 — Free Estimate
             </a>
@@ -157,7 +157,7 @@ export default function ServiceAreasPage({ countyData, totalCities, services }: 
           <section className="border-t border-gray-200 pt-12 mb-12">
             <h2 className="text-2xl font-bold text-brand-dark mb-4">Services We Offer Throughout Southern California</h2>
             <p className="text-gray-600 mb-6">
-              Every service listed below is available in all {totalCities} cities across our service area. Click any service to see city-specific pages and pricing.
+              Every service listed below is available in all {totalCities} cities across our service area. Click any service to see city-specific pages.
             </p>
             <div className="flex flex-wrap gap-2">
               {services.map((s) => (
@@ -175,7 +175,7 @@ export default function ServiceAreasPage({ countyData, totalCities, services }: 
           {/* CTA */}
           <section className="bg-brand-orange text-white rounded-xl p-8 text-center">
             <h2 className="text-2xl font-bold mb-3">Get a Free Estimate Anywhere in Southern California</h2>
-            <p className="text-orange-100 mb-2">
+            <p className="text-red-100 mb-2">
               We come to your property, assess the project in person, and give you a written lump-sum quote the same day — no obligation.
             </p>
             <p className="text-orange-200 text-sm mb-6">

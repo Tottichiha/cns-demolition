@@ -39,7 +39,7 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
   const faqs = [
     {
       q: `How much does ${service.service_name.toLowerCase()} cost in ${city.city}?`,
-      a: `In ${city.city} and the surrounding ${city.county} County area, ${service.service_name.toLowerCase()} typically costs between $${Number(service.avg_cost_low).toLocaleString()} and $${Number(service.avg_cost_high).toLocaleString()} depending on scope, access, and materials. Contact us for a free on-site estimate tailored to your specific project.`,
+      a: `Cost for ${service.service_name.toLowerCase()} in ${city.city} depends on the size of the job, wall or structure height, site access, whether the work is done by hand or by machine, whether slabs and footings come out, and how many tons of debris go to disposal. C&S Demolition gives a written lump-sum bid after seeing your plans or photos — no hourly billing.`,
     },
     {
       q: `Do I need a permit for ${service.service_name.toLowerCase()} in ${city.city}?`,
@@ -225,10 +225,8 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
             </h2>
             <div className="flex gap-8 mb-4">
               <div>
-                <p className="text-sm text-gray-500">Typical Range</p>
-                <p className="text-2xl font-bold text-brand-orange">
-                  ${Number(service.avg_cost_low).toLocaleString()} – ${Number(service.avg_cost_high).toLocaleString()}
-                </p>
+                <p className="text-sm text-gray-500">How We Price</p>
+                <p className="text-2xl font-bold text-brand-orange">Written Lump-Sum Bid</p>
               </div>
               <div>
                 <p className="text-sm text-gray-500">Typical Duration</p>

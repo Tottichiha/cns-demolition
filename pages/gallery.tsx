@@ -389,7 +389,7 @@ export default function GalleryPage() {
 
                 {/* Card body */}
                 <div className="p-4">
-                  <span className="inline-block text-xs font-bold uppercase tracking-wide text-brand-orange bg-orange-50 px-2 py-0.5 rounded mb-2 capitalize">
+                  <span className="inline-block text-xs font-bold uppercase tracking-wide text-brand-orange bg-brand-red-tint px-2 py-0.5 rounded mb-2 capitalize">
                     {project.cat}
                   </span>
                   <h2 className="font-bold text-brand-dark text-sm leading-snug mb-3">
@@ -429,7 +429,7 @@ export default function GalleryPage() {
             <h2 className="text-2xl font-bold mb-3">
               Need a Demolition Estimate?
             </h2>
-            <p className="text-orange-100 mb-6 max-w-xl mx-auto">
+            <p className="text-red-100 mb-6 max-w-xl mx-auto">
               We serve 123+ cities across Southern California. Free on-site estimates — written quote before we leave your property.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

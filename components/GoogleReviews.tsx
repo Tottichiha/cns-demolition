@@ -35,7 +35,7 @@ export default function GoogleReviews() {
             href={WRITE_REVIEW_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-brand-orange text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors text-sm"
+            className="bg-brand-orange text-white font-semibold px-6 py-3 rounded-lg hover:bg-brand-red-deep transition-colors text-sm"
           >
             Worked with us? Leave a review
           </a>
