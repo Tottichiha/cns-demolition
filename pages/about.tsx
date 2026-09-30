@@ -152,7 +152,7 @@ export default function AboutPage() {
                 Today, C&amp;S Demolition serves 123+ cities across Los Angeles, Orange County, Riverside, and San Bernardino counties with a team of 15 licensed, insured professionals. We handle everything from single-room interior teardowns to full structural demolition on commercial properties up to 10,000 sq ft.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                We're proud to hold an active California Contractors State License Board (CSLB) license — <strong>License #1126325</strong> — which you can verify directly at <a href="https://www.cslb.ca.gov/OnlineServices/CheckLicense/ContractorLicense.aspx" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:underline">cslb.ca.gov</a>. That license means we carry the required liability and workers' comp insurance, pass background checks, and meet California's professional standards for demolition work.
+                We're proud to hold an active California Contractors State License Board (CSLB) license — <strong>License #1126325</strong> — which you can verify directly at <a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/CheckLicense.aspx" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:underline">cslb.ca.gov</a>. That license means we carry the required liability and workers' comp insurance, pass background checks, and meet California's professional standards for demolition work.
               </p>
             </div>
             <div>
@@ -172,7 +172,7 @@ export default function AboutPage() {
                 </ul>
               </div>
               <a
-                href="https://www.cslb.ca.gov/OnlineServices/CheckLicense/ContractorLicense.aspx"
+                href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/CheckLicense.aspx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block bg-white border-2 border-brand-orange rounded-xl p-4 text-center hover:bg-brand-red-tint transition-colors"
