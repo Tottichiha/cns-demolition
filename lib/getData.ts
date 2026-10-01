@@ -92,6 +92,8 @@ export interface BlogPost {
   category: string;
   excerpt: string;
   sections: { heading: string; body: string }[];
+  author?: string;
+  updated?: string;
 }
 
 export function getBlogPosts(): BlogPost[] {

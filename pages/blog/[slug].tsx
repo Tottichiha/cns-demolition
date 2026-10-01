@@ -272,13 +272,13 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
       height: 630,
     },
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated || post.date,
     wordCount,
     inLanguage: 'en-US',
     author: {
       '@type': 'Person',
-      name: 'C&S Demolition Team',
-      jobTitle: 'Licensed Demolition Contractor',
+      name: post.author || 'C&S Demolition Team',
+      jobTitle: post.author ? 'Owner, C&S Demolition (CSLB #1126325)' : 'Licensed Demolition Contractor',
       worksFor: {
         '@type': 'Organization',
         name: 'C&S Demolition',
@@ -350,10 +350,10 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={ogImageUrl} />
         <meta name="twitter:image:alt" content={`${cleanTitle} — C&S Demolition`} />
-        <meta name="author" content="C&S Demolition Team" />
+        <meta name="author" content={post.author || 'C&S Demolition Team'} />
         <meta property="article:published_time" content={post.date} />
-        <meta property="article:modified_time" content={post.date} />
-        <meta property="article:author" content="C&S Demolition Team" />
+        <meta property="article:modified_time" content={post.updated || post.date} />
+        <meta property="article:author" content={post.author || 'C&S Demolition Team'} />
         <meta property="article:section" content={post.category} />
         <meta property="article:tag" content={post.category} />
         <meta property="article:tag" content="Demolition" />
@@ -386,7 +386,7 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
             <p className="text-gray-300 text-lg mb-4">{post.excerpt}</p>
             <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400">
               <span>
-                {new Date(post.date + 'T12:00:00').toLocaleDateString('en-US', {
+                {post.updated ? 'Updated ' : ''}{new Date((post.updated || post.date) + 'T12:00:00').toLocaleDateString('en-US', {
                   month: 'long',
                   day: 'numeric',
                   year: 'numeric',
@@ -397,7 +397,7 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
               <span>·</span>
               <span>{wordCount.toLocaleString()} words</span>
               <span>·</span>
-              <span>C&amp;S Demolition</span>
+              <span>{post.author ? `By ${post.author}, owner · CSLB #1126325` : 'C&S Demolition'}</span>
             </div>
           </div>
         </section>
@@ -445,7 +445,7 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
 
           {/* Most-relevant service — contextual internal link with descriptive anchor */}
           {primaryService && (
-            <div className="border-l-4 border-brand-orange bg-brand-red-tint rounded-r-lg p-5 mb-10">
+            <div className="border border-brand-line bg-brand-red-tint rounded-lg p-5 mb-10">
               <p className="text-gray-800 leading-relaxed m-0">
                 <span className="font-semibold">Need {primaryService.service_name.toLowerCase()} in Southern California?</span>{' '}
                 C&amp;S Demolition is a CA-licensed, insured contractor (License #1126325). Get a free on-site estimate for{' '}
@@ -468,6 +468,20 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
                 <section key={i} id={`section-${i}`} className="mb-10">
                   <h2 className="text-2xl font-bold text-brand-dark mb-4">{section.heading}</h2>
                   {section.body.split('\n\n').map((para, j) => {
+                    // Render markdown-style tables (lines starting with |)
+                    if (para.trim().startsWith('|')) {
+                      const rows = para.split('\n').filter((l) => l.trim().startsWith('|') && !/^\|[\s|:-]+\|$/.test(l.trim()));
+                      const cells = (l: string) => l.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+                      const [head, ...bodyRows] = rows;
+                      return (
+                        <div key={j} className="overflow-x-auto mb-6">
+                          <table className="w-full text-sm border-collapse">
+                            <thead><tr>{cells(head).map((c, k) => <th key={k} className="text-left font-semibold border-b-2 border-brand-line py-2 pr-4">{c}</th>)}</tr></thead>
+                            <tbody>{bodyRows.map((r, k) => <tr key={k}>{cells(r).map((c, m) => <td key={m} className="border-b border-brand-line py-2 pr-4 align-top text-gray-700">{c}</td>)}</tr>)}</tbody>
+                          </table>
+                        </div>
+                      );
+                    }
                     // Render numbered lists (lines starting with digits)
                     if (para.match(/^\d+\./m)) {
                       const lines = para.split('\n').filter(Boolean);
@@ -485,14 +499,14 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
                       return (
                         <ul key={j} className="list-disc list-inside text-gray-700 mb-4 space-y-1">
                           {lines.map((line, k) => (
-                            <li key={k} className="leading-relaxed text-sm">{line.replace(/^-\s*/, '')}</li>
+                            <li key={k} className="leading-relaxed text-sm">{withBold(line.replace(/^-\s*/, ''))}</li>
                           ))}
                         </ul>
                       );
                     }
                     return (
                       <p key={j} className="text-gray-700 mb-4 leading-relaxed">
-                        {para}
+                        {withBold(para)}
                       </p>
                     );
                   })}
@@ -501,7 +515,7 @@ export default function BlogPostPage({ post, relatedPosts, services }: BlogPostP
                     <div className="bg-brand-orange/10 border border-brand-orange/30 rounded-lg p-4 my-6 flex flex-col sm:flex-row items-start sm:items-center gap-3">
                       <div className="flex-1">
                         <p className="font-semibold text-gray-900 text-sm">Need a free demolition estimate?</p>
-                        <p className="text-xs text-gray-600">CA Licensed #1126325 · Serving 123+ SoCal Cities · Same-week availability</p>
+                        <p className="text-xs text-gray-600">CA Licensed #1126325 · Serving 123+ SoCal Cities · Written lump-sum bids</p>
                       </div>
                       <a
                         href="tel:+15622046335"
@@ -667,3 +681,10 @@ export const getStaticProps: GetStaticProps<BlogPostProps> = async ({ params }) 
 
   return { props: { post, relatedPosts, services: getServices() } };
 };
+
+// **bold** spans in section copy
+function withBold(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith('**') && part.endsWith('**') ? <strong key={i}>{part.slice(2, -2)}</strong> : part
+  );
+}
