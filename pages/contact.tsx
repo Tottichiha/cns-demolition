@@ -97,7 +97,6 @@ export default function Contact() {
                     '@type': 'PostalAddress',
                     addressLocality: 'Anaheim',
                     addressRegion: 'CA',
-                    postalCode: '92807',
                     addressCountry: 'US',
                   },
                 },

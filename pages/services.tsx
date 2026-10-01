@@ -48,7 +48,6 @@ export default function ServicesPage({ services }: PageProps) {
                     '@type': 'PostalAddress',
                     addressLocality: 'Anaheim',
                     addressRegion: 'CA',
-                    postalCode: '92807',
                     addressCountry: 'US',
                   },
                   areaServed: { '@type': 'AdministrativeArea', name: 'Southern California' },

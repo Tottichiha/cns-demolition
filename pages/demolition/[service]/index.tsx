@@ -127,7 +127,6 @@ export default function ServiceIndexPage({ service, cities, allServices, related
           '@type': 'PostalAddress',
           addressLocality: 'Anaheim',
           addressRegion: 'CA',
-          postalCode: '92807',
           addressCountry: 'US',
         },
         areaServed: {

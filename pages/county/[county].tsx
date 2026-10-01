@@ -36,7 +36,6 @@ export default function CountyPage({ county, countySlug, cities, services, relat
           '@type': 'PostalAddress',
           addressLocality: 'Anaheim',
           addressRegion: 'CA',
-          postalCode: '92807',
           addressCountry: 'US',
         },
         areaServed: {

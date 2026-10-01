@@ -108,7 +108,6 @@ export default function Home({ counties, totalCities, services, latestPosts, cat
                 "@type": "PostalAddress",
                 "addressLocality": "Anaheim",
                 "addressRegion": "CA",
-                "postalCode": "92807",
                 "addressCountry": "US"
               },
               "openingHoursSpecification": [
