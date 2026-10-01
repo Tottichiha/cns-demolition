@@ -18,6 +18,8 @@ import {
   Service,
   BlogPost,
   ServiceContentEntry,
+  getLocalServiceContent,
+  LocalServiceEntry,
 } from '../../../lib/getData';
 
 interface PageProps {
@@ -28,6 +30,7 @@ interface PageProps {
   relatedPosts: BlogPost[];
   cityContent: string | null;
   serviceContent: ServiceContentEntry | null;
+  local: LocalServiceEntry | null;
 }
 
 // Service/city pages never show dollar prices: drop any excerpt sentence containing "$".
@@ -36,7 +39,7 @@ function stripPrices(text: string): string {
   return sentences.filter((s) => !s.includes('$')).join(' ');
 }
 
-export default function ServiceCityPage({ city, service, nearbyCities, allServices, relatedPosts, cityContent, serviceContent }: PageProps) {
+export default function ServiceCityPage({ city, service, nearbyCities, allServices, relatedPosts, cityContent, serviceContent, local }: PageProps) {
   const titleBase = `${service.service_name} in ${city.city}, CA`;
   const title = titleBase.length <= 42 ? `${titleBase} | C&S Demolition` : titleBase;
   const description = `${service.service_name} in ${city.city}, CA by a licensed contractor (CSLB #1126325). Written lump-sum bid, debris hauled, site left clean. (562) 204-6335.`;
@@ -44,6 +47,7 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
   const nearbyList = city.nearby_cities.split(',').map((c) => c.trim()).filter(Boolean);
 
   const faqs = [
+    ...(local?.faqs ?? []),
     {
       q: `How much does ${service.service_name.toLowerCase()} cost in ${city.city}?`,
       a: `Cost for ${service.service_name.toLowerCase()} in ${city.city} depends on the size of the job, wall or structure height, site access, whether the work is done by hand or by machine, whether slabs and footings come out, and how many tons of debris go to disposal. C&S Demolition gives a written lump-sum bid after seeing your plans or photos — no hourly billing.`,
@@ -121,13 +125,35 @@ export default function ServiceCityPage({ city, service, nearbyCities, allServic
 
         <div className="max-w-4xl mx-auto px-4 py-12">
 
-          {/* Service Overview — unique per-service content */}
+          {/* Local, page-specific content for this service in this city */}
+          {local && (
+            <section className="mb-12">
+              <h2 className="text-2xl font-bold text-brand-dark mb-4">
+                {service.service_name} in {city.city}: What to Know
+              </h2>
+              {local.intro.split('\n\n').map((para, i) => (
+                <p key={i} className="text-gray-700 mb-4 leading-relaxed">{para}</p>
+              ))}
+              {local.local_notes.length > 0 && (
+                <ul className="space-y-2 my-6">
+                  {local.local_notes.map((n, i) => (
+                    <li key={i} className="flex gap-2 text-gray-700">
+                      <span className="text-brand-red flex-shrink-0 font-bold">–</span>
+                      <span>{n}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          )}
+
+          {/* Service Overview — per-service content (trimmed when local content exists) */}
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-brand-dark mb-4">
               Professional {service.service_name} in {city.city}, CA
             </h2>
             {serviceContent ? (
-              serviceContent.deep_content.split('\n\n').map((para, i) => (
+              serviceContent.deep_content.split('\n\n').slice(0, local ? 1 : undefined).map((para, i) => (
                 <p key={i} className="text-gray-700 mb-4 leading-relaxed">{para}</p>
               ))
             ) : (
@@ -456,6 +482,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
 
   const cityContent = getCityContent(citySlug);
   const serviceContent = getServiceContent(serviceSlug);
+  const local = getLocalServiceContent(citySlug, serviceSlug);
 
   // Get nearby cities from same county (excluding current city)
   const nearbyCities = getCitiesByCounty(city.county)
@@ -467,6 +494,6 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const relatedPosts = getRelatedBlogPosts([...serviceKeywords, city.slug.split('-')[0]], 3);
 
   return {
-    props: { city, service, nearbyCities, allServices: getServices(), relatedPosts, cityContent, serviceContent },
+    props: { city, service, nearbyCities, allServices: getServices(), relatedPosts, cityContent, serviceContent, local },
   };
 };

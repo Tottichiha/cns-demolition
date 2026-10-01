@@ -162,3 +162,19 @@ export function getAllCityServicePairs(): { citySlug: string; serviceSlug: strin
   });
   return pairs;
 }
+
+// Per city × service local content (data/local/<city-slug>.json). Written per
+// page so every service/city page carries its own local detail.
+export interface LocalServiceEntry {
+  intro: string;
+  local_notes: string[];
+  faqs: { q: string; a: string }[];
+}
+const _local: Record<string, Record<string, LocalServiceEntry> | null> = {};
+export function getLocalServiceContent(citySlug: string, serviceSlug: string): LocalServiceEntry | null {
+  if (!(citySlug in _local)) {
+    const fp = path.join(dataDir, 'local', `${citySlug}.json`);
+    _local[citySlug] = fs.existsSync(fp) ? JSON.parse(fs.readFileSync(fp, 'utf-8')).services ?? null : null;
+  }
+  return _local[citySlug]?.[serviceSlug] ?? null;
+}

@@ -1,0 +1,353 @@
+{
+  "city": "pasadena",
+  "sources": [
+    "https://www.cityofpasadena.net/planning/planning-division/design-and-historic-preservation/historic-preservation/historic-resource-surveys/",
+    "https://www.cityofpasadena.net/planning/wp-content/uploads/sites/30/Pasadena-Historic-Preservation-Ordinance-Related-Zoning-Code-Sections.pdf",
+    "data/cities.csv (pasadena row)",
+    "data/city-content.json (pasadena)"
+  ],
+  "services": {
+    "interior-demolition": {
+      "intro": "A gut-out in Pasadena usually means opening up a house that has been remodeled two or three times since it was built. Behind the drywall you often find original plaster on wood lath, knob-and-tube remnants, and framing that was altered without much drawing. We expect that and plan the tear-out room by room instead of swinging at everything at once.\n\nWork that stays inside the walls generally does not go before the historic review body, which is what keeps interior jobs moving faster than exterior ones. The catch is the debris. Plaster and lath are dense, and in a closed franchise city every pound goes into boxes supplied by the city's hauler. We stage the demo so the heavy material fills boxes steadily and the crew is not waiting on a swap.",
+      "local_notes": [
+        "Plaster and lath on pre-1978 houses are heavy; expect more box swaps than on a modern drywall house.",
+        "Interior-only scope typically avoids the exterior design review, but anything that changes the street-facing facade does not.",
+        "Houses built before 1978 need lead paint testing, and an asbestos survey must be done before demolition under SCAQMD Rule 1403.",
+        "Many Pasadena bungalows have tight side yards, so we plan hand-carry routes to the bin instead of assuming truck access at the door."
+      ],
+      "faqs": [
+        {
+          "q": "Can you leave the original trim and doors in a Craftsman interior?",
+          "a": "Yes, if you tell us before the job starts. We tag and pull trim, built-ins, and doors by hand and stack them in a protected room. That is slower than a clean sweep, so the written scope should name what stays."
+        },
+        {
+          "q": "What happens to the lath and plaster dust in an occupied neighborhood?",
+          "a": "We seal the work area, keep the doors closed, and bag fine debris before it crosses the house. Pasadena lots are close together, so we also keep dust off the shared fence line."
+        }
+      ]
+    },
+    "shed-demolition": {
+      "intro": "Most small structure removals in Pasadena are backyard outbuildings: a leaning wood shed, a workshop added behind a bungalow, a carport nobody uses. They look simple, and the demolition itself often is. The part that takes thought is how the debris leaves a narrow lot.\n\nBecause Pasadena does not let contractors haul their own construction debris, a shed does not get thrown into a truck bed and driven away. A box comes from the city's franchise hauler and has to sit somewhere reachable, which on many lots means the driveway or the alley. If the structure is old enough, it can also be part of a historic property, so we ask what else is on the parcel before we touch anything.",
+      "local_notes": [
+        "Place the bin before demo day; the hauler supplies it and we cannot substitute our own truck.",
+        "Outbuildings on older lots may be listed with the main house if the property is in a landmark district or evaluated as a historic resource.",
+        "Wood sheds with painted siding from before 1978 can carry lead, which changes how we handle the debris.",
+        "Concrete pads under a shed count toward the box weight limit, so a slab removal adds boxes."
+      ],
+      "faqs": [
+        {
+          "q": "Does a shed in the back yard fall under Pasadena's historic review?",
+          "a": "Usually not if it is small and out of view, but the rules look at the property as a whole. If the house is a designated resource, ask the city before you assume. We can tell you what we have seen, but the city decides."
+        },
+        {
+          "q": "Where does the bin go if my driveway is narrow?",
+          "a": "We look at the site first. A box can often sit on the street with the right city approval, or in the alley if the property has one. Your written bid will say who arranges it."
+        }
+      ]
+    },
+    "deck-demolition": {
+      "intro": "Decks and patios around Pasadena homes tend to be one of two kinds. There are redwood decks that have been in the weather since the sixties and are one season from failing, and there are concrete patios poured as part of a later remodel. Each comes apart differently, and each fills a box differently.\n\nWood is light and bulky, so a deck can fill a box before it gets near the weight cap. Concrete is the reverse. A patio slab hits the roughly 8-ton limit on a box quickly, and the franchise rules mean we cannot haul the excess ourselves. We separate the two materials as we go so you are not paying for a half-empty box of lumber next to a pile of broken slab.",
+      "local_notes": [
+        "Pergolas and covered patios attached to the house may involve the main structure; confirm with the city before demolition.",
+        "Rear decks are generally out of public view, which tends to keep them out of design review in historic districts.",
+        "Sloped Pasadena lots, including hillside areas near the Arroyo, make access for equipment tight and sometimes mean hand demolition.",
+        "Footings under older decks are rarely marked, so we probe before assuming depth."
+      ],
+      "faqs": [
+        {
+          "q": "Do you take the posts and footings out or cut them at grade?",
+          "a": "Both are possible and the bid should say which. Pulling footings leaves a clean site for new construction but adds concrete to the haul. Cutting at grade is faster if nothing will be built there."
+        },
+        {
+          "q": "Can a deck come down without disturbing the stucco on the house?",
+          "a": "Usually yes. We detach the ledger carefully and flag any damage to the wall for you to patch. Older stucco in Pasadena can crack at the fasteners, so we photograph the wall before we start."
+        }
+      ]
+    },
+    "wall-removal": {
+      "intro": "Opening a wall between a kitchen and dining room is among the most common remodel requests in Pasadena's older neighborhoods. In a 1920s house the wall in question is often carrying roof or ceiling load, and the framing above may have been modified in some past project. That decision belongs to your engineer.\n\nWe handle the demolition side: protect the floors, cut and remove the wall assembly, and haul the debris. Shoring and temporary bracing are not part of our work, so your engineer's plan or your GC arranges that before we start. Plaster walls produce more debris by weight than drywall, which matters when every ton has to leave in franchise boxes.",
+      "local_notes": [
+        "Load-bearing removal needs the owner's engineer and the correct permit; our bid says who pulls what.",
+        "Plaster-over-lath partitions are heavier and dustier than modern stud walls.",
+        "Old walls often hide cloth-wrapped wiring and abandoned plumbing; the owner or GC disconnects utilities first.",
+        "Removing an interior wall rarely triggers historic review unless it alters a designated interior feature."
+      ],
+      "faqs": [
+        {
+          "q": "How do I know if the wall is load-bearing?",
+          "a": "We can tell you what we see, such as joist direction and what sits above, but only a structural engineer can confirm it. If there is doubt, treat the wall as structural until the engineer says otherwise."
+        },
+        {
+          "q": "Who sets the temporary support?",
+          "a": "Your engineer designs it and your GC or a shoring contractor installs it. We do not include shoring in our work. We start demolition once the support is in place."
+        }
+      ]
+    },
+    "concrete-removal": {
+      "intro": "Concrete is where Pasadena's debris rules really show. A single 8-ton box fills with surprisingly little slab. A typical residential driveway or garage floor is several boxes, and because the city's franchise hauler is the only route out, the number of box swaps is the number that matters in planning.\n\nOlder Pasadena properties also tend to have concrete in unexpected places: ribbon driveways, old foundation remnants, buried slabs from demolished outbuildings, and retaining pieces along the side yard. We probe or review plans where we can so the box count in the bid is realistic. When a breaker or mini excavator can reach the work, it goes quickly. When access is limited to a gate and a walkway, we break by hand and move smaller loads.",
+      "local_notes": [
+        "Concrete weighs far more than most demo debris, so expect more boxes than the volume suggests.",
+        "Any grade change near a property line or neighbor's wall needs care, and retaining concrete may need engineering.",
+        "Broken concrete must go into franchise boxes; we cannot truck it out ourselves in Pasadena.",
+        "If the slab is attached to a structure, we need to know what holds up what before we cut."
+      ],
+      "faqs": [
+        {
+          "q": "Can the concrete be recycled instead of landfilled?",
+          "a": "Pasadena has construction and demolition recycling expectations, so clean concrete is usually kept separate from mixed debris. Check your permit paperwork for what is required. We can load concrete separately if that is how the hauler takes it."
+        },
+        {
+          "q": "Why does one slab need several bins?",
+          "a": "Each box has roughly an 8-ton cap. Concrete is dense, so a box fills by weight long before it fills by volume. We estimate tonnage from thickness and area."
+        }
+      ]
+    },
+    "kitchen-demolition": {
+      "intro": "A Pasadena kitchen from the 1920s through the 1950s is a layered thing. There may be plaster walls, a plank subfloor under vinyl, a soffit that hides old wiring, and a stack of linoleum from three eras. We take it out in order, starting with cabinets and counters, and finish with the floor.\n\nInterior kitchen work generally does not go to the historic design review, which helps with schedule. It does need a plan for the paint and plaster, since pre-1978 homes can have lead in older coats. Appliance hookups are capped or disconnected by the owner or GC before we arrive. We keep the dust out of the rest of the house and clear the room down to the framing or subfloor, depending on what the next trade needs.",
+      "local_notes": [
+        "Original upper cabinets in some Craftsman kitchens are worth keeping; tell us before we start so we can remove them intact.",
+        "Gas, water, and electrical disconnects are the owner's or GC's job, not ours.",
+        "Layered flooring can be heavy; tile over mortar bed adds noticeably to the box weight.",
+        "Pre-1978 homes need lead testing, and an asbestos survey comes before demolition."
+      ],
+      "faqs": [
+        {
+          "q": "Will you save the cabinets so I can reuse them?",
+          "a": "If you want them kept, say so up front. We remove them as carefully as the construction allows, but old cabinets are often fastened with nails and glue and may not come out whole."
+        },
+        {
+          "q": "Do you demolish the soffit and the walls around the range?",
+          "a": "If the scope includes them, yes. Soffits in older Pasadena kitchens sometimes hide wiring or ductwork, so we look before cutting and the GC tells us what to leave."
+        }
+      ]
+    },
+    "bathroom-demolition": {
+      "intro": "Bathrooms in older Pasadena homes are small, tiled, and usually built harder than any other room in the house. Mud-set tile over metal lath, cast iron tubs, and plaster behind the shower walls all come out slowly, and every piece is heavy.\n\nA cast iron tub can weigh several hundred pounds and has to go out by hand through a narrow hall or back door. Tile and mortar bed push the box weight up fast for such a small room. We plan the path out before demolition and protect the floor, since the rest of the house is usually still lived in. Plumbing is shut off and capped by the owner's plumber before we begin, and we leave the room ready for new rough-in.",
+      "local_notes": [
+        "Mud-set tile and lath on walls produces heavy debris for the size of the room.",
+        "Cast iron tubs and old steel fixtures are carried out whole when possible; plan for the route.",
+        "Pre-1978 bathrooms can have lead in old paint and surfaces; testing is part of getting ready.",
+        "Original octagon floor tile or pedestal sinks in historic homes may be worth saving; mention it before we start."
+      ],
+      "faqs": [
+        {
+          "q": "Can you remove only the shower and keep the rest of the bathroom?",
+          "a": "Yes. That is a selective job and we mask off and protect what stays. The more of the wall that has tile on it, the more careful we have to be around neighboring surfaces."
+        },
+        {
+          "q": "What if there is rot under the shower pan?",
+          "a": "It happens in older Pasadena houses. We take out what is damaged and flag it for you or your GC. Structural repair is outside demolition, so someone else sets the repair scope."
+        }
+      ]
+    },
+    "garage-demolition": {
+      "intro": "Behind many Pasadena Craftsman homes sits a detached garage, often a single-car building from the same era as the house, sometimes with a workshop or an apartment added later. Taking one down is a common step before a rebuild or an ADU, and it comes with local wrinkles that a newer suburb does not have.\n\nAlley access helps a lot when it exists, because the franchise box can sit at the back of the lot. If the property is in a landmark district, ask the city whether the garage is a contributing structure before anything is scheduled. The slab usually needs its own box or two, since concrete reaches the roughly 8-ton limit fast. We take the structure down, separate the slab, and leave the lot ready for the next trade.",
+      "local_notes": [
+        "Detached garages behind historic homes can be part of the historic record; check with the city before scheduling.",
+        "If a replacement structure is planned, the city's rules tie demolition of primary structures to an issued replacement permit; confirm how that applies to an accessory garage.",
+        "The slab and footings add heavy concrete to the haul.",
+        "Overhead lines and rear-lot utilities are disconnected by the owner or GC, not by us."
+      ],
+      "faqs": [
+        {
+          "q": "If my garage is visible from the street, does that change anything?",
+          "a": "It can. In a historic district, visible structures get more scrutiny than ones hidden in the back. Ask the city's planning staff before you book us."
+        },
+        {
+          "q": "Do you remove the garage slab too?",
+          "a": "We can, and many owners want it gone for a new foundation or yard. Because it counts toward the box weight limit, the bid will say how many boxes we assumed."
+        }
+      ]
+    },
+    "selective-demolition": {
+      "intro": "Selective demo is the work where Pasadena's older housing stock asks the most of a crew. You want one wall opened, a staircase removed, or a section of floor lifted, and everything beside it has to survive. In a house with original plaster, fir floors, and trim that cannot be matched, careless work shows.\n\nWe start by walking the job with you or your GC and marking what goes and what stays. Hand tools lead near finished surfaces, and machines come in only where they will not hurt anything. When part of the work is on an exterior surface, ask the city whether review applies before demolition starts. Everything we remove still leaves in franchise boxes, so we sort heavy and light material to keep the box count down.",
+      "local_notes": [
+        "Mark what stays on the surfaces themselves; tape and written scope reduce misunderstandings.",
+        "Interior selective work usually avoids historic review, but exterior elements on designated properties may not.",
+        "Original wood floors and plaster can be protected with sheeting and boards during adjacent demolition.",
+        "A written bid should name each element removed, so nothing is open-ended."
+      ],
+      "faqs": [
+        {
+          "q": "How do you protect finishes you want to keep?",
+          "a": "We cover floors with hardboard, wrap trim and openings, and set dust barriers. For fragile elements like leaded glass or plaster medallions, we ask you to take them out first or tell us to remove them carefully."
+        },
+        {
+          "q": "Can selective demo be done while we live in the house?",
+          "a": "Sometimes, if the work area can be sealed and the utilities in that area are off. Dust and noise are real, so most owners move out of the affected rooms for the duration."
+        }
+      ]
+    },
+    "flooring-removal": {
+      "intro": "Pasadena floors run from original fir and oak in Craftsman houses to mid-century vinyl, carpet over old pad, and tile laid in mortar. The job depends on what is under what. Carpet comes up in an afternoon. Glued-down tile, wood glued to concrete, and old sheet flooring are slower and messier.\n\nOld adhesives and backing on pre-1978 houses may contain asbestos, so the survey comes before we scrape. If it tests positive, a licensed abatement contractor removes it and we coordinate the schedule around them. Flooring debris is bulky and heavy by turns, and tile with its bed adds weight fast. We separate carpet and pad from tile so the franchise boxes are used efficiently.",
+      "local_notes": [
+        "Black mastic and old vinyl backing can contain asbestos; survey first, and abatement is done by a licensed contractor, not us.",
+        "Original hardwood in historic homes may be worth saving or refinishing instead of removing.",
+        "Tile in mortar beds adds significant tonnage for the area covered.",
+        "After removal, the subfloor condition determines what the next trade needs; we tell you what we find."
+      ],
+      "faqs": [
+        {
+          "q": "Can you remove carpet and leave the wood floor underneath intact?",
+          "a": "Usually yes. We pull the carpet and pad and remove tack strips carefully. Staples and stains in the wood are normal and the finishing contractor deals with them."
+        },
+        {
+          "q": "What if the floor tests positive for asbestos?",
+          "a": "A licensed abatement contractor handles it. We coordinate timing with them and do not do the abatement ourselves. SCAQMD requires a survey before demolition and notice to the district ten working days ahead."
+        }
+      ]
+    },
+    "driveway-removal": {
+      "intro": "Driveways in Pasadena come in a few forms. Many older homes have two-strip ribbon drives with a grass center, others have a full concrete or asphalt pad added later, and some hillside properties have steep drives that make equipment placement tricky.\n\nRemoval sounds simple until the weight is tallied. A full concrete driveway can take several 8-ton boxes, and Pasadena's closed franchise means we cannot haul it ourselves. Asphalt behaves differently from concrete and is handled separately. We lay out the box locations along the street or at the property edge, break the surface, and load as it comes up. Utilities and sprinkler lines near the surface get located before we start so we do not break them.",
+      "local_notes": [
+        "Street placement of boxes may need a city approval; the bid should say who handles it.",
+        "Concrete and asphalt are separated for loading.",
+        "Parkway trees and curb cuts belong to the city and are not touched without approval.",
+        "Steep driveways need machinery positioned carefully; we may break by hand at the top."
+      ],
+      "faqs": [
+        {
+          "q": "Can I keep part of the driveway and remove the rest?",
+          "a": "Yes. We saw-cut a clean line so the remaining section holds together. The cut is part of the scope and goes in the bid."
+        },
+        {
+          "q": "Will you fill and grade the area after removal?",
+          "a": "Our work covers breaking and hauling. Grading or base for a new surface belongs to the next contractor unless the bid says otherwise."
+        }
+      ]
+    },
+    "chimney-demolition": {
+      "intro": "Many chimneys in Pasadena are old unreinforced brick, built before modern seismic standards and sometimes cracked or separated from the house. Some are exposed on the exterior of a Craftsman facade, and some are fireplace stacks inside a wall. Each is a different job.\n\nInterior fireplaces are generally taken apart from within, brick by brick, with floor protection and dust control. An exterior chimney on a historic home can be a character feature that the city cares about, so removal of a visible one should be raised with planning staff first. Brick and mortar are heavy, and in a franchise city the weight goes into boxes supplied by the hauler. Roof and wall patching afterward are done by a roofer and carpenter, not by us.",
+      "local_notes": [
+        "Visible chimneys on historic properties may need city review before removal.",
+        "Brick is dense; plan on extra box swaps for a full-height stack.",
+        "Roof patching after removal is a separate trade and should be scheduled right away.",
+        "Soot and old mortar can carry contaminants, and pre-1978 paint on the surround may contain lead."
+      ],
+      "faqs": [
+        {
+          "q": "Is it safer to remove a cracked chimney than to repair it?",
+          "a": "Often, in older unreinforced brick, but it depends on the condition and on what you plan to do with the house. An engineer or a masonry contractor can tell you which. We do the demolition once the decision is made."
+        },
+        {
+          "q": "Do you cap the roof opening?",
+          "a": "We can put on temporary protection, but a permanent roof repair is a roofer's job. Schedule the roofer for the same week so rain does not find the opening."
+        }
+      ]
+    },
+    "commercial-demolition": {
+      "intro": "Commercial work in Pasadena is rarely a clean building. It is a tenant space on Colorado Boulevard in Old Pasadena, a suite in an occupied office building, or a retail shell between leases. Neighbors on both sides are open for business, and the landlord sets the hours.\n\nWe plan around access and noise: loading dock windows, elevator reservations, and after-hours work when the building requires it. Dust control matters in shared air handling. Debris leaves through the city's franchise system, so we coordinate bins or compactors with the property manager. Many Old Pasadena buildings are historic, and an interior build-out may still face review if it touches protected features, so the GC confirms that with the city. Utilities are shut off by the owner or GC before demolition starts.",
+      "local_notes": [
+        "Landlords commonly require insurance certificates and set work hours; expect that before mobilization.",
+        "Old Pasadena buildings may be historic resources; interior scope still needs the GC to confirm what is protected.",
+        "Shared walls and ceilings need dust and noise control for neighboring tenants.",
+        "Pre-1978 buildings need an asbestos survey before demolition, with abatement by a licensed contractor if found."
+      ],
+      "faqs": [
+        {
+          "q": "Can you work nights in an occupied building?",
+          "a": "Yes, when the landlord and the city permit it. We schedule around building rules and keep noisy work within allowed hours."
+        },
+        {
+          "q": "Who coordinates the bins in a tight downtown block?",
+          "a": "We coordinate with the property manager and the franchise hauler. Where the street cannot take a box, debris may go out through a loading area and be staged for pickup."
+        }
+      ]
+    },
+    "mobile-home-demolition": {
+      "intro": "Mobile and manufactured homes in and around Pasadena are less common than in inland cities, and they usually sit in a park or on a lot with a particular owner and set of conditions. Removing one involves more coordination than a normal teardown.\n\nPark rules often control hours and truck movement, and the park's management may need to be involved. The home itself is lightweight framing and metal, and the chassis, skirting, and any attached decks or steps come off as part of the work. Because Pasadena's debris rules do not allow contractors to haul their own C&D, the material leaves in franchise boxes, which we place where the park allows. Utility disconnects and any title or HCD paperwork are handled by the owner, not by us.",
+      "local_notes": [
+        "Mobile home park management may restrict days, hours, and equipment size.",
+        "Utilities and paperwork for retirement of the unit are the owner's responsibility.",
+        "Attached carports, awnings, and skirting are part of the scope if the bid says so.",
+        "Older units can contain asbestos in flooring or insulation; a survey comes first."
+      ],
+      "faqs": [
+        {
+          "q": "Do I need the park's approval before demolition?",
+          "a": "Usually yes if the home is in a park. Get written approval from the management and tell us the rules about hours and equipment."
+        },
+        {
+          "q": "What happens to the foundation or pad?",
+          "a": "If there are piers or a slab, the bid should state whether we remove them. Many owners leave the pad for a replacement unit."
+        }
+      ]
+    },
+    "fence-removal": {
+      "intro": "Fences in Pasadena are often more than a boundary. Old wood fences along a side yard may be on a shared line, block walls along an alley may be older than the house, and masonry front walls on Craftsman properties can be part of the historic character that the city reviews.\n\nBefore removing a block or masonry wall, find out whether it is a retaining wall, because those hold back soil and need an engineer. Wood and chain link come down quickly. Block, brick, and concrete footings are heavy, and every ton has to go in franchise boxes. We confirm the property line with you before starting, since neighbors on narrow lots often share the fence, and removal without notice can cause a dispute.",
+      "local_notes": [
+        "A front yard wall on a historic property may need city review before removal.",
+        "Retaining walls are structural; the owner's engineer decides how to remove and replace them.",
+        "Shared fences should be discussed with the neighbor before demolition.",
+        "Masonry footings run deeper than people expect and add to the haul."
+      ],
+      "faqs": [
+        {
+          "q": "Can you remove just a section of fence to make a gate or access?",
+          "a": "Yes. We cut back to a post or a clean joint and leave the rest standing. If the fence is masonry, the cut edge may need finishing by a mason."
+        },
+        {
+          "q": "Who pays for a shared fence removal?",
+          "a": "That is between you and your neighbor. We do the removal for the party who hires us, and we suggest getting written agreement from the neighbor first."
+        }
+      ]
+    },
+    "addition-demolition": {
+      "intro": "Many Pasadena houses have additions that were built after the original home, such as a rear bedroom, an enclosed porch, or a sunroom. Removing one can be a way to restore the original footprint or to clear space for a new addition. The connection point between old and new is the hard part.\n\nWe cut the addition free from the main house carefully so the original wall stays sound. If the addition is on a historic home or visible from the street, the city may want to review the work, and your architect should know before drawings are done. Foundation, framing, roofing, and stucco all come out in turn, and the concrete portion fills franchise boxes quickly. Finish work on the exposed wall is for the next trade.",
+      "local_notes": [
+        "Where an addition meets the original house, the exposed wall needs weatherproofing right away.",
+        "Historic homes may need review for changes that affect the original structure.",
+        "Footing and slab removal adds concrete weight to the haul.",
+        "Additions from before 1978 can have lead paint or asbestos materials; survey first."
+      ],
+      "faqs": [
+        {
+          "q": "Will removing the addition damage the original house?",
+          "a": "It can if it is done carelessly, so we cut at the seam and protect the remaining wall. Expect some patching of stucco, siding, or roofing afterward."
+        },
+        {
+          "q": "Can you remove an addition and keep the windows and doors?",
+          "a": "We can salvage them if you want, but older frames are fragile. Tell us before we start so we pull them out first."
+        }
+      ]
+    },
+    "stucco-removal": {
+      "intro": "Stucco in Pasadena is more than a finish. On older homes it is often the original exterior, applied over wire lath or paper, and removing it exposes the wall frame underneath. Interior plaster is a similar story: heavy, hard, and dusty. Drywall in newer additions is easy by comparison.\n\nBecause exterior stucco is visible from the street, we ask the property owner or the GC to confirm with the city whether any review applies, especially in a historic district. Interior plaster and drywall removal generally goes without that step. Stucco and plaster are dense, so each wall produces more weight than you would expect, and the franchise hauler's boxes fill accordingly. Pre-1978 paint on plaster may contain lead, and we set up dust control to match.",
+      "local_notes": [
+        "Exterior stucco removal on a historic property can trigger design review.",
+        "Plaster debris is heavy and fine; boxes fill by weight quickly.",
+        "Lead in older paint is a concern on interior plaster; testing comes before demolition.",
+        "Mold or water damage behind the wall is common; the owner or GC decides what remediation is needed."
+      ],
+      "faqs": [
+        {
+          "q": "How is stucco removed from the outside?",
+          "a": "We score it, break it off in sections, and strip the lath behind it. Tarps and plastic keep the debris off the grounds. Windows and doors get masked or removed."
+        },
+        {
+          "q": "Do you handle mold behind the wall?",
+          "a": "We remove the material. Mold remediation is a separate trade, and a licensed remediation contractor should handle it."
+        }
+      ]
+    },
+    "whole-house-demolition": {
+      "intro": "A full teardown in Pasadena starts on paper. For a primary structure, the city's rules tie the demolition permit to an issued building permit for the replacement, and a house 45 years or older needs a historic resource evaluation as part of a demolition or major project. That review can decide whether the house comes down at all.\n\nOnce approvals are in place, the physical work is straightforward: abatement first if the survey calls for it, then utilities off, then the structure and foundation. Because Pasadena is a closed franchise city, the whole house leaves in boxes from the city's hauler, and a slab foundation adds several boxes of heavy concrete. Neighbors on narrow lots need notice. SCAQMD requires a survey and a ten working day notice before demolition.",
+      "local_notes": [
+        "Houses 45 years or older need a historic resource evaluation as part of the demolition application.",
+        "The replacement building permit needs to be issued before a primary structure demolition permit.",
+        "Utilities are disconnected by the owner or GC; asbestos abatement is done by a licensed contractor.",
+        "Foundation and slab removal significantly increases the number of franchise boxes."
+      ],
+      "faqs": [
+        {
+          "q": "Can I demolish a Craftsman house in Pasadena?",
+          "a": "It depends on whether the house is a designated or eligible historic resource. The evaluation decides that, and the Historic Preservation Commission can be involved. Talk to city planning staff before you commit to a schedule."
+        },
+        {
+          "q": "Do you do abatement before the house comes down?",
+          "a": "No. We do not perform asbestos abatement. A licensed abatement contractor does it, and we coordinate the schedule so demolition starts once clearance is in hand."
+        }
+      ]
+    }
+  }
+}
