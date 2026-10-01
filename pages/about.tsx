@@ -13,6 +13,7 @@ export default function AboutPage() {
     '@graph': [
       {
         '@type': 'GeneralContractor',
+        foundingDate: '2014',
         '@id': 'https://cnsdemo.com/#business',
         name: 'C&S Demolition',
         legalName: 'SCRAPIT, LLC',
@@ -112,7 +113,7 @@ export default function AboutPage() {
               Southern California's Trusted Demolition Contractor
             </h1>
             <p className="text-gray-300 text-lg max-w-2xl">
-              C&amp;S Demolition tears down, clears out, and cleans up across Los Angeles, Orange County, Riverside, and San Bernardino. Licensed, insured, and focused on doing the job right.
+              Since 2014, C&amp;S Demolition has been tearing down, clearing out, and cleaning up across Los Angeles, Orange County, Riverside, and San Bernardino. A small, licensed crew that does the job right.
             </p>
           </div>
         </section>
@@ -136,13 +137,13 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl font-bold text-brand-dark mb-6">Our Story</h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                C&amp;S Demolition is owned and run by Tony, with a simple mission: demolition work that homeowners and contractors can actually trust. That means showing up when we said, doing the scope we bid, and leaving the site clean.
+                Tony started C&amp;S Demolition in 2014 because demolition is what he loves doing. Taking a structure down safely, sorting what can be recycled, and leaving a clean site for the next trade never gets old for him. He still runs the company himself, and the mission hasn't changed: demolition work that homeowners and contractors can actually trust. That means showing up when we said, doing the scope we bid, and leaving the site clean.
               </p>
               <p className="text-gray-700 mb-4 leading-relaxed">
                 Every project starts with a look at the site or the plans, so we bid the real scope instead of guessing over the phone. The written bid spells out what's included, what isn't, and who handles permits and utility shutoffs. Then we treat the job site like it's our own property.
               </p>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Today, C&amp;S Demolition serves 123+ cities across Los Angeles, Orange County, Riverside, and San Bernardino counties, from single-room interior teardowns and block walls to whole-house teardowns and commercial interior demolition.
+                Today, C&amp;S Demolition runs a four-person crew and serves 123+ cities across Los Angeles, Orange County, Riverside, and San Bernardino counties, from single-room interior teardowns and block walls to whole-house teardowns and commercial interior demolition. Small enough that the owner is on your job, big enough to run night shifts in an occupied mall.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 We're proud to hold an active California Contractors State License Board (CSLB) license — <strong>License #1126325</strong> — which you can verify directly at <a href="https://www.cslb.ca.gov/OnlineServices/CheckLicenseII/CheckLicense.aspx" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:underline">cslb.ca.gov</a>. That license means we carry the required liability and workers' comp insurance, pass background checks, and meet California's professional standards for demolition work.
@@ -152,6 +153,8 @@ export default function AboutPage() {
               <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200 mb-6">
                 <h3 className="font-bold text-brand-dark text-lg mb-4">Company at a Glance</h3>
                 <ul className="space-y-3 text-sm text-gray-700">
+                  <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Founded</span><span>2014, Southern California</span></li>
+                  <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Crew</span><span>Four-person crew, owner on site</span></li>
                   <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">License</span><span>CA CSLB #1126325 (Active)</span></li>
                   <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Insurance</span><span>General Liability + Workers' Comp</span></li>
                   <li className="flex gap-3"><span className="text-brand-orange font-bold w-28 shrink-0">Team Size</span><span>15 licensed professionals</span></li>
